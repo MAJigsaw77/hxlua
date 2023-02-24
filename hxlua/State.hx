@@ -1,4 +1,4 @@
-package lua;
+package hxlua;
 
 typedef State = cpp.RawPointer<LuaState>;
 
