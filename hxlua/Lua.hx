@@ -138,4 +138,25 @@ extern class Lua
 
 	@:native('LUA_LOADLIBNAME')
 	static var LOADLIBNAME:String;
+
+	/*
+	 * state manipulation
+	 */
+	@:native('lua_newstate')
+	static function newstate(f:Lua_Alloc, cpp.Star<cpp.Void>):cpp.RawPointer<Lua_State>;
+
+	@:native('lua_close')
+	static function newstate(L:cpp.RawPointer<Lua_State>):Void;
+
+	@:native('lua_newthread')
+	static function newthread(L:cpp.RawPointer<Lua_State>):cpp.RawPointer<Lua_State>;
+
+	@:native('lua_resetthread')
+	static function resetthread(L:cpp.RawPointer<Lua_State>):Int;
+
+	@:native('lua_atpanic')
+	static function resetthread(L:cpp.RawPointer<Lua_State>, panicf:Lua_CFunction):Lua_CFunction;
+
+	@:native('lua_version')
+	static function resetthread(L:cpp.RawPointer<Lua_State>):Lua_Number;
 }
