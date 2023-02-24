@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml>
-	<!-- Haxe C++ Build files. -->
-	<files id="haxe">
-		<compilervalue name="-I" value="${haxelib:hxlua}/project/lua-5.4.4/src/" />
-
+	<files id="lua">
 		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lapi.c" />
 		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lauxlib.c" />
 		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lbaselib.c" />
@@ -57,5 +54,13 @@
 			<compilerflag value="-DLUA_USE_APICHECK" />
 			<flag value="-lreadline" />
 		</section>
+	</files>
+
+	<files id="haxe">
+		<compilervalue name="-I" value="${haxelib:hxlua}/project/lua-5.4.4/src/" />
+	</files>
+
+	<files id="haxe">
+		<files id="lua" />
 	</files>
 </xml>
