@@ -61,4 +61,49 @@ extern class Lua
 
 	@:native('LUA_ERRERR')
 	static var ERRERR:Int;
+
+	@:native('LUA_TNONE')
+	static var TNONE:Int;
+
+	@:native('LUA_TNIL')
+	static var TNIL:Int;
+
+	@:native('LUA_TBOOLEAN')
+	static var TBOOLEAN:Int;
+
+	@:native('LUA_TLIGHTUSERDATA')
+	static var TLIGHTUSERDATA:Int;
+
+	@:native('LUA_TNUMBER')
+	static var TNUMBER:Int;
+
+	@:native('LUA_TSTRING')
+	static var TSTRING:Int;
+
+	@:native('LUA_TTABLE')
+	static var TTABLE:Int;
+
+	@:native('LUA_TFUNCTION')
+	static var TFUNCTION:Int;
+
+	@:native('LUA_TUSERDATA')
+	static var TUSERDATA:Int;
+
+	@:native('LUA_TTHREAD')
+	static var TTHREAD:Int;
+
+	@:native('LUA_NUMTYPES')
+	static var NUMTYPES:Int;
+
+	@:native('LUA_MINSTACK')
+	static var MINSTACK:Int;
+
+	@:native('LUA_RIDX_MAINTHREAD')
+	static var RIDX_MAINTHREAD:Int;
+
+	@:native('LUA_RIDX_GLOBALS')
+	static var RIDX_GLOBALS:Int;
+
+	@:native('LUA_RIDX_LAST')
+	static var RIDX_LAST:Int;
 }
