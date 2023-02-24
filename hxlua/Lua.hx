@@ -21,5 +21,18 @@ extern class Lua
 	static final LUA_VERSION_RELEASE:String = "\x1bLua";
 
 	/* option for multiple returns in 'lua_pcall' and 'lua_call' */	
-	static final LUA_MULTRET:Int = -1;
+	static final LUA_MULTRET:Int = (-1);
+
+	static final LUA_REGISTRYINDEX:Int = (-10000);
+
+	@:native('lua_upvalueindex')
+	static function upvalueindex(i:Int):Int;
+
+	/* thread status */
+	static final LUA_OK:Int = 0;
+	static final LUA_YIELD:Int = 1;
+	static final LUA_ERRRUN:Int = 2;
+	static final LUA_ERRSYNTAX:Int = 3;
+	static final LUA_ERRMEM:Int = 4;
+	static final LUA_ERRERR:Int = 5;
 }
