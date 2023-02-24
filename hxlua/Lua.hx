@@ -143,7 +143,7 @@ extern class Lua
 	 * state manipulation
 	 */
 	@:native('lua_newstate')
-	static function newstate(f:Lua_Alloc, cpp.Star<cpp.Void>):cpp.RawPointer<Lua_State>;
+	static function newstate(f:Lua_Alloc, ud:cpp.Star<cpp.Void>):cpp.RawPointer<Lua_State>;
 
 	@:native('lua_close')
 	static function newstate(L:cpp.RawPointer<Lua_State>):Void;
