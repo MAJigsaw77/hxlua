@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<!-- C files. -->
+	<files id="haxe">
+		<compilervalue name="-I" value="${haxelib:hxlua}/lua-5.4.4/src/" />
+	</files>
+
+	<files id="__main__">
+		<compilervalue name="-I" value="${haxelib:hxlua}/lua-5.4.4/src/" />
+	</files>
+</xml>
