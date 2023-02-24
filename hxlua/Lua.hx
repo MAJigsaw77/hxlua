@@ -5,34 +5,60 @@ package hxlua;
 @:keep
 extern class Lua
 {
-	static final LUA_VERSION_MAJOR:String = "5";
-	static final LUA_VERSION_MINOR:String = "4";
-	static final LUA_VERSION_RELEASE:String = "4";
+	@:native('LUA_VERSION_MAJOR')
+	static var VERSION_MAJOR:String;
 
-	static final LUA_VERSION_NUM:Int = 504;
-	static final LUA_VERSION_RELEASE_NUM:Int = (LUA_VERSION_NUM * 100 + 4);
+	@:native('LUA_VERSION_MINOR')
+	static var VERSION_MINOR:String;
 
-	static final LUA_VERSION:String = "Lua " + LUA_VERSION_MAJOR + "." + LUA_VERSION_MINOR;
-	static final LUA_RELEASE:String = LUA_VERSION + "." + LUA_VERSION_RELEASE;
-	static final LUA_COPYRIGHT:String = LUA_RELEASE + "  Copyright (C) 1994-2022 Lua.org, PUC-Rio";
-	static final LUA_AUTHORS:String = "R. Ierusalimschy, L. H. de Figueiredo, W. Celes";
+	@:native('LUA_VERSION_RELEASE')
+	static var VERSION_RELEASE:String;
 
-	/* mark for precompiled code ('<esc>Lua') */
-	static final LUA_VERSION_RELEASE:String = "\x1bLua";
+	@:native('LUA_VERSION_NUM')
+	static var VERSION_NUM:Int;
 
-	/* option for multiple returns in 'lua_pcall' and 'lua_call' */	
-	static final LUA_MULTRET:Int = (-1);
+	@:native('LUA_VERSION_RELEASE_NUM')
+	static var VERSION_RELEASE_NUM:Int;
 
-	static final LUA_REGISTRYINDEX:Int = (-10000);
+	@:native('LUA_VERSION')
+	static var VERSION:String;
+
+	@:native('LUA_RELEASE')
+	static var RELEASE:String;
+
+	@:native('LUA_COPYRIGHT')
+	static var COPYRIGHT:String;
+
+	@:native('LUA_AUTHORS')
+	static var AUTHORS:String;
+
+	@:native('LUA_VERSION_RELEASE')
+	static var VERSION_RELEASE:String;
+
+	@:native('LUA_MULTRET')
+	static var MULTRET:Int;
+
+	@:native('LUA_REGISTRYINDEX')
+	static var REGISTRYINDEX:Int;
 
 	@:native('lua_upvalueindex')
 	static function upvalueindex(i:Int):Int;
 
-	/* thread status */
-	static final LUA_OK:Int = 0;
-	static final LUA_YIELD:Int = 1;
-	static final LUA_ERRRUN:Int = 2;
-	static final LUA_ERRSYNTAX:Int = 3;
-	static final LUA_ERRMEM:Int = 4;
-	static final LUA_ERRERR:Int = 5;
+	@:native('LUA_OK')
+	static var OK:Int;
+
+	@:native('LUA_YIELD')
+	static var YIELD:Int;
+
+	@:native('LUA_ERRRUN')
+	static var ERRRUN:Int;
+
+	@:native('LUA_ERRSYNTAX')
+	static var ERRSYNTAX:Int;
+
+	@:native('LUA_ERRMEM')
+	static var ERRMEM:Int;
+
+	@:native('LUA_ERRERR')
+	static var ERRERR:Int;
 }
