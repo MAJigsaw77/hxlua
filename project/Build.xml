@@ -38,12 +38,14 @@
 		<section if="mac">
 			<compilerflag value="-DLUA_USE_MACOSX" />
 			<compilerflag value="-DLUA_USE_APICHECK" />
+
 			<flag value="-lreadline" />
 		</section>
 
 		<section if="linux">
 			<compilerflag value="-DLUA_USE_LINUX" />
 			<compilerflag value="-DLUA_USE_APICHECK" />
+
 			<flag value="-Wl,-E" />
 			<flag value="-ldl" />
 			<flag value="-lreadline" />
@@ -52,6 +54,7 @@
 		<section if="android">
 			<compilerflag value="-DLUA_ANSI" />
 			<compilerflag value="-DLUA_USE_APICHECK" />
+
 			<flag value="-lreadline" />
 		</section>
 	</files>
