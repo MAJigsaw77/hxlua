@@ -8,32 +8,32 @@ import hxlua.Types;
 extern class LuaOpen
 {
 	@:native('luaopen_base')
-	static function base(L:State):Int;
+	static function base(L:cpp.Pointer<Lua_State>):Int;
 
 	@:native('luaopen_coroutine')
-	static function coroutine(L:State):Int;
+	static function coroutine(L:cpp.Pointer<Lua_State>):Int;
 
 	@:native('luaopen_table')
-	static function table(L:State):Int;
+	static function table(L:cpp.Pointer<Lua_State>):Int;
 
 	@:native('luaopen_io')
-	static function io(L:State):Int;
+	static function io(L:cpp.Pointer<Lua_State>):Int;
 
 	@:native('luaopen_os')
-	static function os(L:State):Int;
+	static function os(L:cpp.Pointer<Lua_State>):Int;
 
 	@:native('luaopen_string')
-	static function string(L:State):Int;
+	static function string(L:cpp.Pointer<Lua_State>):Int;
 
 	@:native('luaopen_utf8')
-	static function utf8(L:State):Int;
+	static function utf8(L:cpp.Pointer<Lua_State>):Int;
 
 	@:native('luaopen_math')
-	static function math(L:State):Int;
+	static function math(L:cpp.Pointer<Lua_State>):Int;
 
 	@:native('luaopen_debug')
-	static function debug(L:State):Int;
+	static function debug(L:cpp.Pointer<Lua_State>):Int;
 
 	@:native('luaopen_package')
-	static function package(L:State):Int;
+	static function package(L:cpp.Pointer<Lua_State>):Int;
 }
