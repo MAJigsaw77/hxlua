@@ -1,5 +1,7 @@
 package hxlua;
 
+class Types {}
+
 typedef State = cpp.RawPointer<LuaState>;
 
 @:buildXml("<include name='${haxelib:hxlua}/project/Build.xml' />")
