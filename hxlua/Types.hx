@@ -7,24 +7,6 @@ class Types {}
 @:native("lua_State")
 extern class Lua_State {}
 
-/* type of numbers in Lua */
-@:include("lua.hpp")
-@:keep
-@:native("lua_Number")
-extern class Lua_Number {}
-
-/* type for integer functions */
-@:include("lua.hpp")
-@:keep
-@:native("lua_Integer")
-extern class Lua_Integer {}
-
-/* unsigned integer type */
-@:include("lua.hpp")
-@:keep
-@:native("lua_Unsigned")
-extern class Lua_Unsigned {}
-
 /* type for continuation-function contexts */
 @:include("lua.hpp")
 @:keep
