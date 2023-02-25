@@ -186,4 +186,55 @@ extern class Lua
 
 	@:native('lua_xmove')
 	static function xmove(from:cpp.RawPointer<Lua_State>, to:cpp.RawPointer<Lua_State>, n:Int):Void;
+
+	/*
+	 * access functions (stack -> C)
+	 */
+	@:native('lua_isnumber')
+	static function isnumber(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+
+	@:native('lua_isstring')
+	static function isstring(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+
+	@:native('lua_iscfunction')
+	static function iscfunction(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+
+	@:native('lua_isinteger')
+	static function isinteger(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+
+	@:native('lua_isuserdata')
+	static function isuserdata(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+
+	@:native('lua_type')
+	static function type(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+
+	@:native('lua_typename')
+	static function type(L:cpp.RawPointer<Lua_State>, tp:Int):String;
+
+	/*
+	 * access functions (stack -> C)
+	 */
+	@:native('lua_tonumberx')
+	static function tonumberx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.Star<Int>):Float;
+
+	@:native('lua_tointegerx')
+	static function tointegerx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.Star<Int>):Int;
+
+	@:native('lua_toboolean')
+	static function toboolean(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+
+	@:native('lua_tolstring')
+	static function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Star<cpp.SizeT>):String;
+
+	@:native('lua_rawlen')
+	static function rawlen(L:cpp.RawPointer<Lua_State>, idx:Int):UInt;
+
+	@:native('lua_touserdata')
+	static function touserdata(L:cpp.RawPointer<Lua_State>, idx:Int):cpp.Star<cpp.Void>;
+
+	@:native('lua_tothread')
+	static function tothread(L:cpp.RawPointer<Lua_State>, idx:Int):cpp.RawPointer<Lua_State>;
+
+	@:native('lua_topointer')
+	static function tothread(L:cpp.RawPointer<Lua_State>, idx:Int):cpp.ConstStar<cpp.Void>;
 }
