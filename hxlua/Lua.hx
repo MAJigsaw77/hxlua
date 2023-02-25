@@ -158,7 +158,7 @@ extern class Lua
 	static function resetthread(L:cpp.RawPointer<Lua_State>, panicf:Lua_CFunction):Lua_CFunction;
 
 	@:native('lua_version')
-	static function resetthread(L:cpp.RawPointer<Lua_State>):Lua_Number;
+	static function resetthread(L:cpp.RawPointer<Lua_State>):Float;
 
 	/*
 	 * basic stack manipulation
