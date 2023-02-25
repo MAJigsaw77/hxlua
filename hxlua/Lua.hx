@@ -159,4 +159,31 @@ extern class Lua
 
 	@:native('lua_version')
 	static function resetthread(L:cpp.RawPointer<Lua_State>):Lua_Number;
+
+	/*
+	 * basic stack manipulation
+	 */
+	@:native('lua_absindex')
+	static function absindex(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+
+	@:native('lua_gettop')
+	static function gettop(L:cpp.RawPointer<Lua_State>):Int;
+
+	@:native('lua_settop')
+	static function absindex(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
+
+	@:native('lua_pushvalue')
+	static function pushvalue(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
+
+	@:native('lua_rotate')
+	static function rotate(L:cpp.RawPointer<Lua_State>, idx:Int, n:Int):Void;
+
+	@:native('lua_copy')
+	static function copy(L:cpp.RawPointer<Lua_State>, fromidx:Int, toidx:Int):Void;
+
+	@:native('lua_checkstack')
+	static function checkstack(L:cpp.RawPointer<Lua_State>, n:Int):Int;
+
+	@:native('lua_xmove')
+	static function xmove(from:cpp.RawPointer<Lua_State>, to:cpp.RawPointer<Lua_State>, n:Int):Void;
 }
