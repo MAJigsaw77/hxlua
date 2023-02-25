@@ -27,7 +27,7 @@ typedef Lua_KFunction = cpp.Callable<(L:cpp.RawPointer<Lua_State>, status:Int, c
  * Type for functions that read/write blocks when loading/dumping Lua chunks
  */
 typedef Lua_Reader = cpp.Callable<(L:cpp.RawPointer<Lua_State>, ud:cpp.Star<cpp.Void>, sz:cpp.Star<cpp.SizeT>) -> String>;
-typedef Lua_Writer = cpp.Callable<(L:cpp.RawPointer<Lua_State>, p:String, sz:cpp.SizeT, ud:cpp.Star<cpp.Void>) -> String>;
+typedef Lua_Writer = cpp.Callable<(L:cpp.RawPointer<Lua_State>, p:cpp.ConstStar<cpp.Void>, sz:cpp.SizeT, ud:cpp.Star<cpp.Void>) -> Int>;
 
 /*
  * Type for memory-allocation functions
