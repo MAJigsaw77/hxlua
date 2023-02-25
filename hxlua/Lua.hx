@@ -236,5 +236,5 @@ extern class Lua
 	static function tothread(L:cpp.RawPointer<Lua_State>, idx:Int):cpp.RawPointer<Lua_State>;
 
 	@:native('lua_topointer')
-	static function tothread(L:cpp.RawPointer<Lua_State>, idx:Int):cpp.ConstStar<cpp.Void>;
+	static function topointer(L:cpp.RawPointer<Lua_State>, idx:Int):cpp.ConstStar<cpp.Void>;
 }
