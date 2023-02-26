@@ -299,5 +299,5 @@ extern class Lua
 	static function rawequal(L:cpp.RawPointer<Lua_State>, idx1:Int, idx2:Int):Int;
 
 	@:native('lua_compare')
-	static function compare(L:cpp.RawPointer<Lua_State>, idx1:Int, idx2:Int, op:Int):Int
+	static function compare(L:cpp.RawPointer<Lua_State>, idx1:Int, idx2:Int, op:Int):Int;
 }
