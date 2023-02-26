@@ -237,4 +237,67 @@ extern class Lua
 
 	@:native('lua_topointer')
 	static function topointer(L:cpp.RawPointer<Lua_State>, idx:Int):cpp.ConstStar<cpp.Void>;
+
+	/*
+	 * Comparison and arithmetic functions
+	 */
+	@:native('LUA_OPADD')
+	static var OPADD:Int; /* ORDER TM, ORDER OP */
+
+	@:native('LUA_OPSUB')
+	static var OPSUB:Int;
+
+	@:native('LUA_OPMUL')
+	static var OPMUL:Int;
+
+	@:native('LUA_OPMOD')
+	static var OPMOD:Int;
+
+	@:native('LUA_OPPOW')
+	static var OPPOW:Int;
+
+	@:native('LUA_OPDIV')
+	static var OPDIV:Int;
+
+	@:native('LUA_OPIDIV')
+	static var OPIDIV:Int;
+
+	@:native('LUA_OPBAND')
+	static var OPBAND:Int;
+
+	@:native('LUA_OPBOR')
+	static var OPBOR:Int;
+
+	@:native('LUA_OPBXOR')
+	static var OPBXOR:Int;
+
+	@:native('LUA_OPSHL')
+	static var OPSHL:Int;
+
+	@:native('LUA_OPSHR')
+	static var OPSHR:Int;
+
+	@:native('LUA_OPUNM')
+	static var OPUNM:Int;
+
+	@:native('LUA_OPBNOT')
+	static var OPBNOT:Int;
+
+	@:native('lua_arith')
+	static function arith(L:cpp.RawPointer<Lua_State>, op:Int):Void;
+
+	@:native('LUA_OPEQ')
+	static var OPEQ:Int;
+
+	@:native('LUA_OPLT')
+	static var OPLT:Int;
+
+	@:native('LUA_OPLE')
+	static var OPLE:Int;
+
+	@:native('lua_rawequal')
+	static function rawequal(L:cpp.RawPointer<Lua_State>, idx1:Int, idx2:Int):Int;
+
+	@:native('lua_compare')
+	static function compare(L:cpp.RawPointer<Lua_State>, idx1:Int, idx2:Int, op:Int):Int
 }
