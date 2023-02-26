@@ -5,6 +5,7 @@ import hxlua.Types;
 @:buildXml("<include name='${haxelib:hxlua}/project/Build.xml' />")
 @:include("lua.hpp")
 @:keep
+@:unreflective
 extern class Lua
 {
 	@:native('LUA_VERSION_MAJOR')
