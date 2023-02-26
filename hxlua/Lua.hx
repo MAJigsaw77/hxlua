@@ -271,4 +271,34 @@ extern class Lua
 
 	@:native('lua_compare')
 	static function compare(L:cpp.RawPointer<Lua_State>, idx1:Int, idx2:Int, op:Int):Int;
+
+	/*
+	 * push functions (C -> stack)
+	 */
+	@:native('lua_pushnil')
+	static function pushnil(L:cpp.RawPointer<Lua_State>):Void;
+
+	@:native('lua_pushnumber')
+	static function pushnumber(L:cpp.RawPointer<Lua_State>, n:Float):Void;
+
+	@:native('lua_pushinteger')
+	static function pushinteger(L:cpp.RawPointer<Lua_State>, n:Int):Void;
+
+	@:native('lua_pushlstring')
+	static function pushlstring(L:cpp.RawPointer<Lua_State>, s:String, len:cpp.SizeT):Void;
+
+	@:native('lua_pushstring')
+	static function pushstring(L:cpp.RawPointer<Lua_State>, s:String):Void;
+
+	// @:native('lua_pushvfstring')
+	// static function pushvfstring(L:cpp.RawPointer<Lua_State>, s:String, argp:VaList):Void;
+
+/*/*
+** push functions (C -> stack)
+*/
+LUA_API const char *(lua_pushfstring) (lua_State *L, const char *fmt, ...);
+LUA_API void  (lua_pushcclosure) (lua_State *L, lua_CFunction fn, int n);
+LUA_API void  (lua_pushboolean) (lua_State *L, int b);
+LUA_API void  (lua_pushlightuserdata) (lua_State *L, void *p);*/
+LUA_API int   (lua_pushthread) (lua_State *L);
 }
