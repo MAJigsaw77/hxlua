@@ -35,6 +35,13 @@
 		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lvm.c" />
 		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lzio.c" />
 
+		<section if="windows">
+			<compilerflag value="-DLUA_USE_WINDOWS" />
+			<compilerflag value="-DLUA_USE_APICHECK" />
+
+			<flag value="-lreadline" />
+		</section>
+
 		<section if="mac">
 			<compilerflag value="-DLUA_USE_MACOSX" />
 			<compilerflag value="-DLUA_USE_APICHECK" />
