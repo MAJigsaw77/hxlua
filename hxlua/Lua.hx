@@ -374,4 +374,25 @@ extern class Lua
 
 	@:native('lua_setiuservalue')
 	static function setiuservalue(L:cpp.RawPointer<Lua_State>, idx:Int, n:Int):Int;
+
+	/*
+	 * set functions (stack -> Lua)
+	 */
+	@:native('lua_callk')
+	static function callk(L:cpp.RawPointer<Lua_State>, nargs:Int, nresults:Int, ctx:Lua_KContext, k:Lua_KFunction):Int;
+
+	@:native('lua_call')
+	static function call(L:cpp.RawPointer<Lua_State>, nargs:Int, nresults:Int):Int;
+
+	@:native('lua_pcallk')
+	static function pcallk(L:cpp.RawPointer<Lua_State>, nargs:Int, nresults:Int, errfunc:Int, ctx:Lua_KContext, k:Lua_KFunction):Int;
+
+	@:native('lua_pcall')
+	static function call(L:cpp.RawPointer<Lua_State>, nargs:Int, nresults:Int, errfunc:Int):Int;
+
+	@:native('lua_load')
+	static function load(L:cpp.RawPointer<Lua_State>, reader:Lua_Reader, dt:cpp.Star<cpp.Void>, chunkname:String, mode:String):Int;
+
+	@:native('lua_dump')
+	static function dump(L:cpp.RawPointer<Lua_State>, reader:Lua_Writer, data:cpp.Star<cpp.Void>, strip:Int):Int;
 }
