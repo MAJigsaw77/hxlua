@@ -126,10 +126,10 @@ extern class Lua
 	static function resetthread(L:cpp.RawPointer<Lua_State>):Int;
 
 	@:native('lua_atpanic')
-	static function resetthread(L:cpp.RawPointer<Lua_State>, panicf:Lua_CFunction):Lua_CFunction;
+	static function atpanic(L:cpp.RawPointer<Lua_State>, panicf:Lua_CFunction):Lua_CFunction;
 
 	@:native('lua_version')
-	static function resetthread(L:cpp.RawPointer<Lua_State>):Float;
+	static function version(L:cpp.RawPointer<Lua_State>):Float;
 
 	/*
 	 * basic stack manipulation
@@ -141,7 +141,7 @@ extern class Lua
 	static function gettop(L:cpp.RawPointer<Lua_State>):Int;
 
 	@:native('lua_settop')
-	static function absindex(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
+	static function settop(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
 
 	@:native('lua_pushvalue')
 	static function pushvalue(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
@@ -180,7 +180,7 @@ extern class Lua
 	static function type(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
 	@:native('lua_typename')
-	static function type(L:cpp.RawPointer<Lua_State>, tp:Int):String;
+	static function typename(L:cpp.RawPointer<Lua_State>, tp:Int):String;
 
 	/*
 	 * access functions (stack -> C)
@@ -290,15 +290,22 @@ extern class Lua
 	@:native('lua_pushstring')
 	static function pushstring(L:cpp.RawPointer<Lua_State>, s:String):Void;
 
+	// i have no idea how to interpret `VaList`
 	// @:native('lua_pushvfstring')
 	// static function pushvfstring(L:cpp.RawPointer<Lua_State>, s:String, argp:VaList):Void;
 
-/*/*
-** push functions (C -> stack)
-*/
-LUA_API const char *(lua_pushfstring) (lua_State *L, const char *fmt, ...);
-LUA_API void  (lua_pushcclosure) (lua_State *L, lua_CFunction fn, int n);
-LUA_API void  (lua_pushboolean) (lua_State *L, int b);
-LUA_API void  (lua_pushlightuserdata) (lua_State *L, void *p);*/
-LUA_API int   (lua_pushthread) (lua_State *L);
+	@:native('lua_pushstring')
+	static function pushstring(L:cpp.RawPointer<Lua_State>, fmt:String, ...args:Dynamic):String;
+
+	@:native('lua_pushcclosure')
+	static function pushcclosure(L:cpp.RawPointer<Lua_State>, fn:Lua_CFunction):Void;
+
+	@:native('lua_pushboolean')
+	static function pushboolean(L:cpp.RawPointer<Lua_State>, b:Int):Void;
+
+	@:native('lua_pushlightuserdata')
+	static function pushlightuserdata(L:cpp.RawPointer<Lua_State>, p:cpp.Star<cpp.Void>):Void;
+
+	@:native('lua_pushthread')
+	static function pushthread(L:cpp.RawPointer<Lua_State>):Int;
 }
