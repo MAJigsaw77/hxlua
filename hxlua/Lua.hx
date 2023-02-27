@@ -331,7 +331,7 @@ extern class Lua
 	static function rawgeti(L:cpp.RawPointer<Lua_State>, idx:Int, n:Int):Int;
 
 	@:native('lua_rawgetp')
-	static function rawget(L:cpp.RawPointer<Lua_State>, idx:Int, p:cpp.ConstStar<cpp.Void>):Int;
+	static function rawgetp(L:cpp.RawPointer<Lua_State>, idx:Int, p:cpp.ConstStar<cpp.Void>):Int;
 
 	@:native('lua_createtable')
 	static function createtable(L:cpp.RawPointer<Lua_State>, narr:Int, nrec:Int):Void;
@@ -344,4 +344,34 @@ extern class Lua
 
 	@:native('lua_getiuservalue')
 	static function getiuservalue(L:cpp.RawPointer<Lua_State>, idx:Int, n:Int):Int;
+
+	/*
+	 * set functions (stack -> Lua)
+	 */
+	@:native('lua_setglobal')
+	static function setglobal(L:cpp.RawPointer<Lua_State>, name:String):Int;
+
+	@:native('lua_settable')
+	static function settable(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+
+	@:native('lua_setfield')
+	static function setfield(L:cpp.RawPointer<Lua_State>, idx:Int, k:String):Int;
+
+	@:native('lua_seti')
+	static function seti(L:cpp.RawPointer<Lua_State>, idx:Int, n:Int):Int;
+
+	@:native('lua_rawset')
+	static function rawset(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+
+	@:native('lua_rawseti')
+	static function rawseti(L:cpp.RawPointer<Lua_State>, idx:Int, n:Int):Int;
+
+	@:native('lua_rawsetp')
+	static function rawsetp(L:cpp.RawPointer<Lua_State>, idx:Int, p:cpp.ConstStar<cpp.Void>):Int;
+
+	@:native('lua_setmetatable')
+	static function setmetatable(L:cpp.RawPointer<Lua_State>, objindex:Int):Int;
+
+	@:native('lua_setiuservalue')
+	static function setiuservalue(L:cpp.RawPointer<Lua_State>, idx:Int, n:Int):Int;
 }
