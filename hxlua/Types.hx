@@ -13,6 +13,24 @@ extern class Lua_State {}
 @:native("lua_KContext")
 extern class Lua_KContext {}
 
+@:include("lua.hpp")
+@:keep
+@:native("luaL_Reg")
+extern class LuaL_Reg
+{
+	var name:String;
+	var func:Lua_CFunction;
+}
+
+@:include("lua.hpp")
+@:keep
+@:native("luaL_Stream")
+extern class LuaL_Stream
+{
+	var f:cpp.Star<cpp.FILE>;
+	var closef:Lua_CFunction;
+}
+
 /*
  * Type for C functions registered with Lua
  */
