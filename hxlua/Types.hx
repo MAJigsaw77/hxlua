@@ -32,9 +32,9 @@ typedef Lua_Writer = cpp.Callable<(L:cpp.RawPointer<Lua_State>, p:cpp.ConstStar<
 /*
  * Type for memory-allocation functions
  */
-typedef Lua_Alloc = cpp.Callable<(cpp.Star<cpp.Void>, ptr:cpp.Star<cpp.Void>, osize:cpp.SizeT, nsize:cpp.SizeT) -> cpp.Star<cpp.Void>>;
+typedef Lua_Alloc = cpp.Callable<(ud:cpp.Star<cpp.Void>, ptr:cpp.Star<cpp.Void>, osize:cpp.SizeT, nsize:cpp.SizeT) -> cpp.Star<cpp.Void>>;
 
 /*
  * Type for warning functions
  */
-typedef Lua_WarnFunction = cpp.Callable<(L:ud:cpp.Star<cpp.Void>, msg:String, tocont:Int) -> Void>;
+typedef Lua_WarnFunction = cpp.Callable<(ud:cpp.Star<cpp.Void>, msg:String, tocont:Int) -> Void>;
