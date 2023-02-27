@@ -15,6 +15,19 @@ extern class Lua_KContext {}
 
 @:include("lua.hpp")
 @:keep
+@:structAccess
+@:native("luaL_Buffer")
+extern class LuaL_Buffer
+{
+	var b:String;
+	var size:cpp.SizeT;
+	var n:cpp.SizeT;
+	var L:cpp.RawPointer<Lua_State>;
+}
+
+@:include("lua.hpp")
+@:keep
+@:structAccess
 @:native("luaL_Reg")
 extern class LuaL_Reg
 {
@@ -24,6 +37,7 @@ extern class LuaL_Reg
 
 @:include("lua.hpp")
 @:keep
+@:structAccess
 @:native("luaL_Stream")
 extern class LuaL_Stream
 {
