@@ -396,15 +396,21 @@ extern class Lua
 	@:native('lua_dump')
 	static function dump(L:cpp.RawPointer<Lua_State>, reader:Lua_Writer, data:cpp.Star<cpp.Void>, strip:Int):Int;
 
-/*
-** coroutine functions
+	/*
+	 * coroutine functions
+	 */
+	@:native('lua_yieldk')
+	static function yieldk(L:cpp.RawPointer<Lua_State>, nresults:Int, ctx:Lua_KContext, k:Lua_KFunction):Int;
 
-LUA_API int  (lua_yieldk)     (lua_State *L, int nresults, lua_KContext ctx,
-                               lua_KFunction k);
-LUA_API int  (lua_resume)     (lua_State *L, lua_State *from, int narg,
-                               int *nres);
-LUA_API int  (lua_status)     (lua_State *L);
-LUA_API int (lua_isyieldable) (lua_State *L);
+	@:native('lua_resume')
+	static function resume(L:cpp.RawPointer<Lua_State>, from:cpp.RawPointer<Lua_State>, nargs:Int, nres:Int):Int;
 
-#define lua_yield(L,n)		lua_yieldk(L, (n), 0, NULL)*/
+	@:native('lua_status')
+	static function status(L:cpp.RawPointer<Lua_State>):Int;
+
+	@:native('lua_isyieldable')
+	static function isyieldable(L:cpp.RawPointer<Lua_State>):Int;
+
+	@:native('lua_yield')
+	static function yield(L:cpp.RawPointer<Lua_State>, nresults:Int):Int;
 }
