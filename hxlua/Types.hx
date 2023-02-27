@@ -1,13 +1,12 @@
 package hxlua;
 
-class Types {}
+class Types {} // blank
 
 @:include("lua.hpp")
 @:keep
 @:native("lua_State")
 extern class Lua_State {}
 
-/* type for continuation-function contexts */
 @:include("lua.hpp")
 @:keep
 @:native("lua_KContext")
