@@ -294,8 +294,8 @@ extern class Lua
 	// @:native('lua_pushvfstring')
 	// static function pushvfstring(L:cpp.RawPointer<Lua_State>, s:String, argp:VaList):Void;
 
-	@:native('lua_pushstring')
-	static function pushstring(L:cpp.RawPointer<Lua_State>, fmt:String, ...args:Dynamic):String;
+	@:native('lua_pushfstring')
+	static function pushfstring(L:cpp.RawPointer<Lua_State>, fmt:String, ...args:Dynamic):String;
 
 	@:native('lua_pushcclosure')
 	static function pushcclosure(L:cpp.RawPointer<Lua_State>, fn:Lua_CFunction):Void;
@@ -308,4 +308,29 @@ extern class Lua
 
 	@:native('lua_pushthread')
 	static function pushthread(L:cpp.RawPointer<Lua_State>):Int;
+
+	/*
+	 * get functions (Lua -> stack)
+	 */
+	@:native('lua_getglobal')
+	static function getglobal(L:cpp.RawPointer<Lua_State>, name:String):Int;
+
+	@:native('lua_gettable')
+	static function gettable(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+
+/*
+** get functions (Lua -> stack)
+
+LUA_API int (lua_getglobal) (lua_State *L, const char *name);
+LUA_API int (lua_gettable) (lua_State *L, int idx);
+LUA_API int (lua_getfield) (lua_State *L, int idx, const char *k);
+LUA_API int (lua_geti) (lua_State *L, int idx, lua_Integer n);
+LUA_API int (lua_rawget) (lua_State *L, int idx);
+LUA_API int (lua_rawgeti) (lua_State *L, int idx, lua_Integer n);
+LUA_API int (lua_rawgetp) (lua_State *L, int idx, const void *p);
+
+LUA_API void  (lua_createtable) (lua_State *L, int narr, int nrec);
+LUA_API void *(lua_newuserdatauv) (lua_State *L, size_t sz, int nuvalue);
+LUA_API int   (lua_getmetatable) (lua_State *L, int objindex);
+LUA_API int  (lua_getiuservalue) (lua_State *L, int idx, int n);*/
 }
