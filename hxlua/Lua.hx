@@ -318,19 +318,30 @@ extern class Lua
 	@:native('lua_gettable')
 	static function gettable(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
-/*
-** get functions (Lua -> stack)
+	@:native('lua_getfield')
+	static function getfield(L:cpp.RawPointer<Lua_State>, idx:Int, k:String):Int;
 
-LUA_API int (lua_getglobal) (lua_State *L, const char *name);
-LUA_API int (lua_gettable) (lua_State *L, int idx);
-LUA_API int (lua_getfield) (lua_State *L, int idx, const char *k);
-LUA_API int (lua_geti) (lua_State *L, int idx, lua_Integer n);
-LUA_API int (lua_rawget) (lua_State *L, int idx);
-LUA_API int (lua_rawgeti) (lua_State *L, int idx, lua_Integer n);
-LUA_API int (lua_rawgetp) (lua_State *L, int idx, const void *p);
+	@:native('lua_geti')
+	static function geti(L:cpp.RawPointer<Lua_State>, idx:Int, n:Int):Int;
 
-LUA_API void  (lua_createtable) (lua_State *L, int narr, int nrec);
-LUA_API void *(lua_newuserdatauv) (lua_State *L, size_t sz, int nuvalue);
-LUA_API int   (lua_getmetatable) (lua_State *L, int objindex);
-LUA_API int  (lua_getiuservalue) (lua_State *L, int idx, int n);*/
+	@:native('lua_rawget')
+	static function rawget(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+
+	@:native('lua_rawgeti')
+	static function rawgeti(L:cpp.RawPointer<Lua_State>, idx:Int, n:Int):Int;
+
+	@:native('lua_rawgetp')
+	static function rawget(L:cpp.RawPointer<Lua_State>, idx:Int, p:cpp.ConstStar<cpp.Void>):Int;
+
+	@:native('lua_createtable')
+	static function createtable(L:cpp.RawPointer<Lua_State>, narr:Int, nrec:Int):Void;
+
+	@:native('lua_newuserdatauv')
+	static function newuserdatauv(L:cpp.RawPointer<Lua_State>, sz:cpp.SizeT, nuvalue:Int):cpp.Star<cpp.Void>;
+
+	@:native('lua_getmetatable')
+	static function getmetatable(L:cpp.RawPointer<Lua_State>, objindex:Int):Int;
+
+	@:native('lua_getiuservalue')
+	static function getiuservalue(L:cpp.RawPointer<Lua_State>, idx:Int, n:Int):Int;
 }
