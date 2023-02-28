@@ -413,4 +413,52 @@ extern class Lua
 
 	@:native('lua_yield')
 	static function yield(L:cpp.RawPointer<Lua_State>, nresults:Int):Int;
+
+	/*
+	 * Warning-related functions
+	 */
+	@:native('lua_setwarnf')
+	static function setwarnf(L:cpp.RawPointer<Lua_State>, f:Lua_WarnFunction, ud:cpp.Star<cpp.Void>):Void;
+
+	@:native('lua_warning')
+	static function warning(L:cpp.RawPointer<Lua_State>, msg:String, tocont:Int):Void;
+
+	/*
+	 * garbage-collection function and options
+	 */
+	@:native('LUA_GCSTOP')
+	static var GCSTOP:Int;
+
+	@:native('LUA_GCRESTART')
+	static var GCRESTART:Int;
+
+	@:native('LUA_GCCOLLECT')
+	static var GCCOLLECT:Int;
+
+	@:native('LUA_GCCOUNT')
+	static var GCCOUNT:Int;
+
+	@:native('LUA_GCCOUNTB')
+	static var GCCOUNTB:Int;
+
+	@:native('LUA_GCSTEP')
+	static var GCSTEP:Int;
+
+	@:native('LUA_GCSETPAUSE')
+	static var GCSETPAUSE:Int;
+
+	@:native('LUA_GCSETSTEPMUL')
+	static var GCSETSTEPMUL:Int;
+
+	@:native('LUA_GCISRUNNING')
+	static var GCISRUNNING:Int;
+
+	@:native('LUA_GCGEN')
+	static var GCGEN:Int;
+
+	@:native('LUA_GCINC')
+	static var GCINC:Int;
+
+	@:native('lua_gc')
+	static function gc(L:cpp.RawPointer<Lua_State>, what:Int, ...args:Dynamic):Int;
 }
