@@ -461,4 +461,34 @@ extern class Lua
 
 	@:native('lua_gc')
 	static function gc(L:cpp.RawPointer<Lua_State>, what:Int, ...args:Dynamic):Int;
+
+	/*
+	 * miscellaneous functions
+	 */
+	@:native('lua_error')
+	static function error(L:cpp.RawPointer<Lua_State>):Int;
+
+	@:native('lua_next')
+	static function next(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+
+	@:native('lua_concat')
+	static function concat(L:cpp.RawPointer<Lua_State>, n:Int):Void;
+
+	@:native('lua_len')
+	static function len(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
+
+	@:native('lua_stringtonumber')
+	static function stringtonumber(L:cpp.RawPointer<Lua_State>, s:String):cpp.SizeT;
+
+	@:native('lua_getallocf')
+	static function getallocf(L:cpp.RawPointer<Lua_State>, ud:cpp.Star<cpp.Star<cpp.Void>>):Lua_Alloc;
+
+	@:native('lua_setallocf')
+	static function setallocf(L:cpp.RawPointer<Lua_State>, f:Lua_Alloc, ud:cpp.Star<cpp.Void>):Void;
+
+	@:native('lua_toclose')
+	static function toclose(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
+
+	@:native('lua_closeslot')
+	static function closeslot(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
 }
