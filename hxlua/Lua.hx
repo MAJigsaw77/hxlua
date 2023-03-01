@@ -35,9 +35,6 @@ extern class Lua
 	@:native('LUA_AUTHORS')
 	static var AUTHORS:String;
 
-	@:native('LUA_VERSION_RELEASE')
-	static var VERSION_RELEASE:String;
-
 	@:native('LUA_MULTRET')
 	static var MULTRET:Int;
 
@@ -575,10 +572,6 @@ extern class Lua
 
 	@:functionCode("return lua_isnone(L, n) == 1;")
 	static function isnone(L:cpp.RawPointer<Lua_State>, n:Int):Bool
-		return false;
-
-	@:functionCode("return lua_isnoneornil(L, n) == 1;")
-	static function isnoneornil(L:cpp.RawPointer<Lua_State>, n:Int):Bool
 		return false;
 
 	@:functionCode("return lua_isnoneornil(L, n) == 1;")
