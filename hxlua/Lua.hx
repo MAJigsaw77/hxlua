@@ -548,25 +548,58 @@ extern class Lua
 
 	@:native('lua_pushcfunction')
 	static function pushcfunction(L:cpp.RawPointer<Lua_State>, fn:Lua_CFunction):Void;
-/*
-** {==============================================================
-** some useful macros
-** ===============================================================
 
-#define lua_isfunction(L,n)	(lua_type(L, (n)) == LUA_TFUNCTION)
-#define lua_istable(L,n)	(lua_type(L, (n)) == LUA_TTABLE)
-#define lua_islightuserdata(L,n)	(lua_type(L, (n)) == LUA_TLIGHTUSERDATA)
-#define lua_isnil(L,n)		(lua_type(L, (n)) == LUA_TNIL)
-#define lua_isboolean(L,n)	(lua_type(L, (n)) == LUA_TBOOLEAN)
-#define lua_isthread(L,n)	(lua_type(L, (n)) == LUA_TTHREAD)
-#define lua_isnone(L,n)		(lua_type(L, (n)) == LUA_TNONE)
-#define lua_isnoneornil(L, n)	(lua_type(L, (n)) <= 0)
-#define lua_pushliteral(L, s)	lua_pushstring(L, "" s)
-#define lua_pushglobaltable(L)  \
-	((void)lua_rawgeti(L, LUA_REGISTRYINDEX, LUA_RIDX_GLOBALS))
-#define lua_tostring(L,i)	lua_tolstring(L, (i), NULL)
-#define lua_insert(L,idx)	lua_rotate(L, (idx), 1)
-#define lua_remove(L,idx)	(lua_rotate(L, (idx), -1), lua_pop(L, 1))
-#define lua_replace(L,idx)	(lua_copy(L, -1, (idx)), lua_pop(L, 1))*/
+	@:functionCode("return lua_isfunction(L, n) == 1;")
+	static function isfunction(L:cpp.RawPointer<Lua_State>, n:Int):Bool;
+		return false;
 
+	@:functionCode("return lua_istable(L, n) == 1;")
+	static function istable(L:cpp.RawPointer<Lua_State>, n:Int):Bool;
+		return false;
+
+	@:functionCode("return lua_islightuserdata(L, n) == 1;")
+	static function islightuserdata(L:cpp.RawPointer<Lua_State>, n:Int):Bool;
+		return false;
+
+	@:functionCode("return lua_isnil(L, n) == 1;")
+	static function isnil(L:cpp.RawPointer<Lua_State>, n:Int):Bool;
+		return false;
+
+	@:functionCode("return lua_isboolean(L, n) == 1;")
+	static function isboolean(L:cpp.RawPointer<Lua_State>, n:Int):Bool;
+		return false;
+
+	@:functionCode("return lua_isthread(L, n) == 1;")
+	static function isthread(L:cpp.RawPointer<Lua_State>, n:Int):Bool;
+		return false;
+
+	@:functionCode("return lua_isnone(L, n) == 1;")
+	static function isnone(L:cpp.RawPointer<Lua_State>, n:Int):Bool;
+		return false;
+
+	@:functionCode("return lua_isnoneornil(L, n) == 1;")
+	static function isnoneornil(L:cpp.RawPointer<Lua_State>, n:Int):Bool;
+		return false;
+
+	@:functionCode("return lua_isnoneornil(L, n) == 1;")
+	static function isnoneornil(L:cpp.RawPointer<Lua_State>, n:Int):Bool;
+		return false;
+
+	@:native('lua_pushliteral')
+	static function pushliteral(L:cpp.RawPointer<Lua_State>, s:String):String;
+
+	@:native('lua_pushglobaltable')
+	static function pushglobaltable(L:cpp.RawPointer<Lua_State>):Void;
+
+	@:native('lua_tostring')
+	static function tostring(L:cpp.RawPointer<Lua_State>, i:Int):String;
+
+	@:native('lua_insert')
+	static function tostring(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
+
+	@:native('lua_remove')
+	static function remove(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
+
+	@:native('lua_replace')
+	static function remove(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
 }
