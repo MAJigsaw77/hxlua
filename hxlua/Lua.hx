@@ -191,20 +191,25 @@ extern class Lua
 	/*
 	 * access functions (stack -> C)
 	 */
-	@:native('lua_isnumber')
-	static function isnumber(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+	@:functionCode("return lua_isnumber(L, idx) == 1;")
+	static function isnumber(L:cpp.RawPointer<Lua_State>, idx:Int):Bool;
+		return false;
 
-	@:native('lua_isstring')
-	static function isstring(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+	@:functionCode("return lua_isstring(L, idx) == 1;")
+	static function isstring(L:cpp.RawPointer<Lua_State>, idx:Int):Bool;
+		return false;
 
-	@:native('lua_iscfunction')
-	static function iscfunction(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+	@:functionCode("return lua_iscfunction(L, idx) == 1;")
+	static function iscfunction(L:cpp.RawPointer<Lua_State>, idx:Int):Bool;
+		return false;
 
-	@:native('lua_isinteger')
-	static function isinteger(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+	@:functionCode("return lua_isinteger(L, idx) == 1;")
+	static function isinteger(L:cpp.RawPointer<Lua_State>, idx:Int):Bool;
+		return false;
 
-	@:native('lua_isuserdata')
-	static function isuserdata(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+	@:functionCode("return lua_isuserdata(L, idx) == 1;")
+	static function isuserdata(L:cpp.RawPointer<Lua_State>, idx:Int):Bool;
+		return false;
 
 	@:native('lua_type')
 	static function type(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
@@ -438,8 +443,9 @@ extern class Lua
 	@:native('lua_status')
 	static function status(L:cpp.RawPointer<Lua_State>):Int;
 
-	@:native('lua_isyieldable')
-	static function isyieldable(L:cpp.RawPointer<Lua_State>):Int;
+	@:functionCode("return lua_isyieldable(L) == 1;")
+	static function isyieldable(L:cpp.RawPointer<Lua_State>):Bool;
+		return false;
 
 	@:native('lua_yield')
 	static function yield(L:cpp.RawPointer<Lua_State>, nresults:Int):Int;
