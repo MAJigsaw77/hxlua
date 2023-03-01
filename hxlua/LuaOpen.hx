@@ -9,32 +9,32 @@ import hxlua.Types;
 extern class LuaOpen
 {
 	@:native('luaopen_base')
-	static function base(L:cpp.RawPointer<Lua_State>):Int
+	static function base(L:cpp.RawPointer<Lua_State>):Int;
 
 	@:native('luaopen_coroutine')
-	static function coroutine(L:cpp.RawPointer<Lua_State>):Int
+	static function coroutine(L:cpp.RawPointer<Lua_State>):Int;
 
 	@:native('luaopen_table')
-	static function table(L:cpp.RawPointer<Lua_State>):Int
+	static function table(L:cpp.RawPointer<Lua_State>):Int;
 
 	@:native('luaopen_io')
-	static function io(L:cpp.RawPointer<Lua_State>):Int
+	static function io(L:cpp.RawPointer<Lua_State>):Int;
 
 	@:native('luaopen_os')
-	static function os(L:cpp.RawPointer<Lua_State>):Int
+	static function os(L:cpp.RawPointer<Lua_State>):Int;
 
 	@:native('luaopen_string')
-	static function string(L:cpp.RawPointer<Lua_State>):Int
+	static function string(L:cpp.RawPointer<Lua_State>):Int;
 
 	@:native('luaopen_utf8')
-	static function utf8(L:cpp.RawPointer<Lua_State>):Int
+	static function utf8(L:cpp.RawPointer<Lua_State>):Int;
 
 	@:native('luaopen_math')
-	static function math(L:cpp.RawPointer<Lua_State>):Int
+	static function math(L:cpp.RawPointer<Lua_State>):Int;
 
 	@:native('luaopen_debug')
-	static function debug(L:cpp.Pointer<Lua_State>):Int
+	static function debug(L:cpp.Pointer<Lua_State>):Int;
 
 	@:native('luaopen_package')
-	static function package(L:cpp.RawPointer<Lua_State>):Int
+	static function package(L:cpp.RawPointer<Lua_State>):Int;
 }
