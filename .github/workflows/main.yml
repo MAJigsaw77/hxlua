@@ -26,4 +26,5 @@ jobs:
 
       - name: Compiling 
         run: |
-          haxe -cp ./test -D analyzer-optimize -main Main --interp
+          haxelib git hxlua https://github.com/MAJigsaw77/hxlua.git
+          haxe -cp ./test -D analyzer-optimize --library hxlua -main Main --interp
