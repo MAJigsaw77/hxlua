@@ -420,7 +420,7 @@ extern class Lua
 	static function pcallk(L:cpp.RawPointer<Lua_State>, nargs:Int, nresults:Int, errfunc:Int, ctx:Lua_KContext, k:Lua_KFunction):Int;
 
 	@:native('lua_pcall')
-	static function call(L:cpp.RawPointer<Lua_State>, nargs:Int, nresults:Int, errfunc:Int):Int;
+	static function pcall(L:cpp.RawPointer<Lua_State>, nargs:Int, nresults:Int, errfunc:Int):Int;
 
 	@:native('lua_load')
 	static function load(L:cpp.RawPointer<Lua_State>, reader:Lua_Reader, dt:cpp.Star<cpp.Void>, chunkname:String, mode:String):Int;
