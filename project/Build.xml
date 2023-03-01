@@ -4,7 +4,6 @@
 		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lapi.c" />
 		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lauxlib.c" />
 		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lbaselib.c" />
-		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lbitlib.c" />
 		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lcode.c" />
 		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lcorolib.c" />
 		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lctype.c" />
