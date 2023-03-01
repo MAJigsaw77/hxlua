@@ -1,0 +1,5 @@
+-main Main
+-cp ./
+-D analyzer-optimize
+--library hxlua
+--cpp bin
