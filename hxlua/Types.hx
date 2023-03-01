@@ -15,6 +15,24 @@ extern class Lua_KContext {}
 @:include("lua.hpp")
 @:keep
 @:structAccess
+@:native("lua_Debug")
+extern class Lua_Debug
+{
+	var event:Int;
+	var name:String; /* (n) */
+	var namewhat:String; /* (n) 'global', 'local', 'field', 'method' */
+	var what:String; /* (S) 'Lua', 'C', 'main', 'tail' */
+	var source:String; /* (S) */
+	var srclen:cpp.SizeT; /* (S) */
+	var currentline:Int; /* (l) */
+	var linedefined:Int; /* (S) */
+	var isvararg:cpp.Char; /* (S) */
+	var istailcall:cpp.Char; /* (S) */
+}
+
+@:include("lua.hpp")
+@:keep
+@:structAccess
 @:native("luaL_Buffer")
 extern class LuaL_Buffer
 {
