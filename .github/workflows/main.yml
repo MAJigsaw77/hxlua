@@ -28,4 +28,4 @@ jobs:
         run: |
           haxelib --quiet install hxcpp
           haxelib --quiet git hxlua https://github.com/MAJigsaw77/hxlua.git
-          haxe ./test/build.hxml
+          haxe -cp ./test -D analyzer-optimize --library hxlua -main Main --cpp bin
