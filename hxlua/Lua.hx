@@ -588,11 +588,11 @@ extern class Lua
 	static function tostring(L:cpp.RawPointer<Lua_State>, i:Int):String;
 
 	@:native('lua_insert')
-	static function tostring(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
+	static function insert(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
 
 	@:native('lua_remove')
 	static function remove(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
 
 	@:native('lua_replace')
-	static function remove(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
+	static function replace(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
 }
