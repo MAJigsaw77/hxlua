@@ -540,9 +540,6 @@ extern class Lua
 	@:native('lua_register')
 	static function register(L:cpp.RawPointer<Lua_State>, name:String, f:Lua_CFunction):Void;
 
-	@:native('lua_register')
-	static function register(L:cpp.RawPointer<Lua_State>, name:String, f:Lua_CFunction):Void;
-
 	@:native('lua_pushcfunction')
 	static function pushcfunction(L:cpp.RawPointer<Lua_State>, fn:Lua_CFunction):Void;
 /*
