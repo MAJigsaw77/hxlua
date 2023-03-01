@@ -328,7 +328,7 @@ extern class Lua
 	static function pushfstring(L:cpp.RawPointer<Lua_State>, fmt:String, ...args:Dynamic):String;
 
 	@:native('lua_pushcclosure')
-	static function pushcclosure(L:cpp.RawPointer<Lua_State>, fn:Lua_CFunction):Void;
+	static function pushcclosure(L:cpp.RawPointer<Lua_State>, fn:Lua_CFunction, n:Int):Void;
 
 	@:native('lua_pushboolean')
 	static function pushboolean(L:cpp.RawPointer<Lua_State>, b:Int):Void;
@@ -539,13 +539,17 @@ extern class Lua
 
 	@:native('lua_register')
 	static function register(L:cpp.RawPointer<Lua_State>, name:String, f:Lua_CFunction):Void;
+
+	@:native('lua_register')
+	static function register(L:cpp.RawPointer<Lua_State>, name:String, f:Lua_CFunction):Void;
+
+	@:native('lua_pushcfunction')
+	static function pushcfunction(L:cpp.RawPointer<Lua_State>, fn:Lua_CFunction):Void;
 /*
 ** {==============================================================
 ** some useful macros
 ** ===============================================================
 
-
-#define lua_pushcfunction(L,f)	lua_pushcclosure(L, (f), 0)
 #define lua_isfunction(L,n)	(lua_type(L, (n)) == LUA_TFUNCTION)
 #define lua_istable(L,n)	(lua_type(L, (n)) == LUA_TTABLE)
 #define lua_islightuserdata(L,n)	(lua_type(L, (n)) == LUA_TLIGHTUSERDATA)
