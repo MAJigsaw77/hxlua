@@ -1,0 +1,16 @@
+{
+	"name":"hxlua",
+	"url":"https://github.com/MAJigsaw77/hxlua",
+	"license":"MIT",
+	"tags":[
+		"lua",
+		"cpp",
+		"haxe"
+	],
+	"description":"Haxe/hxcpp @:native bindings for Lua.",
+	"version":"1.0.0",
+	"releasenote":"First Release.",
+	"contributors":[
+		"MAJigsaw77"
+	]
+}
