@@ -34,6 +34,14 @@
 		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lutf8lib.c" />
 		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lvm.c" />
 		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lzio.c" />
+	</files>
+
+	<files id="haxe">
+		<compilervalue name="-I" value="${haxelib:hxlua}/project/lua-5.4.4/src/" />
+	</files>
+
+	<files id="haxe">
+		<files id="lua" />
 
 		<section if="windows">
 			<compilerflag value="-DLUA_USE_WINDOWS" />
@@ -64,13 +72,5 @@
 
 			<flag value="-lreadline" />
 		</section>
-	</files>
-
-	<files id="haxe">
-		<compilervalue name="-I" value="${haxelib:hxlua}/project/lua-5.4.4/src/" />
-	</files>
-
-	<files id="haxe">
-		<files id="lua" />
 	</files>
 </xml>
