@@ -40,7 +40,7 @@
 		<compilervalue name="-I" value="${haxelib:hxlua}/project/lua-5.4.4/src/" />
 	</files>
 
-	<files id="haxe">
+	<target id="haxe">
 		<files id="lua" />
 
 		<section if="windows">
@@ -72,5 +72,5 @@
 
 			<flag value="-lreadline" />
 		</section>
-	</files>
+	</target>
 </xml>
