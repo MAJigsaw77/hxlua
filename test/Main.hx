@@ -1,6 +1,8 @@
 package;
 
 import hxlua.Lua;
+import hxlua.LuaL;
+import hxlua.LuaOpen;
 
 class Main
 {
