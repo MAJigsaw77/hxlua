@@ -595,4 +595,19 @@ extern class Lua
 
 	@:native('lua_replace')
 	static function replace(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
+
+	/*
+	 * compatibility macros
+	 */
+	@:native('lua_newuserdata')
+	static function newuserdata(L:cpp.RawPointer<Lua_State>, s:cpp.SizeT):cpp.Star<cpp.Void>;
+
+	@:native('lua_getuservalue')
+	static function getiuservalue(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+
+	@:native('lua_setuservalue')
+	static function setuservalue(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+
+	@:native('LUA_NUMTAGS')
+	static var NUMTAGS:Int;
 }
