@@ -8,8 +8,7 @@ class Main
 {
 	public static function main():Void
 	{
-		trace(Lua.VERSION);
-		trace(Lua.AUTHORS);
-		trace(Lua.COPYRIGHT);
+		trace('hmm');
+		trace(Lua.VERSION_NUM + Lua.VERSION_RELEASE_NUM);
 	}
 }
