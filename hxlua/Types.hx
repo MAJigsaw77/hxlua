@@ -63,27 +63,32 @@ extern class LuaL_Stream
 }
 
 /*
- * Type for C functions registered with Lua
+ * Type for debugging hook functions.
+ */
+typedef Lua_Hook = cpp.Callable<(L:cpp.RawPointer<Lua_State>, ar:cpp.RawPointer<Lua_Debug>) -> Void>;
+
+/*
+ * Type for C functions registered with Lua.
  */
 typedef Lua_CFunction = cpp.Callable<(L:cpp.RawPointer<Lua_State>) -> Int>;
 
 /*
- * Type for continuation functions
+ * Type for continuation functions.
  */
 typedef Lua_KFunction = cpp.Callable<(L:cpp.RawPointer<Lua_State>, status:Int, ctx:Lua_KContext) -> Int>;
 
 /*
- * Type for functions that read/write blocks when loading/dumping Lua chunks
+ * Type for functions that read/write blocks when loading/dumping Lua chunks.
  */
 typedef Lua_Reader = cpp.Callable<(L:cpp.RawPointer<Lua_State>, ud:cpp.Star<cpp.Void>, sz:cpp.Star<cpp.SizeT>) -> String>;
 typedef Lua_Writer = cpp.Callable<(L:cpp.RawPointer<Lua_State>, p:cpp.ConstStar<cpp.Void>, sz:cpp.SizeT, ud:cpp.Star<cpp.Void>) -> Int>;
 
 /*
- * Type for memory-allocation functions
+ * Type for memory-allocation functions.
  */
 typedef Lua_Alloc = cpp.Callable<(ud:cpp.Star<cpp.Void>, ptr:cpp.Star<cpp.Void>, osize:cpp.SizeT, nsize:cpp.SizeT) -> cpp.Star<cpp.Void>>;
 
 /*
- * Type for warning functions
+ * Type for warning functions.
  */
 typedef Lua_WarnFunction = cpp.Callable<(ud:cpp.Star<cpp.Void>, msg:String, tocont:Int) -> Void>;
