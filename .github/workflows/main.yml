@@ -11,7 +11,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   Runner:
-    runs-on: windows-latest
+    runs-on: macos-latest
 
     steps:
       - name: Checkout
