@@ -7,6 +7,62 @@ import hxlua.Types;
 @:unreflective
 extern class LuaL
 {
+	/* global table */
+	@:native('LUA_GNAME')
+	static var GNAME:String;
+
+	/* extra error code for 'luaL_loadfilex' */
+	@:native('LUA_ERRFILE')
+	static var ERRFILE:Int;
+
+	/* key, in the registry, for table of loaded modules */
+	@:native('LUA_LOADED_TABLE')
+	static var LOADED_TABLE:String;
+
+	/* key, in the registry, for table of preloaded modules */
+	@:native('LUA_PRELOAD_TABLE')
+	static var PRELOAD_TABLE:String;
+
+	/* global table */
+	@:native('LUAL_NUMSIZES')
+	static var NUMSIZES:Int;
+
+	@:native('luaL_checkversion')
+	static function checkversion(L:cpp.RawPointer<Lua_State>):Void;
+
+	@:native('luaL_getmetafield')
+	static function getmetafield(L:cpp.RawPointer<Lua_State>, obj:Int, e:String):Int;
+
+	@:native('luaL_callmeta')
+	static function callmeta(L:cpp.RawPointer<Lua_State>, obj:Int, e:String):Int;
+
+	@:native('luaL_tolstring')
+	static function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Star<cpp.SizeT>):String;
+
+	@:native('luaL_argerror')
+	static function argerror(L:cpp.RawPointer<Lua_State>, arg:Int, extramsg:String):Int;
+
+	@:native('luaL_typeerror')
+	static function typeerror(L:cpp.RawPointer<Lua_State>, arg:Int, tname:String):Int;
+
+	@:native('luaL_checklstring')
+	static function checklstring(L:cpp.RawPointer<Lua_State>, arg:Int, l:cpp.Star<cpp.SizeT>):String;
+
+	@:native('luaL_optlstring')
+	static function optlstring(L:cpp.RawPointer<Lua_State>, arg:Int, def:String, l:cpp.Star<cpp.SizeT>):String;
+
+	@:native('luaL_checknumber')
+	static function checknumber(L:cpp.RawPointer<Lua_State>, arg:Int):Float;
+
+	@:native('luaL_optnumber')
+	static function optnumber(L:cpp.RawPointer<Lua_State>, arg:Int, def:Float):Float;
+
+	@:native('luaL_checkinteger')
+	static function checkinteger(L:cpp.RawPointer<Lua_State>, arg:Int):Int;
+
+	@:native('luaL_optinteger')
+	static function optinteger(L:cpp.RawPointer<Lua_State>, arg:Int, def:Int):Int;
+
 	/* open all previous libraries */
 	@:native('luaL_openlibs')
 	static function openlibs(L:cpp.RawPointer<Lua_State>):Int;
