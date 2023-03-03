@@ -11,7 +11,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   Runner:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout
