@@ -610,4 +610,68 @@ extern class Lua
 
 	@:native('LUA_NUMTAGS')
 	static var NUMTAGS:Int;
+
+	/*
+	 * Event codes
+	 */
+	@:native('LUA_HOOKCALL')
+	static var HOOKCALL:Int;
+
+	@:native('LUA_HOOKRET')
+	static var HOOKRET:Int;
+
+	@:native('LUA_HOOKLINE')
+	static var HOOKLINE:Int;
+
+	@:native('LUA_HOOKCOUNT')
+	static var HOOKCOUNT:Int;
+
+	@:native('LUA_HOOKTAILCALL')
+	static var HOOKTAILCALL:Int;
+
+	/*
+	 * Event masks
+	 */
+	@:native('LUA_MASKCALL')
+	static var MASKCALL:Int;
+
+	@:native('LUA_MASKRET')
+	static var MASKRET:Int;
+
+	@:native('LUA_MASKLINE')
+	static var MASKLINE:Int;
+
+	@:native('LUA_MASKCOUNT')
+	static var MASKCOUNT:Int;
+
+	@:native('lua_getstack')
+	static function getstack(L:cpp.RawPointer<Lua_State>, level:Int, ar:cpp.RawPointer<Lua_Debug>):Int;
+
+	@:native('lua_getinfo')
+	static function getinfo(L:cpp.RawPointer<Lua_State>, what:String, ar:cpp.RawPointer<Lua_Debug>):Int;
+
+	@:native('lua_getlocal')
+	static function getlocal(L:cpp.RawPointer<Lua_State>, ar:cpp.RawConstPointer<Lua_Debug>, n:Int):String;
+
+	@:native('lua_setlocal')
+	static function setlocal(L:cpp.RawPointer<Lua_State>, ar:cpp.RawConstPointer<Lua_Debug>, n:Int):String;
+
+	@:native('lua_getupvalue')
+	static function getupvalue(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):String;
+
+	@:native('lua_setupvalue')
+	static function setupvalue(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):String;
+
+	@:native('lua_upvalueid')
+	static function upvalueid(L:cpp.RawPointer<Lua_State>, fidx:Int, n:Int):cpp.Star<cpp.Void>;
+
+	@:native('lua_upvaluejoin')
+	static function upvaluejoin(L:cpp.RawPointer<Lua_State>, fidx1:Int, n1:Int, fidx2:Int, n2:Int):cpp.Star<cpp.Void>;
+
+/*LUA_API void (lua_sethook) (lua_State *L, lua_Hook func, int mask, int count);
+LUA_API lua_Hook (lua_gethook) (lua_State *L);
+LUA_API int (lua_gethookmask) (lua_State *L);
+LUA_API int (lua_gethookcount) (lua_State *L);
+
+LUA_API int (lua_setcstacklimit) (lua_State *L, unsigned int limit);*/
 }
