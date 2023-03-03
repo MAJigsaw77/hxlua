@@ -666,12 +666,20 @@ extern class Lua
 	static function upvalueid(L:cpp.RawPointer<Lua_State>, fidx:Int, n:Int):cpp.Star<cpp.Void>;
 
 	@:native('lua_upvaluejoin')
-	static function upvaluejoin(L:cpp.RawPointer<Lua_State>, fidx1:Int, n1:Int, fidx2:Int, n2:Int):cpp.Star<cpp.Void>;
+	static function upvaluejoin(L:cpp.RawPointer<Lua_State>, fidx1:Int, n1:Int, fidx2:Int, n2:Int):Void;
 
-/*LUA_API void (lua_sethook) (lua_State *L, lua_Hook func, int mask, int count);
-LUA_API lua_Hook (lua_gethook) (lua_State *L);
-LUA_API int (lua_gethookmask) (lua_State *L);
-LUA_API int (lua_gethookcount) (lua_State *L);
+	@:native('lua_sethook')
+	static function sethook(L:cpp.RawPointer<Lua_State>, func:Lua_Hook, mask:Int, count:Int):Void;
 
-LUA_API int (lua_setcstacklimit) (lua_State *L, unsigned int limit);*/
+	@:native('lua_gethook')
+	static function gethook(L:cpp.RawPointer<Lua_State>):Lua_Hook;
+
+	@:native('lua_gethookmask')
+	static function gethookmask(L:cpp.RawPointer<Lua_State>):Int;
+
+	@:native('lua_gethookcount')
+	static function gethookcount(L:cpp.RawPointer<Lua_State>):Int;
+
+	@:native('lua_setcstacklimit')
+	static function setcstacklimit(L:cpp.RawPointer<Lua_State>, limit:UInt):Int;
 }
