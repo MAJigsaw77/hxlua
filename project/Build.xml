@@ -45,8 +45,6 @@
 		<section if="windows">
 			<compilerflag value="-DLUA_USE_WINDOWS" />
 			<compilerflag value="-DLUA_USE_APICHECK" />
-
-			<flag value="-lreadline" />
 		</section>
 
 		<section if="mac">
