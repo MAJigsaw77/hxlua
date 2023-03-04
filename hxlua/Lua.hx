@@ -216,7 +216,7 @@ extern class Lua
 	static function type(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
 	@:functionCode("return ::String(lua_typename(L, tp));")
-	static inline function typename(L:cpp.RawPointer<Lua_State>, tp:Int):String;
+	static inline function typename(L:cpp.RawPointer<Lua_State>, tp:Int):String
 		return '';
 
 	/*
@@ -232,7 +232,7 @@ extern class Lua
 	static function toboolean(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
 	@:functionCode("return ::String(lua_tolstring(L, idx, len));")
-	static inline function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Star<cpp.SizeT>):String;
+	static inline function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Star<cpp.SizeT>):String
 		return '';
 
 	@:native('lua_rawlen')
@@ -336,7 +336,7 @@ extern class Lua
 	static function pushfstring(L:cpp.RawPointer<Lua_State>, fmt:String, ...args:Dynamic):String;
 
 	@:functionCode("return ::String(lua_pushfstring(L, fmt, args));")
-	static inline function pushfstring(L:cpp.RawPointer<Lua_State>, fmt:String, ...args:Dynamic):String;
+	static inline function pushfstring(L:cpp.RawPointer<Lua_State>, fmt:String, ...args:Dynamic):String
 		return '';
 
 	@:native('lua_pushcclosure')
@@ -589,14 +589,14 @@ extern class Lua
 		return false;
 
 	@:functionCode("return ::String(lua_pushliteral(L, s));")
-	static inline function pushliteral(L:cpp.RawPointer<Lua_State>, s:String):String;
+	static inline function pushliteral(L:cpp.RawPointer<Lua_State>, s:String):String
 		return '';
 
 	@:native('lua_pushglobaltable')
 	static function pushglobaltable(L:cpp.RawPointer<Lua_State>):Void;
 
 	@:functionCode("return ::String(lua_tostring(L, i));")
-	static inline function tostring(L:cpp.RawPointer<Lua_State>, i:Int):String;
+	static inline function tostring(L:cpp.RawPointer<Lua_State>, i:Int):String
 		return '';
 
 	@:native('lua_insert')
@@ -663,19 +663,19 @@ extern class Lua
 	static function getinfo(L:cpp.RawPointer<Lua_State>, what:String, ar:cpp.RawPointer<Lua_Debug>):Int;
 
 	@:functionCode("return ::String(lua_getlocal(L, ar, n));")
-	static inline function getlocal(L:cpp.RawPointer<Lua_State>, ar:cpp.RawConstPointer<Lua_Debug>, n:Int):String;
+	static inline function getlocal(L:cpp.RawPointer<Lua_State>, ar:cpp.RawConstPointer<Lua_Debug>, n:Int):String
 		return '';
 
 	@:functionCode("return ::String(lua_setlocal(L, ar, n));")
-	static inline function setlocal(L:cpp.RawPointer<Lua_State>, ar:cpp.RawConstPointer<Lua_Debug>, n:Int):String;
+	static inline function setlocal(L:cpp.RawPointer<Lua_State>, ar:cpp.RawConstPointer<Lua_Debug>, n:Int):String
 		return '';
 
 	@:functionCode("return ::String(lua_getupvalue(L, funcindex, n));")
-	static inline function getupvalue(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):String;
+	static inline function getupvalue(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):String
 		return '';
 
 	@:functionCode("return ::String(lua_setupvalue(L, funcindex, n));")
-	static inline function setupvalue(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):String;
+	static inline function setupvalue(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):String
 		return '';
 
 	@:native('lua_upvalueid')
