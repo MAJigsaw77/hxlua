@@ -151,7 +151,7 @@ extern class LuaL
 	static function getsubtable(L:cpp.RawPointer<Lua_State>, idx:Int, fname:String):Int;
 
 	@:native('luaL_traceback')
-	static function traceback(L:cpp.RawPointer<Lua_State>, L1:cpp.RawPointer<Lua_State>, msg:String, level:Int):Int;
+	static function traceback(L:cpp.RawPointer<Lua_State>, L1:cpp.RawPointer<Lua_State>, msg:String, level:Int):Void;
 
 	@:native('luaL_requiref')
 	static function requiref(L:cpp.RawPointer<Lua_State>, modname:String, openf:Lua_CFunction, glb:Int):Void;
