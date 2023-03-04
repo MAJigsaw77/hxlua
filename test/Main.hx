@@ -12,11 +12,11 @@ class Main
 		LuaL.openlibs(vm);
 		trace("Lua Version: " + Lua.version(vm));
 
-		var ret:Int = LuaL.dostring(vm, "
+		var ret:Int = LuaL.dostring(vm, '
 			function foo(i, f, s)
-			    print("Called foo(), i = " .. i .. ", f = " .. f .. ", s = '" .. s .. "'")
+			    print("Called foo(), i = ' .. i .. ', f = ' .. f .. ', s = ' .. s .. '")
 			end
-		");
+		');
 
 		if (ret != Lua.OK)
 		{
