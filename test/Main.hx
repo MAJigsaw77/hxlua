@@ -2,7 +2,7 @@ package;
 
 import hxlua.Lua;
 import hxlua.LuaL;
-inport hxlua.Types;
+import hxlua.Types;
 
 class Main
 {
