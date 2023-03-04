@@ -675,7 +675,7 @@ extern class Lua
 		return '';
 
 	@:functionCode("return ::String(lua_setupvalue(L, funcindex, n));")
-	static inline function upvalueid(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):String;
+	static inline function setupvalue(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):String;
 		return '';
 
 	@:native('lua_upvalueid')
