@@ -12,7 +12,7 @@ import hxlua.Types;
 extern class LuaL
 {
 	/* global table */
-	@:native('LUA_GNAME')
+	@:native('::String(LUA_GNAME)')
 	static var GNAME:String;
 
 	/* extra error code for 'luaL_loadfilex' */
@@ -20,11 +20,11 @@ extern class LuaL
 	static var ERRFILE:Int;
 
 	/* key, in the registry, for table of loaded modules */
-	@:native('LUA_LOADED_TABLE')
+	@:native('::String(LUA_LOADED_TABLE)')
 	static var LOADED_TABLE:String;
 
 	/* key, in the registry, for table of preloaded modules */
-	@:native('LUA_PRELOAD_TABLE')
+	@:native('::String(LUA_PRELOAD_TABLE)')
 	static var PRELOAD_TABLE:String;
 
 	/* global table */
