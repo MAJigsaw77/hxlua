@@ -12,13 +12,13 @@ import hxlua.Types;
 @:unreflective
 extern class Lua
 {
-	@:native('LUA_VERSION_MAJOR')
+	@:native('::String(LUA_VERSION_MAJOR)')
 	static var VERSION_MAJOR:String;
 
-	@:native('LUA_VERSION_MINOR')
+	@:native('::String(LUA_VERSION_MINOR)')
 	static var VERSION_MINOR:String;
 
-	@:native('LUA_VERSION_RELEASE')
+	@:native('::String(LUA_VERSION_RELEASE)')
 	static var VERSION_RELEASE:String;
 
 	@:native('LUA_VERSION_NUM')
@@ -27,16 +27,16 @@ extern class Lua
 	@:native('LUA_VERSION_RELEASE_NUM')
 	static var VERSION_RELEASE_NUM:Int;
 
-	@:native('LUA_VERSION')
+	@:native('::String(LUA_VERSION)')
 	static var VERSION:String;
 
-	@:native('LUA_RELEASE')
+	@:native('::String(LUA_RELEASE)')
 	static var RELEASE:String;
 
-	@:native('LUA_COPYRIGHT')
+	@:native('::String(LUA_COPYRIGHT)')
 	static var COPYRIGHT:String;
 
-	@:native('LUA_AUTHORS')
+	@:native('::String(LUA_AUTHORS)')
 	static var AUTHORS:String;
 
 	@:native('LUA_MULTRET')
@@ -111,34 +111,34 @@ extern class Lua
 	@:native('LUA_RIDX_LAST')
 	static var RIDX_LAST:Int;
 
-	@:native('LUA_VERSUFFIX')
+	@:native('::String(LUA_VERSUFFIX)')
 	static var VERSUFFIX:String;
 
-	@:native('LUA_COLIBNAME')
+	@:native('::String(LUA_COLIBNAME)')
 	static var COLIBNAME:String;
 
-	@:native('LUA_TABLIBNAME')
+	@:native('::String(LUA_TABLIBNAME)')
 	static var TABLIBNAME:String;
 
-	@:native('LUA_IOLIBNAME')
+	@:native('::String(LUA_IOLIBNAME)')
 	static var IOLIBNAME:String;
 
-	@:native('LUA_OSLIBNAME')
+	@:native('::String(LUA_OSLIBNAME)')
 	static var OSLIBNAME:String;
 
-	@:native('LUA_STRLIBNAME')
+	@:native('::String(LUA_STRLIBNAME)')
 	static var STRLIBNAME:String;
 
-	@:native('LUA_UTF8LIBNAME')
+	@:native('::String(LUA_UTF8LIBNAME)')
 	static var UTF8LIBNAME:String;
 
-	@:native('LUA_MATHLIBNAME')
+	@:native('::String(LUA_MATHLIBNAME)')
 	static var MATHLIBNAME:String;
 
-	@:native('LUA_DBLIBNAME')
+	@:native('::String(LUA_DBLIBNAME)')
 	static var DBLIBNAME:String;
 
-	@:native('LUA_LOADLIBNAME')
+	@:native('::String(LUA_LOADLIBNAME)')
 	static var LOADLIBNAME:String;
 
 	/*
