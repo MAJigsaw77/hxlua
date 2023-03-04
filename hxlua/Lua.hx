@@ -332,9 +332,6 @@ extern class Lua
 	// @:native('lua_pushvfstring')
 	// static function pushvfstring(L:cpp.RawPointer<Lua_State>, s:String, argp:VaList):Void;
 
-	@:native('lua_pushfstring')
-	static function pushfstring(L:cpp.RawPointer<Lua_State>, fmt:String, ...args:Dynamic):String;
-
 	@:functionCode("return ::String(lua_pushfstring(L, fmt, args));")
 	static inline function pushfstring(L:cpp.RawPointer<Lua_State>, fmt:String, ...args:Dynamic):String
 		return '';
