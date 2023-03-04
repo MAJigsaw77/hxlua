@@ -1,5 +1,9 @@
 package hxlua;
 
+#if (!cpp && macro)
+#error 'Lua supports only C++ target platforms.'
+#end
+
 class Types {} // blank
 
 @:include("lua.hpp")
