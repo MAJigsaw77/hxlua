@@ -41,7 +41,7 @@ extern class LuaL
 	static function callmeta(L:cpp.RawPointer<Lua_State>, obj:Int, e:String):Int;
 
 	@:functionCode("return ::String(luaL_tolstring(L, idx, len));")
-	static inline function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Star<cpp.SizeT>):String;
+	static inline function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Star<cpp.SizeT>):String
 		return '';
 
 	@:native('luaL_argerror')
@@ -51,11 +51,11 @@ extern class LuaL
 	static function typeerror(L:cpp.RawPointer<Lua_State>, arg:Int, tname:String):Int;
 
 	@:functionCode("return ::String(luaL_checklstring(L, arg, l));")
-	static inline function checklstring(L:cpp.RawPointer<Lua_State>, arg:Int, l:cpp.Star<cpp.SizeT>):String;
+	static inline function checklstring(L:cpp.RawPointer<Lua_State>, arg:Int, l:cpp.Star<cpp.SizeT>):String
 		return '';
 
 	@:functionCode("return ::String(luaL_optlstring(L, arg, def, l));")
-	static inline function optlstring(L:cpp.RawPointer<Lua_State>, arg:Int, def:String, l:cpp.Star<cpp.SizeT>):String;
+	static inline function optlstring(L:cpp.RawPointer<Lua_State>, arg:Int, def:String, l:cpp.Star<cpp.SizeT>):String
 		return '';
 
 	@:native('luaL_checknumber')
