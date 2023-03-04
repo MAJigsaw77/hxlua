@@ -134,6 +134,28 @@ extern class LuaL
 	@:native('luaL_newstate')
 	static function newstate():cpp.RawPointer<Lua_State>;
 
+	@:native('luaL_len')
+	static function len(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
+
+	@:native('luaL_addgsub')
+	static function addgsub(b:cpp.RawPointer<LuaL_Buffer>, s:String, p:String, r:String):Void;
+
+	@:functionCode("return ::String(luaL_gsub(L, s, p, r));")
+	static inline function gsub(L:cpp.RawPointer<Lua_State>, s:String, p:String, r:String):String
+		return '';
+
+	@:native('luaL_setfuncs')
+	static function setfuncs(L:cpp.RawPointer<Lua_State>, l:cpp.RawConstPointer<LuaL_Reg>, nup:Int):Void;
+
+	@:native('luaL_getsubtable')
+	static function getsubtable(L:cpp.RawPointer<Lua_State>, idx:Int, fname:String):Int;
+
+	@:native('luaL_traceback')
+	static function traceback(L:cpp.RawPointer<Lua_State>, L1:cpp.RawPointer<Lua_State>, msg:String, level:Int):Int;
+
+	@:native('luaL_requiref')
+	static function requiref(L:cpp.RawPointer<Lua_State>, modname:String, openf:Lua_CFunction, glb:Int):Void;
+
 	/* open all previous libraries */
 	@:native('luaL_openlibs')
 	static function openlibs(L:cpp.RawPointer<Lua_State>):Int;
