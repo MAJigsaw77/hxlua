@@ -95,7 +95,7 @@ extern class LuaL
 	static function where(L:cpp.RawPointer<Lua_State>, lvl:Int):Void;
 
 	@:native('luaL_error')
-	static function error(L:cpp.RawPointer<Lua_State>, fmt:String, ...args:Dynamic):Void;
+	static function error(L:cpp.RawPointer<Lua_State>, fmt:String, ...args:Dynamic):Int;
 
 	@:native('luaL_checkoption')
 	static function checkoption(L:cpp.RawPointer<Lua_State>, arg:Int, def:String, last:Array<String>):Int;
@@ -105,6 +105,34 @@ extern class LuaL
 
 	@:native('luaL_execresult')
 	static function execresult(L:cpp.RawPointer<Lua_State>, stat:Int):Int;
+
+	/* predefined references */
+	@:native('LUA_NOREF')
+	static var NOREF:Int;
+
+	@:native('LUA_REFNIL')
+	static var LUA_REFNIL:Int;
+
+	@:native('luaL_ref')
+	static function ref(L:cpp.RawPointer<Lua_State>, t:Int):Int;
+
+	@:native('luaL_unref')
+	static function unref(L:cpp.RawPointer<Lua_State>, t:Int, ref:Int):Void;
+
+	@:native('luaL_loadfilex')
+	static function loadfilex(L:cpp.RawPointer<Lua_State>, filename:String, mode:String):Int;
+
+	@:native('luaL_loadfile')
+	static function loadfile(L:cpp.RawPointer<Lua_State>, filename:String):Int;
+
+	@:native('luaL_loadbufferx')
+	static function loadbufferx(L:cpp.RawPointer<Lua_State>, buff:String, sz:cpp.SizeT, name:String, mode:String):Int;
+
+	@:native('luaL_loadstring')
+	static function loadstring(L:cpp.RawPointer<Lua_State>, s:String):Int;
+
+	@:native('luaL_newstate')
+	static function newstate():cpp.RawPointer<Lua_State>;
 
 	/* open all previous libraries */
 	@:native('luaL_openlibs')
