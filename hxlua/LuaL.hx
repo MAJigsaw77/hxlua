@@ -156,6 +156,49 @@ extern class LuaL
 	@:native('luaL_requiref')
 	static function requiref(L:cpp.RawPointer<Lua_State>, modname:String, openf:Lua_CFunction, glb:Int):Void;
 
+	/*
+	 * some useful macros
+	 */
+	@:native('luaL_newlibtable')
+	static function newlibtable(L:cpp.RawPointer<Lua_State>, l:Array<LuaL_Reg>):Void;
+
+	@:native('luaL_newlib')
+	static function newlib(L:cpp.RawPointer<Lua_State>, l:Array<LuaL_Reg>):Void;
+
+	@:native('luaL_argcheck')
+	static function argcheck(L:cpp.RawPointer<Lua_State>, cond:Int, arg:Int, extramsg:String):Void;
+
+	@:native('luaL_argexpected')
+	static function argexpected(L:cpp.RawPointer<Lua_State>, cond:Int, arg:Int, tname:String):Void;
+
+	@:functionCode("return ::String(luaL_checkstring(L, n));")
+	static inline function checkstring(L:cpp.RawPointer<Lua_State>, n:Int):String
+		return '';
+
+	@:functionCode("return ::String(luaL_optstring(L, n, d));")
+	static inline function optstring(L:cpp.RawPointer<Lua_State>, n:Int, d:String):String
+		return '';
+
+	@:functionCode("return ::String(luaL_typename(L, index));")
+	static inline function typename(L:cpp.RawPointer<Lua_State>, index:Int):String
+		return '';
+
+	@:native('luaL_dofile')
+	static function dofile(L:cpp.RawPointer<Lua_State>, filename:String):Int;
+
+	@:native('luaL_dostring')
+	static function dostring(L:cpp.RawPointer<Lua_State>, str:String):Int;
+
+	@:native('luaL_getmetatable')
+	static function getmetatable(L:cpp.RawPointer<Lua_State>, tname:String):Int;
+
+	// idk what to do about this lol
+	// @:native('luaL_opt')
+	// static function opt(L:cpp.RawPointer<Lua_State>, func, arg, dflt):Dynamic;
+
+	@:native('luaL_loadbuffer')
+	static function loadbuffer(L:cpp.RawPointer<Lua_State>, s:String, sz:cpp.SizeT, n:String):Int;
+
 	/* open all previous libraries */
 	@:native('luaL_openlibs')
 	static function openlibs(L:cpp.RawPointer<Lua_State>):Int;
