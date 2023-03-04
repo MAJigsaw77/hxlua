@@ -70,6 +70,42 @@ extern class LuaL
 	@:native('luaL_optinteger')
 	static function optinteger(L:cpp.RawPointer<Lua_State>, arg:Int, def:Int):Int;
 
+	@:native('luaL_checkstack')
+	static function checkstack(L:cpp.RawPointer<Lua_State>, sz:Int, msg:String):Void;
+
+	@:native('luaL_checktype')
+	static function checktype(L:cpp.RawPointer<Lua_State>, arg:Int, t:Int):Void;
+
+	@:native('luaL_checkany')
+	static function checkany(L:cpp.RawPointer<Lua_State>, arg:Int):Void;
+
+	@:native('luaL_newmetatable')
+	static function newmetatable(L:cpp.RawPointer<Lua_State>, tname:String):Int;
+
+	@:native('luaL_setmetatable')
+	static function setmetatable(L:cpp.RawPointer<Lua_State>, tname:String):Void;
+
+	@:native('luaL_testudata')
+	static function testudata(L:cpp.RawPointer<Lua_State>, ud:Int, tname:String):cpp.Star<cpp.Void>;
+
+	@:native('luaL_checkudata')
+	static function checkudata(L:cpp.RawPointer<Lua_State>, ud:Int, tname:String):cpp.Star<cpp.Void>;
+
+	@:native('luaL_where')
+	static function where(L:cpp.RawPointer<Lua_State>, lvl:Int):Void;
+
+	@:native('luaL_error')
+	static function error(L:cpp.RawPointer<Lua_State>, fmt:String, ...args:Dynamic):Void;
+
+	@:native('luaL_checkoption')
+	static function checkoption(L:cpp.RawPointer<Lua_State>, arg:Int, def:String, last:Array<String>):Int;
+
+	@:native('luaL_fileresult')
+	static function fileresult(L:cpp.RawPointer<Lua_State>, stat:Int, fname:String):Int;
+
+	@:native('luaL_execresult')
+	static function execresult(L:cpp.RawPointer<Lua_State>, stat:Int):Int;
+
 	/* open all previous libraries */
 	@:native('luaL_openlibs')
 	static function openlibs(L:cpp.RawPointer<Lua_State>):Int;
