@@ -192,25 +192,20 @@ extern class Lua
 	/*
 	 * access functions (stack -> C)
 	 */
-	@:functionCode("return lua_isnumber(L, idx) == 1;")
-	static inline function isnumber(L:cpp.RawPointer<Lua_State>, idx:Int):Bool
-		return false;
+	@:native('lua_isnumber')
+	static function isnumber(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
-	@:functionCode("return lua_isstring(L, idx) == 1;")
-	static inline function isstring(L:cpp.RawPointer<Lua_State>, idx:Int):Bool
-		return false;
+	@:native('lua_isstring')
+	static function isstring(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
-	@:functionCode("return lua_iscfunction(L, idx) == 1;")
-	static inline function iscfunction(L:cpp.RawPointer<Lua_State>, idx:Int):Bool
-		return false;
+	@:native('lua_iscfunction')
+	static function iscfunction(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
-	@:functionCode("return lua_isinteger(L, idx) == 1;")
-	static inline function isinteger(L:cpp.RawPointer<Lua_State>, idx:Int):Bool
-		return false;
+	@:native('lua_isinteger')
+	static function isinteger(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
-	@:functionCode("return lua_isuserdata(L, idx) == 1;")
-	static inline function isuserdata(L:cpp.RawPointer<Lua_State>, idx:Int):Bool
-		return false;
+	@:native('lua_isuserdata')
+	static function isuserdata(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
 	@:native('lua_type')
 	static function type(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
@@ -447,9 +442,8 @@ extern class Lua
 	@:native('lua_status')
 	static function status(L:cpp.RawPointer<Lua_State>):Int;
 
-	@:functionCode("return lua_isyieldable(L) == 1;")
-	static inline function isyieldable(L:cpp.RawPointer<Lua_State>):Bool
-		return false;
+	@:native('lua_isyieldable')
+	static function isyieldable(L:cpp.RawPointer<Lua_State>):Int;
 
 	@:native('lua_yield')
 	static function yield(L:cpp.RawPointer<Lua_State>, nresults:Int):Int;
@@ -556,37 +550,29 @@ extern class Lua
 	@:native('lua_pushcfunction')
 	static function pushcfunction(L:cpp.RawPointer<Lua_State>, fn:Lua_CFunction):Void;
 
-	@:functionCode("return lua_isfunction(L, n) == 1;")
-	static inline function isfunction(L:cpp.RawPointer<Lua_State>, n:Int):Bool
-		return false;
+	@:native('isfunction')
+	static function isfunction(L:cpp.RawPointer<Lua_State>, n:Int):Int;
 
-	@:functionCode("return lua_istable(L, n) == 1;")
-	static inline function istable(L:cpp.RawPointer<Lua_State>, n:Int):Bool
-		return false;
+	@:native('lua_istable')
+	static function istable(L:cpp.RawPointer<Lua_State>, n:Int):Int;
 
-	@:functionCode("return lua_islightuserdata(L, n) == 1;")
-	static inline function islightuserdata(L:cpp.RawPointer<Lua_State>, n:Int):Bool
-		return false;
+	@:native('lua_islightuserdata')
+	static function islightuserdata(L:cpp.RawPointer<Lua_State>, n:Int):Int;
 
-	@:functionCode("return lua_isnil(L, n) == 1;")
-	static inline function isnil(L:cpp.RawPointer<Lua_State>, n:Int):Bool
-		return false;
+	@:native('lua_isnil')
+	static function isnil(L:cpp.RawPointer<Lua_State>, n:Int):Int;
 
-	@:functionCode("return lua_isboolean(L, n) == 1;")
-	static inline function isboolean(L:cpp.RawPointer<Lua_State>, n:Int):Bool
-		return false;
+	@:native('lua_isboolean')
+	static function isboolean(L:cpp.RawPointer<Lua_State>, n:Int):Int;
 
-	@:functionCode("return lua_isthread(L, n) == 1;")
-	static inline function isthread(L:cpp.RawPointer<Lua_State>, n:Int):Bool
-		return false;
+	@:native('lua_isthread')
+	static function isthread(L:cpp.RawPointer<Lua_State>, n:Int):Int;
 
-	@:functionCode("return lua_isnone(L, n) == 1;")
-	static inline function isnone(L:cpp.RawPointer<Lua_State>, n:Int):Bool
-		return false;
+	@:native('lua_isnone')
+	static function isnone(L:cpp.RawPointer<Lua_State>, n:Int):Int;
 
-	@:functionCode("return lua_isnoneornil(L, n) == 1;")
-	static inline function isnoneornil(L:cpp.RawPointer<Lua_State>, n:Int):Bool
-		return false;
+	@:native('lua_isnoneornil')
+	static function isnoneornil(L:cpp.RawPointer<Lua_State>, n:Int):Int;
 
 	@:functionCode("return ::String(lua_pushliteral(L, s));")
 	static inline function pushliteral(L:cpp.RawPointer<Lua_State>, s:String):String
