@@ -14,7 +14,7 @@ class Main
 		trace(Lua.COPYRIGHT);
 		trace(Lua.AUTHORS);
 
-		// creating the new state
+		// create the new state
 		var vm:cpp.RawPointer<Lua_State> = LuaL.newstate();
 
 		// open the libs
@@ -30,7 +30,7 @@ class Main
 			Lua.pop(vm, 1);
 		}
 
-		// calling 'foo' function
+		// call 'foo' function
 		Lua.getglobal(vm, "foo");
 		Lua.pushinteger(vm, 1);
 		Lua.pushnumber(vm, 2.0);
