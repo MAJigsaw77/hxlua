@@ -199,6 +199,17 @@ extern class LuaL
 	@:native('luaL_loadbuffer')
 	static function loadbuffer(L:cpp.RawPointer<Lua_State>, s:String, sz:cpp.SizeT, n:String):Int;
 
+	/*
+	 * Perform arithmetic operations on lua_Integer values with wrap-around
+	 * semantics, as the Lua core does.
+	 */
+	// @:native('luaL_intop')
+	// static function intop(op, v1, v2):Int;
+
+	/* push the value used to represent failure/error */
+	@:native('luaL_pushfail')
+	static function pushfail(L:cpp.RawPointer<Lua_State>):Void;
+
 	/* open all previous libraries */
 	@:native('luaL_openlibs')
 	static function openlibs(L:cpp.RawPointer<Lua_State>):Int;
