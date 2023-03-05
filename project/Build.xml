@@ -60,7 +60,7 @@
 			<flag value="-ldl" />
 		</section>
 
-		<section if="android">
+		<section if="android || ios">
 			<compilerflag value="-DLUA_ANSI" />
 			<compilerflag value="-DLUA_USE_APICHECK" />
 		</section>
