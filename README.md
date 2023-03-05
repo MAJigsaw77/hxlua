@@ -40,7 +40,7 @@ class Main
 		// do the file
 		var ret:Int = LuaL.dofile(vm, "script.lua");
 
-		// check if is ok
+		// check if isn't ok
 		if (ret != Lua.OK)
 		{
 			trace("Lua Error: " + Lua.tostring(vm, ret));
