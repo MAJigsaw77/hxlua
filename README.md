@@ -4,7 +4,15 @@
 
 Haxe/hxcpp @:native bindings for Lua
 
-## Basic Example
+### Installation
+
+For now `hxlua` is available only on GitHub, so you have to simply type
+
+```bash
+haxelib git hxlua https://github.com/MAJigsaw77/hxlua.git
+```
+
+### Basic Usage Example
 
 ```hx
 package;
@@ -53,7 +61,7 @@ class Main
 }
 ```
 
-## Licensing
+### Licensing
 
 hxlua is made available under the MIT License. Check [LICENSE](./LICENSE) for more information.
 
