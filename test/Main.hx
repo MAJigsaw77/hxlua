@@ -8,13 +8,19 @@ class Main
 {
 	public static function main():Void
 	{
-		var vm:cpp.RawPointer<Lua_State> = LuaL.newstate();
-		LuaL.openlibs(vm);
-		LuaL.dofile(vm, "script.lua");
-
 		trace(Lua.RELEASE);
 		trace(Lua.COPYRIGHT);
 		trace(Lua.AUTHORS);
+
+		var vm:cpp.RawPointer<Lua_State> = LuaL.newstate();
+		LuaL.openlibs(vm);
+		var ret:Int = LuaL.dofile(vm, "script.lua");
+
+		if (ret != Lua.OK)
+		{
+			trace("Lua Error: " + Lua.tostring(vm, ret));
+			Lua.pop(vm, 1);
+		}
 
 		Lua.getglobal(vm, "foo");
 		Lua.pushinteger(vm, 1);
@@ -22,5 +28,6 @@ class Main
 		Lua.pushstring(vm, "three");
 		Lua.pcall(vm, 3, 0, 1);
 		Lua.close(vm);
+		vm = null;
 	}
 }
