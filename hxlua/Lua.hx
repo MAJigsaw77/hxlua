@@ -544,6 +544,9 @@ extern class Lua
 	@:native('lua_tointeger')
 	static function tointeger(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
+	@:native('lua_pop')
+	static function pop(L:cpp.RawPointer<Lua_State>, n:Int):Void;
+
 	@:native('lua_newtable')
 	static function newtable(L:cpp.RawPointer<Lua_State>):Void;
 
