@@ -2,7 +2,6 @@ package;
 
 import hxlua.Lua;
 import hxlua.LuaL;
-import hxlua.LuaOpen;
 import hxlua.Types;
 
 class Main
@@ -19,7 +18,7 @@ class Main
 		var vm:cpp.RawPointer<Lua_State> = LuaL.newstate();
 
 		// open the libs
-		LuaOpen.openlibs(vm);
+		LuaL.openlibs(vm);
 
 		// do the file
 		var ret:Int = LuaL.dofile(vm, "script.lua");
