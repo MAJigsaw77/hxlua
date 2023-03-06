@@ -6,9 +6,7 @@ package hxlua;
 
 import hxlua.Types;
 
-@:include("lua.h")
 @:include("lualib.h")
-@:include("lauxlib.h")
 @:keep
 @:unreflective
 extern class LuaOpen
