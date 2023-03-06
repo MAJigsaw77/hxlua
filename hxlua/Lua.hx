@@ -218,10 +218,10 @@ extern class Lua
 	 * access functions (stack -> C)
 	 */
 	@:native('lua_tonumberx')
-	static function tonumberx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.Pointer<Int>):Float;
+	static function tonumberx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.Star<Int>):Float;
 
 	@:native('lua_tointegerx')
-	static function tointegerx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.Pointer<Int>):Int;
+	static function tointegerx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.Star<Int>):Int;
 
 	@:native('lua_toboolean')
 	static function toboolean(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
