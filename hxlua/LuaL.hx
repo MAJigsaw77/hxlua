@@ -40,9 +40,10 @@ extern class LuaL
 	@:native('luaL_callmeta')
 	static function callmeta(L:cpp.RawPointer<Lua_State>, obj:Int, e:String):Int;
 
-	@:functionCode("return ::String(luaL_tolstring(L, idx, len));")
 	static inline function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Pointer<cpp.SizeT>):String
-		return '';
+	{
+		return untyped __cpp__('::String(luaL_tolstring({0}, {1}, {2}))', L, idx, len);
+	}
 
 	@:native('luaL_argerror')
 	static function argerror(L:cpp.RawPointer<Lua_State>, arg:Int, extramsg:String):Int;
@@ -50,13 +51,15 @@ extern class LuaL
 	@:native('luaL_typeerror')
 	static function typeerror(L:cpp.RawPointer<Lua_State>, arg:Int, tname:String):Int;
 
-	@:functionCode("return ::String(luaL_checklstring(L, arg, l));")
 	static inline function checklstring(L:cpp.RawPointer<Lua_State>, arg:Int, l:cpp.Pointer<cpp.SizeT>):String
-		return '';
+	{
+		return untyped __cpp__('::String(luaL_checklstring({0}, {1}, {2}))', L, arg, l);
+	}
 
-	@:functionCode("return ::String(luaL_optlstring(L, arg, def, l));")
 	static inline function optlstring(L:cpp.RawPointer<Lua_State>, arg:Int, def:String, l:cpp.Pointer<cpp.SizeT>):String
-		return '';
+	{
+		return untyped __cpp__('::String(luaL_optlstring({0}, {1}, {2}, {3}))', L, arg, def, l);
+	}
 
 	@:native('luaL_checknumber')
 	static function checknumber(L:cpp.RawPointer<Lua_State>, arg:Int):Float;
@@ -140,9 +143,10 @@ extern class LuaL
 	@:native('luaL_addgsub')
 	static function addgsub(b:cpp.RawPointer<LuaL_Buffer>, s:String, p:String, r:String):Void;
 
-	@:functionCode("return ::String(luaL_gsub(L, s, p, r));")
 	static inline function gsub(L:cpp.RawPointer<Lua_State>, s:String, p:String, r:String):String
-		return '';
+	{
+		return untyped __cpp__('::String(luaL_gsub({0}, {1}, {2}, {3}))', L, s, p, r);
+	}
 
 	@:native('luaL_setfuncs')
 	static function setfuncs(L:cpp.RawPointer<Lua_State>, l:cpp.RawConstPointer<LuaL_Reg>, nup:Int):Void;
@@ -171,17 +175,20 @@ extern class LuaL
 	@:native('luaL_argexpected')
 	static function argexpected(L:cpp.RawPointer<Lua_State>, cond:Int, arg:Int, tname:String):Void;
 
-	@:functionCode("return ::String(luaL_checkstring(L, n));")
 	static inline function checkstring(L:cpp.RawPointer<Lua_State>, n:Int):String
-		return '';
+	{
+		return untyped __cpp__('::String(luaL_checkstring({0}, {1}))', L, n);
+	}
 
-	@:functionCode("return ::String(luaL_optstring(L, n, d));")
 	static inline function optstring(L:cpp.RawPointer<Lua_State>, n:Int, d:String):String
-		return '';
+	{
+		return untyped __cpp__('::String(luaL_optstring({0}, {1}, {2}))', L, n, d);
+	}
 
-	@:functionCode("return ::String(luaL_typename(L, index));")
 	static inline function typename(L:cpp.RawPointer<Lua_State>, index:Int):String
-		return '';
+	{
+		return untyped __cpp__('::String(luaL_typename({0}, {1}))', L, index);
+	}
 
 	@:native('luaL_dofile')
 	static function dofile(L:cpp.RawPointer<Lua_State>, filename:String):Int;
