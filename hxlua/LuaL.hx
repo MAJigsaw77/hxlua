@@ -250,8 +250,4 @@ extern class LuaL
 
 	@:native('luaL_prepbuff')
 	static function prepbuff(B:cpp.RawPointer<LuaL_Buffer>):cpp.Pointer<cpp.Char>;
-
-	/* open all previous libraries */
-	@:native('luaL_openlibs')
-	static function openlibs(L:cpp.RawPointer<Lua_State>):Int;
 }
