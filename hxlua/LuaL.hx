@@ -210,6 +210,51 @@ extern class LuaL
 	@:native('luaL_pushfail')
 	static function pushfail(L:cpp.RawPointer<Lua_State>):Void;
 
+	/*
+	 * Generic Buffer manipulation
+	 */
+	@:native('luaL_bufflen')
+	static function bufflen(B:cpp.RawPointer<LuaL_Buffer>):cpp.SizeT;
+
+	@:native('luaL_buffaddr')
+	static function buffaddr(B:cpp.RawPointer<LuaL_Buffer>):cpp.Star<cpp.Char>;
+
+	@:native('luaL_addchar')
+	static function addchar(B:cpp.RawPointer<LuaL_Buffer>, c:cpp.Char):Void;
+
+	@:native('luaL_addsize')
+	static function addsize(B:cpp.RawPointer<LuaL_Buffer>, s:cpp.SizeT):Void;
+
+	@:native('luaL_buffsub')
+	static function buffsub(B:cpp.RawPointer<LuaL_Buffer>, n:Int):Void;
+
+	@:native('luaL_buffinit')
+	static function buffinit(L:cpp.RawPointer<Lua_State>, B:cpp.RawPointer<LuaL_Buffer>):Void;
+
+	@:native('luaL_prepbuffsize')
+	static function prepbuffsize(B:cpp.RawPointer<LuaL_Buffer>, sz:cpp.SizeT):cpp.Star<cpp.Char>;
+
+	@:native('luaL_addlstring')
+	static function addlstring(B:cpp.RawPointer<LuaL_Buffer>, s:String, l:cpp.SizeT):Void;
+
+	@:native('luaL_addstring')
+	static function addstring(B:cpp.RawPointer<LuaL_Buffer>, s:String):Void;
+
+	@:native('luaL_addvalue')
+	static function addvalue(B:cpp.RawPointer<LuaL_Buffer>):Void;
+
+	@:native('luaL_pushresult')
+	static function pushresult(B:cpp.RawPointer<LuaL_Buffer>):Void;
+
+	@:native('luaL_pushresultsize')
+	static function pushresultsize(B:cpp.RawPointer<LuaL_Buffer>, sz:cpp.SizeT):Void;
+
+	@:native('luaL_buffinitsize')
+	static function buffinitsize(L:cpp.RawPointer<Lua_State>, B:cpp.RawPointer<LuaL_Buffer>, sz:cpp.SizeT):cpp.Star<cpp.Char>;
+
+	@:native('luaL_prepbuff')
+	static function prepbuff(B:cpp.RawPointer<LuaL_Buffer>):cpp.Star<cpp.Char>;
+
 	/* open all previous libraries */
 	@:native('luaL_openlibs')
 	static function openlibs(L:cpp.RawPointer<Lua_State>):Int;
