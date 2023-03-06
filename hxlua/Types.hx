@@ -7,16 +7,22 @@ package hxlua;
 class Types {} // blank
 
 @:include("lua.h")
+@:include("lualib.h")
+@:include("lauxlib.h")
 @:keep
 @:native("lua_State")
 extern class Lua_State {}
 
 @:include("lua.h")
+@:include("lualib.h")
+@:include("lauxlib.h")
 @:keep
 @:native("lua_KContext")
 extern class Lua_KContext {}
 
 @:include("lua.h")
+@:include("lualib.h")
+@:include("lauxlib.h")
 @:keep
 @:structAccess
 @:native("lua_Debug")
@@ -34,6 +40,8 @@ extern class Lua_Debug
 	var istailcall:cpp.Char; /* (S) */
 }
 
+@:include("lua.h")
+@:include("lualib.h")
 @:include("lauxlib.h")
 @:keep
 @:structAccess
@@ -46,6 +54,8 @@ extern class LuaL_Buffer
 	var L:cpp.RawPointer<Lua_State>;
 }
 
+@:include("lua.h")
+@:include("lualib.h")
 @:include("lauxlib.h")
 @:keep
 @:structAccess
@@ -56,6 +66,8 @@ extern class LuaL_Reg
 	var func:Lua_CFunction;
 }
 
+@:include("lua.h")
+@:include("lualib.h")
 @:include("lauxlib.h")
 @:keep
 @:structAccess
