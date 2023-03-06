@@ -71,10 +71,7 @@
 		<!-- Lua 5.4.5 will have iOS build issues fixed but until then, isn't working -->
 		<section if="android || ios">
 			<compilerflag value="-DLUA_ANSI" />
-			<compilerflag value="-DLUA_USE_READLINE" />
 			<compilerflag value="-DLUA_USE_APICHECK" />
-
-			<flag value="-lreadline" />
 		</section>
 	</target>
 </xml>
