@@ -26,7 +26,6 @@ extern class LuaL
 	@:native('::String(LUA_PRELOAD_TABLE)')
 	static var PRELOAD_TABLE:String;
 
-	/* global table */
 	@:native('LUAL_NUMSIZES')
 	static var NUMSIZES:Int;
 
