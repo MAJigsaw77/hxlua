@@ -1,0 +1,38 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Formatter
+
+# Controls when the action will run.
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  Runner:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+        with:
+          submodules: true
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: 4.2.5
+
+      - name: Installing Libraries
+        run: |
+          haxelib --quiet install formatter
+
+      - name: Formatting
+        run: haxelib run formatter -s ./hxlua
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: Formatted Files
+          path: ./hxlua
+          if-no-files-found: error
