@@ -211,9 +211,7 @@ extern class Lua
 	static function type(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
 	static inline function typename(L:cpp.RawPointer<Lua_State>, tp:Int):String
-	{
 		return untyped __cpp__('::String(lua_typename({0}, {1}))', L, tp);
-	}
 
 	/*
 	 * access functions (stack -> C)
@@ -228,9 +226,7 @@ extern class Lua
 	static function toboolean(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
 	static inline function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Pointer<cpp.SizeT>):String
-	{
 		return untyped __cpp__('::String(lua_tolstring({0}, {1}, {2}))', L, idx, len);
-	}
 
 	@:native('lua_rawlen')
 	static function rawlen(L:cpp.RawPointer<Lua_State>, idx:Int):UInt;
@@ -325,14 +321,8 @@ extern class Lua
 	@:native('lua_pushstring')
 	static function pushstring(L:cpp.RawPointer<Lua_State>, s:String):Void;
 
-	// i have no idea how to interpret `VaList`
-	// @:native('lua_pushvfstring')
-	// static function pushvfstring(L:cpp.RawPointer<Lua_State>, s:String, argp:VaList):Void;
-
 	static inline function pushfstring(L:cpp.RawPointer<Lua_State>, fmt:String, ...args:Dynamic):String
-	{
 		return untyped __cpp__('::String(lua_pushfstring({0}, {1}, {2}))', L, fmt, args);
-	}
 
 	@:native('lua_pushcclosure')
 	static function pushcclosure(L:cpp.RawPointer<Lua_State>, fn:Lua_CFunction, n:Int):Void;
@@ -578,17 +568,13 @@ extern class Lua
 	static function isnoneornil(L:cpp.RawPointer<Lua_State>, n:Int):Int;
 
 	static inline function pushliteral(L:cpp.RawPointer<Lua_State>, s:String):String
-	{
 		return untyped __cpp__('::String(lua_pushliteral({0}, {1}))', L, s);
-	}
 
 	@:native('lua_pushglobaltable')
 	static function pushglobaltable(L:cpp.RawPointer<Lua_State>):Void;
 
 	static inline function tostring(L:cpp.RawPointer<Lua_State>, i:Int):String
-    {
-        return untyped __cpp__('::String(lua_tostring({0}, {1}))', L, i);
-    }
+		return untyped __cpp__('::String(lua_tostring({0}, {1}))', L, i);
 
 	@:native('lua_insert')
 	static function insert(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
@@ -654,24 +640,16 @@ extern class Lua
 	static function getinfo(L:cpp.RawPointer<Lua_State>, what:String, ar:cpp.RawPointer<Lua_Debug>):Int;
 
 	static inline function getlocal(L:cpp.RawPointer<Lua_State>, ar:cpp.RawConstPointer<Lua_Debug>, n:Int):String
-	{
 		return untyped __cpp__('::String(lua_getlocal({0}, {1}, {2}))', L, ar, n);
-	}
 
 	static inline function setlocal(L:cpp.RawPointer<Lua_State>, ar:cpp.RawConstPointer<Lua_Debug>, n:Int):String
-	{
 		return untyped __cpp__('::String(lua_setlocal({0}, {1}, {2}))', L, ar, n);
-	}
 
 	static inline function getupvalue(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):String
-	{
 		return untyped __cpp__('::String(lua_getupvalue({0}, {1}, {2}))', L, funcindex, n);
-	}
 
 	static inline function setupvalue(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):String
-	{
 		return untyped __cpp__('::String(lua_setupvalue({0}, {1}, {2}))', L, funcindex, n);
-	}
 
 	@:native('lua_upvalueid')
 	static function upvalueid(L:cpp.RawPointer<Lua_State>, fidx:Int, n:Int):cpp.Pointer<cpp.Void>;
