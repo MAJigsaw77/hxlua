@@ -192,10 +192,6 @@ extern class LuaL
 	@:native('luaL_getmetatable')
 	static function getmetatable(L:cpp.RawPointer<Lua_State>, tname:String):Int;
 
-	// idk what to do about this lol
-	// @:native('luaL_opt')
-	// static function opt(L:cpp.RawPointer<Lua_State>, func, arg, dflt):Dynamic;
-
 	@:native('luaL_loadbuffer')
 	static function loadbuffer(L:cpp.RawPointer<Lua_State>, s:String, sz:cpp.SizeT, n:String):Int;
 
@@ -203,8 +199,8 @@ extern class LuaL
 	 * Perform arithmetic operations on lua_Integer values with wrap-around
 	 * semantics, as the Lua core does.
 	 */
-	// @:native('luaL_intop')
-	// static function intop(op, v1, v2):Int;
+	@:native('luaL_intop')
+	static function intop(op:Int, v1:Int, v2:Int):Int;
 
 	/* push the value used to represent failure/error */
 	@:native('luaL_pushfail')
