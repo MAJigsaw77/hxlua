@@ -41,7 +41,7 @@ extern class LuaL
 	static function callmeta(L:cpp.RawPointer<Lua_State>, obj:Int, e:String):Int;
 
 	@:functionCode("return ::String(luaL_tolstring(L, idx, len));")
-	static inline function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Star<cpp.SizeT>):String
+	static inline function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Pointer<cpp.SizeT>):String
 		return '';
 
 	@:native('luaL_argerror')
@@ -51,11 +51,11 @@ extern class LuaL
 	static function typeerror(L:cpp.RawPointer<Lua_State>, arg:Int, tname:String):Int;
 
 	@:functionCode("return ::String(luaL_checklstring(L, arg, l));")
-	static inline function checklstring(L:cpp.RawPointer<Lua_State>, arg:Int, l:cpp.Star<cpp.SizeT>):String
+	static inline function checklstring(L:cpp.RawPointer<Lua_State>, arg:Int, l:cpp.Pointer<cpp.SizeT>):String
 		return '';
 
 	@:functionCode("return ::String(luaL_optlstring(L, arg, def, l));")
-	static inline function optlstring(L:cpp.RawPointer<Lua_State>, arg:Int, def:String, l:cpp.Star<cpp.SizeT>):String
+	static inline function optlstring(L:cpp.RawPointer<Lua_State>, arg:Int, def:String, l:cpp.Pointer<cpp.SizeT>):String
 		return '';
 
 	@:native('luaL_checknumber')
@@ -86,10 +86,10 @@ extern class LuaL
 	static function setmetatable(L:cpp.RawPointer<Lua_State>, tname:String):Void;
 
 	@:native('luaL_testudata')
-	static function testudata(L:cpp.RawPointer<Lua_State>, ud:Int, tname:String):cpp.Star<cpp.Void>;
+	static function testudata(L:cpp.RawPointer<Lua_State>, ud:Int, tname:String):cpp.Pointer<cpp.Void>;
 
 	@:native('luaL_checkudata')
-	static function checkudata(L:cpp.RawPointer<Lua_State>, ud:Int, tname:String):cpp.Star<cpp.Void>;
+	static function checkudata(L:cpp.RawPointer<Lua_State>, ud:Int, tname:String):cpp.Pointer<cpp.Void>;
 
 	@:native('luaL_where')
 	static function where(L:cpp.RawPointer<Lua_State>, lvl:Int):Void;
@@ -217,7 +217,7 @@ extern class LuaL
 	static function bufflen(B:cpp.RawPointer<LuaL_Buffer>):cpp.SizeT;
 
 	@:native('luaL_buffaddr')
-	static function buffaddr(B:cpp.RawPointer<LuaL_Buffer>):cpp.Star<cpp.Char>;
+	static function buffaddr(B:cpp.RawPointer<LuaL_Buffer>):cpp.Pointer<cpp.Char>;
 
 	@:native('luaL_addchar')
 	static function addchar(B:cpp.RawPointer<LuaL_Buffer>, c:cpp.Char):Void;
@@ -232,7 +232,7 @@ extern class LuaL
 	static function buffinit(L:cpp.RawPointer<Lua_State>, B:cpp.RawPointer<LuaL_Buffer>):Void;
 
 	@:native('luaL_prepbuffsize')
-	static function prepbuffsize(B:cpp.RawPointer<LuaL_Buffer>, sz:cpp.SizeT):cpp.Star<cpp.Char>;
+	static function prepbuffsize(B:cpp.RawPointer<LuaL_Buffer>, sz:cpp.SizeT):cpp.Pointer<cpp.Char>;
 
 	@:native('luaL_addlstring')
 	static function addlstring(B:cpp.RawPointer<LuaL_Buffer>, s:String, l:cpp.SizeT):Void;
@@ -250,10 +250,10 @@ extern class LuaL
 	static function pushresultsize(B:cpp.RawPointer<LuaL_Buffer>, sz:cpp.SizeT):Void;
 
 	@:native('luaL_buffinitsize')
-	static function buffinitsize(L:cpp.RawPointer<Lua_State>, B:cpp.RawPointer<LuaL_Buffer>, sz:cpp.SizeT):cpp.Star<cpp.Char>;
+	static function buffinitsize(L:cpp.RawPointer<Lua_State>, B:cpp.RawPointer<LuaL_Buffer>, sz:cpp.SizeT):cpp.Pointer<cpp.Char>;
 
 	@:native('luaL_prepbuff')
-	static function prepbuff(B:cpp.RawPointer<LuaL_Buffer>):cpp.Star<cpp.Char>;
+	static function prepbuff(B:cpp.RawPointer<LuaL_Buffer>):cpp.Pointer<cpp.Char>;
 
 	/* open all previous libraries */
 	@:native('luaL_openlibs')

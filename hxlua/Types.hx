@@ -62,7 +62,7 @@ extern class LuaL_Reg
 @:native("luaL_Stream")
 extern class LuaL_Stream
 {
-	var f:cpp.Star<cpp.FILE>;
+	var f:cpp.Pointer<cpp.FILE>;
 	var closef:Lua_CFunction;
 }
 
@@ -84,15 +84,15 @@ typedef Lua_KFunction = cpp.Callable<(L:cpp.RawPointer<Lua_State>, status:Int, c
 /*
  * Type for functions that read/write blocks when loading/dumping Lua chunks.
  */
-typedef Lua_Reader = cpp.Callable<(L:cpp.RawPointer<Lua_State>, ud:cpp.Star<cpp.Void>, sz:cpp.Star<cpp.SizeT>) -> String>;
-typedef Lua_Writer = cpp.Callable<(L:cpp.RawPointer<Lua_State>, p:cpp.ConstStar<cpp.Void>, sz:cpp.SizeT, ud:cpp.Star<cpp.Void>) -> Int>;
+typedef Lua_Reader = cpp.Callable<(L:cpp.RawPointer<Lua_State>, ud:cpp.Pointer<cpp.Void>, sz:cpp.Pointer<cpp.SizeT>) -> String>;
+typedef Lua_Writer = cpp.Callable<(L:cpp.RawPointer<Lua_State>, p:cpp.ConstPointer<cpp.Void>, sz:cpp.SizeT, ud:cpp.Pointer<cpp.Void>) -> Int>;
 
 /*
  * Type for memory-allocation functions.
  */
-typedef Lua_Alloc = cpp.Callable<(ud:cpp.Star<cpp.Void>, ptr:cpp.Star<cpp.Void>, osize:cpp.SizeT, nsize:cpp.SizeT) -> cpp.Star<cpp.Void>>;
+typedef Lua_Alloc = cpp.Callable<(ud:cpp.Pointer<cpp.Void>, ptr:cpp.Pointer<cpp.Void>, osize:cpp.SizeT, nsize:cpp.SizeT) -> cpp.Pointer<cpp.Void>>;
 
 /*
  * Type for warning functions.
  */
-typedef Lua_WarnFunction = cpp.Callable<(ud:cpp.Star<cpp.Void>, msg:String, tocont:Int) -> Void>;
+typedef Lua_WarnFunction = cpp.Callable<(ud:cpp.Pointer<cpp.Void>, msg:String, tocont:Int) -> Void>;
