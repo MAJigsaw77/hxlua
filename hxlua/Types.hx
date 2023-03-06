@@ -3,18 +3,23 @@ package hxlua;
 #if (!cpp && macro)
 #error 'Lua supports only C++ target platforms.'
 #end
-
-class Types {} // blank
+class Types
+{
+} // blank
 
 @:include("lua.hpp")
 @:keep
 @:native("lua_State")
-extern class Lua_State {}
+extern class Lua_State
+{
+}
 
 @:include("lua.hpp")
 @:keep
 @:native("lua_KContext")
-extern class Lua_KContext {}
+extern class Lua_KContext
+{
+}
 
 @:include("lua.hpp")
 @:keep
@@ -70,28 +75,23 @@ extern class LuaL_Stream
  * Type for debugging hook functions.
  */
 typedef Lua_Hook = cpp.Callable<(L:cpp.RawPointer<Lua_State>, ar:cpp.RawPointer<Lua_Debug>) -> Void>;
-
 /*
  * Type for C functions registered with Lua.
  */
 typedef Lua_CFunction = cpp.Callable<(L:cpp.RawPointer<Lua_State>) -> Int>;
-
 /*
  * Type for continuation functions.
  */
 typedef Lua_KFunction = cpp.Callable<(L:cpp.RawPointer<Lua_State>, status:Int, ctx:Lua_KContext) -> Int>;
-
 /*
  * Type for functions that read/write blocks when loading/dumping Lua chunks.
  */
 typedef Lua_Reader = cpp.Callable<(L:cpp.RawPointer<Lua_State>, ud:cpp.Pointer<cpp.Void>, sz:cpp.Pointer<cpp.SizeT>) -> String>;
 typedef Lua_Writer = cpp.Callable<(L:cpp.RawPointer<Lua_State>, p:cpp.ConstPointer<cpp.Void>, sz:cpp.SizeT, ud:cpp.Pointer<cpp.Void>) -> Int>;
-
 /*
  * Type for memory-allocation functions.
  */
 typedef Lua_Alloc = cpp.Callable<(ud:cpp.Pointer<cpp.Void>, ptr:cpp.Pointer<cpp.Void>, osize:cpp.SizeT, nsize:cpp.SizeT) -> cpp.Pointer<cpp.Void>>;
-
 /*
  * Type for warning functions.
  */

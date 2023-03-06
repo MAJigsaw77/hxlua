@@ -3,7 +3,6 @@ package hxlua;
 #if (!cpp && macro)
 #error 'Lua supports only C++ target platforms.'
 #end
-
 import hxlua.Types;
 
 @:include("lua.hpp")
