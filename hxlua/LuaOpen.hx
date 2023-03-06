@@ -40,4 +40,8 @@ extern class LuaOpen
 
 	@:native('luaopen_package')
 	static function lpackage(L:cpp.RawPointer<Lua_State>):Int;
+
+	/* open all previous libraries */
+	@:native('luaL_openlibs')
+	static function openlibs(L:cpp.RawPointer<Lua_State>):Int;
 }
