@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml>
 	<files id="lua">
-		<file name="${haxelib:hxlua}/project/lua/lapi.c" />
-		<file name="${haxelib:hxlua}/project/lua/lauxlib.c" />
-		<file name="${haxelib:hxlua}/project/lua/lbaselib.c" />
-		<file name="${haxelib:hxlua}/project/lua/lcode.c" />
-		<file name="${haxelib:hxlua}/project/lua/lcorolib.c" />
-		<file name="${haxelib:hxlua}/project/lua/lctype.c" />
-		<file name="${haxelib:hxlua}/project/lua/ldblib.c" />
-		<file name="${haxelib:hxlua}/project/lua/ldebug.c" />
-		<file name="${haxelib:hxlua}/project/lua/ldo.c" />
-		<file name="${haxelib:hxlua}/project/lua/ldump.c" />
-		<file name="${haxelib:hxlua}/project/lua/lfunc.c" />
-		<file name="${haxelib:hxlua}/project/lua/lgc.c" />
-		<file name="${haxelib:hxlua}/project/lua/linit.c" />
-		<file name="${haxelib:hxlua}/project/lua/liolib.c" />
-		<file name="${haxelib:hxlua}/project/lua/llex.c" />
-		<file name="${haxelib:hxlua}/project/lua/lmathlib.c" />
-		<file name="${haxelib:hxlua}/project/lua/lmem.c" />
-		<file name="${haxelib:hxlua}/project/lua/loadlib.c" />
-		<file name="${haxelib:hxlua}/project/lua/lobject.c" />
-		<file name="${haxelib:hxlua}/project/lua/lopcodes.c" />
-		<file name="${haxelib:hxlua}/project/lua/loslib.c" />
-		<file name="${haxelib:hxlua}/project/lua/lparser.c" />
-		<file name="${haxelib:hxlua}/project/lua/lstate.c" />
-		<file name="${haxelib:hxlua}/project/lua/lstring.c" />
-		<file name="${haxelib:hxlua}/project/lua/lstrlib.c" />
-		<file name="${haxelib:hxlua}/project/lua/ltable.c" />
-		<file name="${haxelib:hxlua}/project/lua/ltablib.c" />
-		<file name="${haxelib:hxlua}/project/lua/ltm.c" />
-		<file name="${haxelib:hxlua}/project/lua/lundump.c" />
-		<file name="${haxelib:hxlua}/project/lua/lutf8lib.c" />
-		<file name="${haxelib:hxlua}/project/lua/lvm.c" />
-		<file name="${haxelib:hxlua}/project/lua/lzio.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lapi.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lauxlib.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lbaselib.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lcode.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lcorolib.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lctype.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/ldblib.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/ldebug.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/ldo.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/ldump.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lfunc.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lgc.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/linit.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/liolib.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/llex.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lmathlib.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lmem.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/loadlib.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lobject.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lopcodes.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/loslib.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lparser.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lstate.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lstring.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lstrlib.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/ltable.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/ltablib.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/ltm.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lundump.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lutf8lib.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lvm.c" />
+		<file name="${haxelib:hxlua}/project/lua-5.4.4/src/lzio.c" />
 	</files>
 
 	<files id="haxe">
-		<compilervalue name="-I" value="${haxelib:hxlua}/project/lua/" />
+		<compilervalue name="-I" value="${haxelib:hxlua}/project/lua-5.4.4/src/" />
 	</files>
 
 	<target id="haxe">
