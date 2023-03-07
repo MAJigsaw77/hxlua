@@ -26,7 +26,6 @@ class Main
   public static function main():Void
   {
     // some informations
-
     trace(Lua.RELEASE);
     trace(Lua.COPYRIGHT);
     trace(Lua.AUTHORS);
