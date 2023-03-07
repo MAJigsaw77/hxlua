@@ -23,42 +23,43 @@ import hxlua.Types;
 
 class Main
 {
-	public static function main():Void
-	{
-		// some informations
+  public static function main():Void
+  {
+    // some informations
 
-		trace(Lua.RELEASE);
-		trace(Lua.COPYRIGHT);
-		trace(Lua.AUTHORS);
+    trace(Lua.RELEASE);
+    trace(Lua.COPYRIGHT);
+    trace(Lua.AUTHORS);
 
-		// create the new state
-		var vm:cpp.RawPointer<Lua_State> = LuaL.newstate();
+    // create the new state
+    var vm:cpp.RawPointer<Lua_State> = LuaL.newstate();
 
-		// open the libs
-		LuaL.openlibs(vm);
+    // open the libs
+    LuaL.openlibs(vm);
 
-		// do the file
-		var ret:Int = LuaL.dofile(vm, "script.lua");
+    // do the file
+    var ret:Int = LuaL.dofile(vm, "script.lua");
 
-		// check if isn't ok
-		if (ret != Lua.OK)
-		{
-			trace("Lua Error: " + Lua.tostring(vm, ret));
-			Lua.pop(vm, 1);
-		}
+    // check if isn't ok
+    if (ret != Lua.OK)
+    {
+      trace("Lua Error: " + Lua.tostring(vm, ret));
+      Lua.pop(vm, 1);
+    }
 
-		// call 'foo' function
-		Lua.getglobal(vm, "foo");
-		Lua.pushinteger(vm, 1);
-		Lua.pushnumber(vm, 2.0);
-		Lua.pushstring(vm, "three");
-		Lua.pcall(vm, 3, 0, 1);
+    // call 'foo' function
+    Lua.getglobal(vm, "foo");
+    Lua.pushinteger(vm, 1);
+    Lua.pushnumber(vm, 2.0);
+    Lua.pushstring(vm, "three");
+    Lua.pcall(vm, 3, 0, 1);
 
-		// close the state after pcall
-		Lua.close(vm);
-		vm = null;
-	}
+    // close the state after pcall
+    Lua.close(vm);
+    vm = null;
+  }
 }
+
 ```
 
 ### Licensing
