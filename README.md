@@ -15,8 +15,9 @@ Or through `Git`, if you want the latest updates
 haxelib git hxlua https://github.com/MAJigsaw77/hxlua.git
 ```
 
-
 ### Basic Usage Example
+
+The Reference [Manual](http://www.lua.org/manual/5.4/manual.html)
 
 ```hx
 package;
