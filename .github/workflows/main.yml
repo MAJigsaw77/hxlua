@@ -31,7 +31,7 @@ jobs:
       - name: Compiling 
         run: |
           haxelib --quiet git hxlua https://github.com/MAJigsaw77/hxlua.git
-          haxe -cp ./test -D analyzer-optimize --library hxlua --library hxcpp-debug-server -main Main --cpp bin
+          haxe -cp ./test -D analyzer-optimize --library hxlua -main Main --cpp bin
   MacOS:
     runs-on: macos-latest
 
@@ -49,7 +49,7 @@ jobs:
       - name: Compiling 
         run: |
           haxelib --quiet git hxlua https://github.com/MAJigsaw77/hxlua.git
-          haxe -cp ./test -D analyzer-optimize --library hxlua --library hxcpp-debug-server -main Main --cpp bin
+          haxe -cp ./test -D analyzer-optimize --library hxlua -main Main --cpp bin
   Windows:
     runs-on: windows-latest
 
@@ -67,4 +67,4 @@ jobs:
       - name: Compiling 
         run: |
           haxelib --quiet git hxlua https://github.com/MAJigsaw77/hxlua.git
-          haxe -cp ./test -D analyzer-optimize --library hxlua --library hxcpp-debug-server -main Main --cpp bin
+          haxe -cp ./test -D analyzer-optimize --library hxlua -main Main --cpp bin
