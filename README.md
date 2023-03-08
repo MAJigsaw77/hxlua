@@ -6,11 +6,15 @@ Haxe/hxcpp @:native bindings for [Lua](http://www.lua.org/)
 
 ### Installation
 
-For now `hxlua` is available only on GitHub, so you have to simply type
-
+You can install it through `Haxelib`
+```bash
+haxelib install hxlua
+```
+Or through `Git`, if you want the latest updates
 ```bash
 haxelib git hxlua https://github.com/MAJigsaw77/hxlua.git
 ```
+
 
 ### Basic Usage Example
 
