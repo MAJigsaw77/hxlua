@@ -33,14 +33,6 @@
 		<file name="${haxelib:hxlua}/project/lua/src/lutf8lib.c" />
 		<file name="${haxelib:hxlua}/project/lua/src/lvm.c" />
 		<file name="${haxelib:hxlua}/project/lua/src/lzio.c" />
-	</files>
-
-	<files id="haxe">
-		<compilervalue name="-I" value="${haxelib:hxlua}/project/lua/src/" />
-	</files>
-
-	<target id="haxe">
-		<files id="lua" />
 
 		<section if="windows">
 			<compilerflag value="-DLUA_USE_WINDOWS" />
@@ -73,5 +65,13 @@
 			<compilerflag value="-DLUA_ANSI" />
 			<compilerflag value="-DLUA_USE_APICHECK" />
 		</section>
+	</files>
+
+	<files id="haxe">
+		<compilervalue name="-I" value="${haxelib:hxlua}/project/lua/src/" />
+	</files>
+
+	<target id="haxe">
+		<files id="lua" />
 	</target>
 </xml>
