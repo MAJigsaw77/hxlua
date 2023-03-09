@@ -35,6 +35,7 @@
 		<file name="${haxelib:hxlua}/project/lua/src/lzio.c" />
 
 		<section if="windows">
+			<!-- LUA_USE_WINDOWS will already get defined if you build on windows... -->
 			<compilerflag value="-DLUA_USE_READLINE" />
 			<compilerflag value="-DLUA_USE_APICHECK" />
 
@@ -61,7 +62,8 @@
 
 		<!-- Lua 5.4.5 will have iOS build issues fixed but until then, isn't working -->
 		<section if="android || ios">
-			<compilerflag value="-DLUA_ANSI" />
+			<compilerflag value="-DLUA_USE_POSIX" />
+			<compilerflag value="-DLUA_USE_DLOPEN" />
 			<compilerflag value="-DLUA_USE_APICHECK" />
 		</section>
 	</files>
