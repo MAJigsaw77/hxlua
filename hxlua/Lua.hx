@@ -542,7 +542,7 @@ extern class Lua
 	@:native('lua_pushcfunction')
 	static function pushcfunction(L:cpp.RawPointer<Lua_State>, fn:Lua_CFunction):Void;
 
-	@:native('isfunction')
+	@:native('lua_isfunction')
 	static function isfunction(L:cpp.RawPointer<Lua_State>, n:Int):Int;
 
 	@:native('lua_istable')
