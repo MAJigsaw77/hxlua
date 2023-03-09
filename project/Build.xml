@@ -35,7 +35,6 @@
 		<file name="${haxelib:hxlua}/project/lua/src/lzio.c" />
 
 		<section if="windows">
-			<compilerflag value="-DLUA_USE_WINDOWS" />
 			<compilerflag value="-DLUA_USE_READLINE" />
 			<compilerflag value="-DLUA_USE_APICHECK" />
 
