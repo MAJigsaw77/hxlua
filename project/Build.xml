@@ -35,7 +35,7 @@
 		<file name="${haxelib:hxlua}/project/lua/src/lzio.c" />
 
 		<section if="windows">
-			<!-- Windows doesn't need any defines -->
+			<!-- Windows doesn't need any compiler flags -->
 		</section>
 
 		<section if="linux || android">
