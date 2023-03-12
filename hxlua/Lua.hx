@@ -670,4 +670,7 @@ extern class Lua
 
 	@:native('lua_setcstacklimit')
 	static function setcstacklimit(L:cpp.RawPointer<Lua_State>, limit:UInt):Int;
+
+	@:native('::String(LUA_FILEHANDLE)')
+	static var FILEHANDLE:String;
 }
