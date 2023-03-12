@@ -33,8 +33,13 @@ extern class Lua_Debug
 	var srclen:cpp.SizeT; /* (S) */
 	var currentline:Int; /* (l) */
 	var linedefined:Int; /* (S) */
-	var isvararg:cpp.Char; /* (S) */
-	var istailcall:cpp.Char; /* (S) */
+	var nups:cpp.UInt8; /* (u) number of upvalues */
+	var nparams:cpp.UInt8; /* (u) number of parameters */
+	var isvararg:cpp.Char; /* (u) */
+	var istailcall:cpp.Char; /* (t) */
+	var ftransfer:cpp.UInt16; /* (r) index of first value transferred */
+	var ntransfer:cpp.UInt16; /* (r) number of transferred values */
+	var short_src:Array<cpp.Char>; /* (S) max size is LUA_IDSIZE */
 }
 
 @:include("lua.hpp")
