@@ -230,6 +230,9 @@ extern class Lua
 	@:native('lua_rawlen')
 	static function rawlen(L:cpp.RawPointer<Lua_State>, idx:Int):UInt;
 
+	@:native('lua_tocfunction')
+	static function tocfunction(L:cpp.RawPointer<Lua_State>, idx:Int):Lua_CFunction;
+
 	@:native('lua_touserdata')
 	static function touserdata(L:cpp.RawPointer<Lua_State>, idx:Int):cpp.Pointer<cpp.Void>;
 
