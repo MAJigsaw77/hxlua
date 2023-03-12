@@ -489,7 +489,7 @@ extern class Lua
 	static var GCINC:Int;
 
 	@:native('lua_gc')
-	static function gc(L:cpp.RawPointer<Lua_State>, what:Int, args:cpp.VirtualArray):Int;
+	static function gc(L:cpp.RawPointer<Lua_State>, what:Int, ...argp:Dynamic):Int;
 
 	/*
 	 * miscellaneous functions
