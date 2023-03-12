@@ -47,9 +47,6 @@
 
 		<section if="macos">
 			<compilerflag value="-DLUA_USE_MACOSX" />
-			<compilerflag value="-DLUA_USE_READLINE" />
-
-			<flag value="-lreadline" />
 		</section>
 
 		<!-- Lua 5.4.5 will have iOS build issues fixed but until then, isn't working -->
