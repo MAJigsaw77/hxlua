@@ -326,7 +326,7 @@ extern class Lua
 	@:native('lua_pushvfstring')
 	static function pushvfstring(L:cpp.RawPointer<Lua_State>, s:String, argp:cpp.VirtualArray):Void;
 
-	static inline function pushfstring(L:cpp.RawPointer<Lua_State>, fmt:String, ...args:cpp.VarArg):String
+	static inline function pushfstring(L:cpp.RawPointer<Lua_State>, fmt:String, args:cpp.Rest<cpp.VarArg>):String
 		return untyped __cpp__('::String(lua_pushfstring({0}, {1}, {2}))', L, fmt, args);
 
 	@:native('lua_pushcclosure')
@@ -492,7 +492,7 @@ extern class Lua
 	static var GCINC:Int;
 
 	@:native('lua_gc')
-	static function gc(L:cpp.RawPointer<Lua_State>, what:Int, ...argp:cpp.VarArg):Int;
+	static function gc(L:cpp.RawPointer<Lua_State>, what:Int, args:cpp.Rest<cpp.VarArg>):Int;
 
 	/*
 	 * miscellaneous functions
