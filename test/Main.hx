@@ -41,7 +41,7 @@ class Main
 		var count:Int = Lua.gc(vm, Lua.GCCOUNT, [0]); // rest args are in the array...
 		trace('Lua GC Memory: $count KB');
 
-		// close the state after pcall
+		// close the state
 		Lua.close(vm);
 		vm = null;
 	}
