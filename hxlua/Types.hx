@@ -1,7 +1,7 @@
 package hxlua;
 
 #if (!cpp && macro)
-#error 'Lua supports only C++ target platforms.'
+#error "Lua supports only C++ target platforms."
 #end
 
 class Types {} // blank
@@ -22,13 +22,13 @@ extern class Lua_KContext {}
 @:native("lua_Debug")
 extern class Lua_Debug
 {
-	@:native('Lua_Debug')
+	@:native("Lua_Debug")
 	static function create():Lua_Debug;
 
 	var event:Int;
 	var name:String; /* (n) */
-	var namewhat:String; /* (n) 'global', 'local', 'field', 'method' */
-	var what:String; /* (S) 'Lua', 'C', 'main', 'tail' */
+	var namewhat:String; /* (n) "global", "local", "field", "method" */
+	var what:String; /* (S) "Lua", "C", "main", "tail" */
 	var source:String; /* (S) */
 	var srclen:cpp.SizeT; /* (S) */
 	var currentline:Int; /* (l) */
@@ -48,7 +48,7 @@ extern class Lua_Debug
 @:native("luaL_Buffer")
 extern class LuaL_Buffer
 {
-	@:native('LuaL_Buffer')
+	@:native("LuaL_Buffer")
 	static function create():LuaL_Buffer;
 
 	var b:String;
@@ -63,7 +63,7 @@ extern class LuaL_Buffer
 @:native("luaL_Reg")
 extern class LuaL_Reg
 {
-	@:native('LuaL_Reg')
+	@:native("LuaL_Reg")
 	static function create():LuaL_Reg;
 
 	var name:String;
@@ -76,7 +76,7 @@ extern class LuaL_Reg
 @:native("luaL_Stream")
 extern class LuaL_Stream
 {
-	@:native('LuaL_Stream')
+	@:native("LuaL_Stream")
 	static function create():LuaL_Stream;
 
 	var f:cpp.Pointer<cpp.FILE>; /* stream (NULL for incompletely created streams) */

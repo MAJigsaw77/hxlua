@@ -1,7 +1,7 @@
 package hxlua;
 
 #if (!cpp && macro)
-#error 'Lua supports only C++ target platforms.'
+#error "Lua supports only C++ target platforms."
 #end
 import hxlua.Types;
 
@@ -10,33 +10,33 @@ import hxlua.Types;
 @:unreflective
 extern class LuaOpen
 {
-	@:native('luaopen_base')
+	@:native("luaopen_base")
 	static function base(L:cpp.RawPointer<Lua_State>):Int;
 
-	@:native('luaopen_coroutine')
+	@:native("luaopen_coroutine")
 	static function coroutine(L:cpp.RawPointer<Lua_State>):Int;
 
-	@:native('luaopen_table')
+	@:native("luaopen_table")
 	static function table(L:cpp.RawPointer<Lua_State>):Int;
 
-	@:native('luaopen_io')
+	@:native("luaopen_io")
 	static function io(L:cpp.RawPointer<Lua_State>):Int;
 
-	@:native('luaopen_os')
+	@:native("luaopen_os")
 	static function os(L:cpp.RawPointer<Lua_State>):Int;
 
-	@:native('luaopen_string')
+	@:native("luaopen_string")
 	static function string(L:cpp.RawPointer<Lua_State>):Int;
 
-	@:native('luaopen_utf8')
+	@:native("luaopen_utf8")
 	static function utf8(L:cpp.RawPointer<Lua_State>):Int;
 
-	@:native('luaopen_math')
+	@:native("luaopen_math")
 	static function math(L:cpp.RawPointer<Lua_State>):Int;
 
-	@:native('luaopen_debug')
+	@:native("luaopen_debug")
 	static function debug(L:cpp.Pointer<Lua_State>):Int;
 
-	@:native('luaopen_package')
+	@:native("luaopen_package")
 	static function lpackage(L:cpp.RawPointer<Lua_State>):Int;
 }
