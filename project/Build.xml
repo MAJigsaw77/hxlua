@@ -50,7 +50,7 @@
 		</section>
 
 		<!-- Lua 5.4.5 will have iOS build issues fixed but until then, isn't working -->
-		<section if="ios">
+		<section if="iphoneos || iphonesim">
 			<compilerflag value="-DLUA_USE_POSIX" />
 			<compilerflag value="-DLUA_USE_DLOPEN" />
 		</section>
