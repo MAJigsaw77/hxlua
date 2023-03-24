@@ -8,12 +8,6 @@ class Main
 {
 	public static function main():Void
 	{
-		// some informations
-
-		trace(Lua.RELEASE);
-		trace(Lua.COPYRIGHT);
-		trace(Lua.AUTHORS);
-
 		// create the new state
 		var vm:cpp.RawPointer<Lua_State> = LuaL.newstate();
 
@@ -38,8 +32,8 @@ class Main
 		Lua.pcall(vm, 3, 0, 1);
 
 		// getting the gc memory count after the call
-		var count:Int = Lua.gc(vm, Lua.GCCOUNTB, [0]); // rest args are in the array...
-		trace('Lua GC Memory: $count B');
+		var count:Int = Lua.gc(vm, Lua.GCCOUNT, [0]); // rest args are in the array...
+		trace('Lua GC Memory: $count KB');
 
 		// close the state
 		Lua.close(vm);
