@@ -41,8 +41,8 @@
 		<section if="linux || android">
 			<compilerflag value="-DLUA_USE_LINUX" />
 
-			<flag value="-Wl,-E" />
-			<flag value="-ldl" />
+			<compilerflag value="-Wl,-E" />
+			<compilerflag value="-ldl" />
 		</section>
 
 		<section if="macos">
