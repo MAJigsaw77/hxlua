@@ -21,7 +21,7 @@ extern class Lua_State
 extern class Lua_KContext
 {
 	@:native("lua_KContext")
-	static function create():lua_KContext;
+	static function create():Lua_KContext;
 }
 
 @:include("lua.hpp")
