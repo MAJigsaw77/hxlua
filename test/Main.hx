@@ -3,14 +3,11 @@ package;
 import hxlua.Lua;
 import hxlua.LuaL;
 import hxlua.Types;
-import sys.io.File;
 
 class Main
 {
   public static function main():Void
   {
-    sys.io.File.copy('../script.lua', 'script.lua');
-
     // create the new state
     var vm:cpp.RawPointer<Lua_State> = LuaL.newstate();
 
