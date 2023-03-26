@@ -57,7 +57,7 @@
 	</files>
 
 	<files id="haxe">
-		<compilervalue value="-I${haxelib:hxlua}/project/lua/src/" />
+		<compilervalue name="-I" value="${haxelib:hxlua}/project/lua/src/" />
 	</files>
 
 	<target id="haxe">
