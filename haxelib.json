@@ -8,8 +8,8 @@
 		"haxe"
 	],
 	"description":"Haxe/hxcpp @:native bindings for Lua.",
-	"version":"1.2.0",
-	"releasenote":"Fixed functions that have Rest Arguments and some small bugs fixes.",
+	"version":"1.2.1",
+	"releasenote":"Fixed Linux compile flags.",
 	"contributors":[
 		"MAJigsaw77"
 	],
