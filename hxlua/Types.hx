@@ -9,12 +9,20 @@ class Types {} // blank
 @:include("lua.hpp")
 @:keep
 @:native("lua_State")
-extern class Lua_State {}
+extern class Lua_State
+{
+	@:native("lua_State")
+	static function create():Lua_State;
+}
 
 @:include("lua.hpp")
 @:keep
 @:native("lua_KContext")
-extern class Lua_KContext {}
+extern class Lua_KContext
+{
+	@:native("lua_KContext")
+	static function create():lua_KContext;
+}
 
 @:include("lua.hpp")
 @:keep
@@ -22,7 +30,7 @@ extern class Lua_KContext {}
 @:native("lua_Debug")
 extern class Lua_Debug
 {
-	@:native("Lua_Debug")
+	@:native("lua_Debug")
 	static function create():Lua_Debug;
 
 	var event:Int;
@@ -48,7 +56,7 @@ extern class Lua_Debug
 @:native("luaL_Buffer")
 extern class LuaL_Buffer
 {
-	@:native("LuaL_Buffer")
+	@:native("luaL_Buffer")
 	static function create():LuaL_Buffer;
 
 	var b:String;
@@ -63,7 +71,7 @@ extern class LuaL_Buffer
 @:native("luaL_Reg")
 extern class LuaL_Reg
 {
-	@:native("LuaL_Reg")
+	@:native("luaL_Reg")
 	static function create():LuaL_Reg;
 
 	var name:String;
@@ -76,7 +84,7 @@ extern class LuaL_Reg
 @:native("luaL_Stream")
 extern class LuaL_Stream
 {
-	@:native("LuaL_Stream")
+	@:native("luaL_Stream")
 	static function create():LuaL_Stream;
 
 	var f:cpp.Pointer<cpp.FILE>; /* stream (NULL for incompletely created streams) */
