@@ -10,22 +10,6 @@ import hxlua.Types;
 @:unreflective
 extern class LuaL
 {
-	/* global table */
-	@:native("::String(LUA_GNAME)")
-	static var GNAME:String;
-
-	/* extra error code for "luaL_loadfilex" */
-	@:native("LUA_ERRFILE")
-	static var ERRFILE:Int;
-
-	/* key, in the registry, for table of loaded modules */
-	@:native("::String(LUA_LOADED_TABLE)")
-	static var LOADED_TABLE:String;
-
-	/* key, in the registry, for table of preloaded modules */
-	@:native("::String(LUA_PRELOAD_TABLE)")
-	static var PRELOAD_TABLE:String;
-
 	@:native("LUAL_NUMSIZES")
 	static var NUMSIZES:Int;
 
