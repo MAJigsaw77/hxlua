@@ -110,6 +110,22 @@ extern class Lua
 	@:native("LUA_RIDX_LAST")
 	static var RIDX_LAST:Int;
 
+	/* global table */
+	@:native("::String(LUA_GNAME)")
+	static var GNAME:String;
+
+	/* extra error code for "luaL_loadfilex" */
+	@:native("LUA_ERRFILE")
+	static var ERRFILE:Int;
+
+	/* key, in the registry, for table of loaded modules */
+	@:native("::String(LUA_LOADED_TABLE)")
+	static var LOADED_TABLE:String;
+
+	/* key, in the registry, for table of preloaded modules */
+	@:native("::String(LUA_PRELOAD_TABLE)")
+	static var PRELOAD_TABLE:String;
+
 	@:native("::String(LUA_VERSUFFIX)")
 	static var VERSUFFIX:String;
 
