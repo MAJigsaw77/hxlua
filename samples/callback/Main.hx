@@ -33,14 +33,14 @@ class Main
     /* loop through each argument */
     for (i in 0...n)
     {
-        if (Lua.isnumber(l, i) != 1)
-        {
+      if (Lua.isnumber(l, i) != 1)
+      {
             Lua.pushstring(l, "Incorrect argument to 'average'");
             Lua.error(l);
-        }
+      }
 
-	/* total the arguments */
-	sum += Lua.tonumber(l, i);
+      /* total the arguments */
+      sum += Lua.tonumber(l, i);
     }
 
     /* clear the stack */
