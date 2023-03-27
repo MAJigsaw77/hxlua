@@ -23,7 +23,7 @@ class Main
     Lua.setglobal(vm, "cherry");
 
     /* run the script */
-    LuaL.dofile(vm, Sys.getCwd() + "../script.lua");
+    LuaL.dofile(vm, "script.lua");
 
     /* cleanup Lua */
     Lua.close(vm);
