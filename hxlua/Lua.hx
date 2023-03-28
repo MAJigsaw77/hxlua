@@ -244,7 +244,7 @@ extern class Lua
 		return untyped __cpp__("::String(lua_tolstring({0}, {1}, {2}))", L, idx, len);
 
 	@:native("lua_rawlen")
-	static function rawlen(L:cpp.RawPointer<Lua_State>, idx:Int):UInt;
+	static function rawlen(L:cpp.RawPointer<Lua_State>, idx:Int):Lua_Unsigned;
 
 	@:native("lua_tocfunction")
 	static function tocfunction(L:cpp.RawPointer<Lua_State>, idx:Int):Lua_CFunction;
@@ -691,7 +691,7 @@ extern class Lua
 	static function gethookcount(L:cpp.RawPointer<Lua_State>):Int;
 
 	@:native("lua_setcstacklimit")
-	static function setcstacklimit(L:cpp.RawPointer<Lua_State>, limit:UInt):Int;
+	static function setcstacklimit(L:cpp.RawPointer<Lua_State>, limit:cpp.UInt32):Int;
 
 	@:native("::String(LUA_FILEHANDLE)")
 	static var FILEHANDLE:String;
