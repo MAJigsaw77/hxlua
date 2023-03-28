@@ -21,8 +21,8 @@ Check out the [Samples Folder](samples/) for examples on how to use this library
 
 ### Licensing
 
-hxlua is made available under the MIT License. Check [LICENSE](./LICENSE) for more information.
+**hxlua** is made available under the MIT License. Check [LICENSE](./LICENSE) for more information.
 
 ![](https://raw.githubusercontent.com/MAJigsaw77/hxlua/main/lua-logo.png)
 
-Lua is made available under the MIT License. Check [Lua.org](https://www.lua.org/license.html) for more information.
+**Lua** is made available under the MIT License. Check [Lua.org](https://www.lua.org/license.html) for more information.
