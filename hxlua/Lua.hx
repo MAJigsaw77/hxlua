@@ -175,7 +175,7 @@ extern class Lua
 	static function atpanic(L:cpp.RawPointer<Lua_State>, panicf:Lua_CFunction):Lua_CFunction;
 
 	@:native("lua_version")
-	static function version(L:cpp.RawPointer<Lua_State>):Float;
+	static function version(L:cpp.RawPointer<Lua_State>):Lua_Number;
 
 	/*
 	 * basic stack manipulation
