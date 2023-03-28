@@ -44,16 +44,16 @@ extern class LuaL
 	}
 
 	@:native("luaL_checknumber")
-	static function checknumber(L:cpp.RawPointer<Lua_State>, arg:Int):Lua_Number;
+	static function checknumber(L:cpp.RawPointer<Lua_State>, arg:Int):Float;
 
 	@:native("luaL_optnumber")
-	static function optnumber(L:cpp.RawPointer<Lua_State>, arg:Int, def:Lua_Number):Lua_Number;
+	static function optnumber(L:cpp.RawPointer<Lua_State>, arg:Int, def:Float):Float;
 
 	@:native("luaL_checkinteger")
-	static function checkinteger(L:cpp.RawPointer<Lua_State>, arg:Int):Lua_Integer;
+	static function checkinteger(L:cpp.RawPointer<Lua_State>, arg:Int):Int;
 
 	@:native("luaL_optinteger")
-	static function optinteger(L:cpp.RawPointer<Lua_State>, arg:Int, def:Lua_Integer):Lua_Integer;
+	static function optinteger(L:cpp.RawPointer<Lua_State>, arg:Int, def:Int):Int;
 
 	@:native("luaL_checkstack")
 	static function checkstack(L:cpp.RawPointer<Lua_State>, sz:Int, msg:String):Void;
@@ -243,4 +243,4 @@ extern class LuaL
 	/* open all previous libraries */
 	@:native("luaL_openlibs")
 	static function openlibs(L:cpp.RawPointer<Lua_State>):Int;
-}
+} 
