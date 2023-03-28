@@ -6,10 +6,6 @@ package hxlua;
 
 class Types {} // blank
 
-typedef Lua_Integer = cpp.Int64;
-typedef Lua_Unsigned = cpp.UInt64;
-typedef Lua_Number = Float;
-
 @:include("lua.hpp")
 @:keep
 @:native("lua_State")
@@ -94,6 +90,15 @@ extern class LuaL_Stream
 	var f:cpp.Pointer<cpp.FILE>; /* stream (NULL for incompletely created streams) */
 	var closef:Lua_CFunction; /* to close stream (NULL for closed streams) */
 }
+
+/* type for integer functions */
+typedef Lua_Integer = cpp.Int64;
+
+/* unsigned integer type */
+typedef Lua_Unsigned = cpp.UInt64;
+
+/* type of numbers in Lua */
+typedef Lua_Number = Float;
 
 /*
  * Type for debugging hook functions.
