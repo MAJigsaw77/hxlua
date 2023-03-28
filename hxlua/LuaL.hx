@@ -80,7 +80,7 @@ extern class LuaL
 	static function where(L:cpp.RawPointer<Lua_State>, lvl:Int):Void;
 
 	@:native("luaL_error")
-	static function error(L:cpp.RawPointer<Lua_State>, fmt:String, ...args:Dynamic):Int;
+	static function error(L:cpp.RawPointer<Lua_State>, fmt:String, args:cpp.Rest<cpp.VarArg>):Int;
 
 	@:native("luaL_checkoption")
 	static function checkoption(L:cpp.RawPointer<Lua_State>, arg:Int, def:String, last:Array<String>):Int;
