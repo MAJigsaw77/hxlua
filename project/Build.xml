@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml>
+	<files id="haxe">
+		<compilervalue name="-I" value="${haxelib:hxlua}/project/lua/src/" />
+	</files>
+
+	<files id="__main__">
+		<compilervalue name="-I" value="${haxelib:hxlua}/project/lua/src/" />
+	</files>
+
 	<files id="lua">
 		<file name="${haxelib:hxlua}/project/lua/src/lapi.c" />
 		<file name="${haxelib:hxlua}/project/lua/src/lauxlib.c" />
@@ -54,14 +62,6 @@
 			<compilerflag value="-DLUA_USE_POSIX" />
 			<compilerflag value="-DLUA_USE_DLOPEN" />
 		</section>
-	</files>
-
-	<files id="haxe">
-		<compilervalue name="-I" value="${haxelib:hxlua}/project/lua/src/" />
-	</files>
-
-	<files id="__main__">
-		<compilervalue name="-I" value="${haxelib:hxlua}/project/lua/src/" />
 	</files>
 
 	<target id="haxe">
