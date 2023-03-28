@@ -243,4 +243,4 @@ extern class LuaL
 	/* open all previous libraries */
 	@:native("luaL_openlibs")
 	static function openlibs(L:cpp.RawPointer<Lua_State>):Int;
-} 
+}
