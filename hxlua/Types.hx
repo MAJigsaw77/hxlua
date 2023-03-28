@@ -7,8 +7,8 @@ package hxlua;
 class Types {} // blank
 
 typedef Lua_Integer = cpp.Int64;
-typedef Lua_Number = Float;
 typedef Lua_Unsigned = cpp.UInt64;
+typedef Lua_Number = Float;
 
 @:include("lua.hpp")
 @:keep
