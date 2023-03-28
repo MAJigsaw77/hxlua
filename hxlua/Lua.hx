@@ -175,7 +175,7 @@ extern class Lua
 	static function atpanic(L:cpp.RawPointer<Lua_State>, panicf:Lua_CFunction):Lua_CFunction;
 
 	@:native("lua_version")
-	static function version(L:cpp.RawPointer<Lua_State>):Lua_Number;
+	static function version(L:cpp.RawPointer<Lua_State>):Float;
 
 	/*
 	 * basic stack manipulation
@@ -234,10 +234,10 @@ extern class Lua
 	 * access functions (stack -> C)
 	 */
 	@:native("lua_tonumberx")
-	static function tonumberx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.Star<Int>):Lua_Number;
+	static function tonumberx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.Star<Int>):Float;
 
 	@:native("lua_tointegerx")
-	static function tointegerx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.Star<Int>):Lua_Integer;
+	static function tointegerx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.Star<Int>):Int;
 
 	@:native("lua_toboolean")
 	static function toboolean(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
@@ -332,10 +332,10 @@ extern class Lua
 	static function pushnil(L:cpp.RawPointer<Lua_State>):Void;
 
 	@:native("lua_pushnumber")
-	static function pushnumber(L:cpp.RawPointer<Lua_State>, n:Lua_Number):Void;
+	static function pushnumber(L:cpp.RawPointer<Lua_State>, n:Float):Void;
 
 	@:native("lua_pushinteger")
-	static function pushinteger(L:cpp.RawPointer<Lua_State>, n:Lua_Integer):Void;
+	static function pushinteger(L:cpp.RawPointer<Lua_State>, n:Int):Void;
 
 	@:native("lua_pushlstring")
 	static function pushlstring(L:cpp.RawPointer<Lua_State>, s:String, len:cpp.SizeT):Void;
@@ -376,13 +376,13 @@ extern class Lua
 	static function getfield(L:cpp.RawPointer<Lua_State>, idx:Int, k:String):Int;
 
 	@:native("lua_geti")
-	static function geti(L:cpp.RawPointer<Lua_State>, idx:Int, n:Lua_Integer):Int;
+	static function geti(L:cpp.RawPointer<Lua_State>, idx:Int, n:Int):Int;
 
 	@:native("lua_rawget")
 	static function rawget(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
 	@:native("lua_rawgeti")
-	static function rawgeti(L:cpp.RawPointer<Lua_State>, idx:Int, n:Lua_Integer):Int;
+	static function rawgeti(L:cpp.RawPointer<Lua_State>, idx:Int, n:Int):Int;
 
 	@:native("lua_rawgetp")
 	static function rawgetp(L:cpp.RawPointer<Lua_State>, idx:Int, p:cpp.ConstPointer<cpp.Void>):Int;
@@ -553,10 +553,10 @@ extern class Lua
 	static function getextraspace(L:cpp.RawPointer<Lua_State>):cpp.Pointer<cpp.Void>;
 
 	@:native("lua_tonumber")
-	static function tonumber(L:cpp.RawPointer<Lua_State>, idx:Int):Lua_Number;
+	static function tonumber(L:cpp.RawPointer<Lua_State>, idx:Int):Float;
 
 	@:native("lua_tointeger")
-	static function tointeger(L:cpp.RawPointer<Lua_State>, idx:Int):Lua_Integer;
+	static function tointeger(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
 	@:native("lua_pop")
 	static function pop(L:cpp.RawPointer<Lua_State>, n:Int):Void;
