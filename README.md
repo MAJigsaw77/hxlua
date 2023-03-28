@@ -6,7 +6,7 @@ Haxe/hxcpp @:native bindings for [Lua](http://www.lua.org/)
 
 ### Installation
 
-You can install it through `Haxelib`
+You can install it through `haxelib`
 ```bash
 haxelib install hxlua
 ```
@@ -22,5 +22,7 @@ Check out the [Samples Folder](samples/) for examples on how to use this library
 ### Licensing
 
 hxlua is made available under the MIT License. Check [LICENSE](./LICENSE) for more information.
+
+![](https://raw.githubusercontent.com/MAJigsaw77/hxlua/main/lua-logo.png)
 
 Lua is made available under the MIT License. Check [Lua.org](https://www.lua.org/license.html) for more information.
