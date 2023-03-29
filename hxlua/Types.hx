@@ -19,9 +19,12 @@ extern class Lua_KContext {}
 @:include("lua.hpp")
 @:keep
 @:structAccess
-@:native("::cpp::Struct<lua_Debug>")
+@:native("lua_Debug")
 extern class Lua_Debug
 {
+	@:native("lua_Debug")
+	static function create():Lua_Debug;
+
 	var event:Int;
 	var name:String; /* (n) */
 	var namewhat:String; /* (n) "global", "local", "field", "method" */
@@ -42,9 +45,12 @@ extern class Lua_Debug
 @:include("lua.hpp")
 @:keep
 @:structAccess
-@:native("::cpp::Struct<luaL_Buffer>")
+@:native("luaL_Buffer")
 extern class LuaL_Buffer
 {
+	@:native("luaL_Buffer")
+	static function create():LuaL_Buffer;
+
 	var b:String;
 	var size:cpp.SizeT;
 	var n:cpp.SizeT;
@@ -54,9 +60,12 @@ extern class LuaL_Buffer
 @:include("lua.hpp")
 @:keep
 @:structAccess
-@:native("::cpp::Struct<luaL_Reg>")
+@:native("luaL_Reg")
 extern class LuaL_Reg
 {
+	@:native("luaL_Reg")
+	static function create():LuaL_Reg;
+
 	var name:String;
 	var func:Lua_CFunction;
 }
@@ -64,9 +73,12 @@ extern class LuaL_Reg
 @:include("lua.hpp")
 @:keep
 @:structAccess
-@:native("::cpp::Struct<luaL_Stream>")
+@:native("luaL_Stream")
 extern class LuaL_Stream
 {
+	@:native("luaL_Stream")
+	static function create():LuaL_Stream;
+
 	var f:cpp.Pointer<cpp.FILE>; /* stream (NULL for incompletely created streams) */
 	var closef:Lua_CFunction; /* to close stream (NULL for closed streams) */
 }
