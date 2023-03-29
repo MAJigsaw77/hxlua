@@ -30,7 +30,7 @@ class Main
     var n:Int = Lua.gettop(l);
 
     /* loop through each argument */
-    for (i in 0...n)
+    for (i in 1...n + 1)
       Sys.println(Lua.tolstring(l, i, null));
 
     /* clear the stack */
