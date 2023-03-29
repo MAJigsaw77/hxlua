@@ -31,7 +31,7 @@ class Main
     var sum:Float = 0;
 
     /* loop through each argument */
-    for (i in 0...n)
+    for (i in 1...n + 1)
     {
       if (Lua.isnumber(l, i) != 1)
       {
