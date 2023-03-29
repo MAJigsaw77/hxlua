@@ -9,30 +9,19 @@ class Types {} // blank
 @:include("lua.hpp")
 @:keep
 @:native("lua_State")
-extern class Lua_State
-{
-	@:native("lua_State")
-	static function create():Lua_State;
-}
+extern class Lua_State {}
 
 @:include("lua.hpp")
 @:keep
 @:native("lua_KContext")
-extern class Lua_KContext
-{
-	@:native("lua_KContext")
-	static function create():Lua_KContext;
-}
+extern class Lua_KContext {}
 
 @:include("lua.hpp")
 @:keep
 @:structAccess
-@:native("lua_Debug")
+@:native("::cpp::Struct<lua_Debug>")
 extern class Lua_Debug
 {
-	@:native("lua_Debug")
-	static function create():Lua_Debug;
-
 	var event:Int;
 	var name:String; /* (n) */
 	var namewhat:String; /* (n) "global", "local", "field", "method" */
@@ -53,12 +42,9 @@ extern class Lua_Debug
 @:include("lua.hpp")
 @:keep
 @:structAccess
-@:native("luaL_Buffer")
+@:native("::cpp::Struct<luaL_Buffer>")
 extern class LuaL_Buffer
 {
-	@:native("luaL_Buffer")
-	static function create():LuaL_Buffer;
-
 	var b:String;
 	var size:cpp.SizeT;
 	var n:cpp.SizeT;
@@ -68,12 +54,9 @@ extern class LuaL_Buffer
 @:include("lua.hpp")
 @:keep
 @:structAccess
-@:native("luaL_Reg")
+@:native("::cpp::Struct<luaL_Reg>")
 extern class LuaL_Reg
 {
-	@:native("luaL_Reg")
-	static function create():LuaL_Reg;
-
 	var name:String;
 	var func:Lua_CFunction;
 }
@@ -81,12 +64,9 @@ extern class LuaL_Reg
 @:include("lua.hpp")
 @:keep
 @:structAccess
-@:native("luaL_Stream")
+@:native("::cpp::Struct<luaL_Stream>")
 extern class LuaL_Stream
 {
-	@:native("luaL_Stream")
-	static function create():LuaL_Stream;
-
 	var f:cpp.Pointer<cpp.FILE>; /* stream (NULL for incompletely created streams) */
 	var closef:Lua_CFunction; /* to close stream (NULL for closed streams) */
 }
