@@ -17,8 +17,11 @@ class Main
     /* run the script */
     LuaL.dofile(vm, "script.lua");
 
-    trace(Lua.gettop(vm));
-    trace(Lua.tointeger(vm, 1));
+    var stack:Int = Lua.gettop(vm);
+    trace('stack: $stack');
+
+    var num:Int = Lua.tointeger(vm, 1);
+    trace('num: $num');
 
     /* cleanup Lua */
     Lua.close(vm);
