@@ -38,6 +38,11 @@ extern class Lua
 	@:native("::String(LUA_AUTHORS)")
 	static var AUTHORS:String;
 
+	/* mark for precompiled code ('<esc>Lua') */
+	@:native("::String(LUA_SIGNATURE)")
+	static var SIGNATURE:String;
+
+	/* option for multiple returns in 'lua_pcall' and 'lua_call' */
 	@:native("LUA_MULTRET")
 	static var MULTRET:Int;
 
