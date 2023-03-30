@@ -31,16 +31,16 @@ class Main
     var sum:Float = 0;
 
     /* loop through each argument */
-    for (i in 1...n + 1)
+    for (i in 0...n)
     {
-      if (Lua.isnumber(l, i) != 1)
+      if (Lua.isnumber(l, i + 1) != 1)
       {
             Lua.pushstring(l, "Incorrect argument to 'average'");
             Lua.error(l);
       }
 
       /* total the arguments */
-      sum += Lua.tonumber(l, i);
+      sum += Lua.tonumber(l, i + 1);
     }
 
     /* clear the stack */
