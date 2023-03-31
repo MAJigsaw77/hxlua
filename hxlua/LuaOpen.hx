@@ -38,5 +38,5 @@ extern class LuaOpen
 	static function debug(L:cpp.Pointer<Lua_State>):Int;
 
 	@:native("luaopen_package")
-	static function lpackage(L:cpp.RawPointer<Lua_State>):Int;
+	static function lpackage(L:cpp.RawPointer<Lua_State>):Int; /* lpackage because haxe can't use `package` as function name \*
 }
