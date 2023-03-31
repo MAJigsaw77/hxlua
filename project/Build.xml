@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml>
+	<pragma once="true" />
+
 	<files id="haxe">
 		<compilervalue name="-I" value="${haxelib:hxlua}/project/lua/src/" />
 	</files>
