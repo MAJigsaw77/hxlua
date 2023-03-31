@@ -79,7 +79,7 @@ extern class LuaL_Stream
 	@:native("luaL_Stream")
 	static function create():LuaL_Stream;
 
-	var f:cpp.Pointer<cpp.FILE>; /* stream (NULL for incompletely created streams) */
+	var f:cpp.FILE; /* stream (NULL for incompletely created streams) */
 	var closef:Lua_CFunction; /* to close stream (NULL for closed streams) */
 }
 
