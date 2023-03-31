@@ -17,13 +17,11 @@ jobs:
           haxelib --quiet install formatter
 
       - name: Formatting
-        run: haxelib run formatter -s ./
+        run: haxelib run formatter -s samples
 
       - name: Upload Artifact
         uses: actions/upload-artifact@main
         with:
           name: Formatted-Source
-          path: |
-            ./hxlua
-            ./samples
+          path: samples
           if-no-files-found: error
