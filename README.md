@@ -6,7 +6,7 @@ Haxe/hxcpp @:native bindings for [Lua](http://www.lua.org/)
 
 ### Installation
 
-You can install it through `haxelib`
+You can install it through `Haxelib`
 ```bash
 haxelib install hxlua
 ```
