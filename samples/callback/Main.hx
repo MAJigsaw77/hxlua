@@ -6,53 +6,53 @@ import hxlua.Types;
 
 class Main
 {
-  public static function main():Void
-  {
-    /* initialize Lua */
-    var vm:cpp.RawPointer<Lua_State> = LuaL.newstate();
+	public static function main():Void
+	{
+		/* initialize Lua */
+		var vm:cpp.RawPointer<Lua_State> = LuaL.newstate();
 
-    /* load Lua base libraries */
-    LuaL.openlibs(vm);
+		/* load Lua base libraries */
+		LuaL.openlibs(vm);
 
-    /* register our function */
-    Lua.register(vm, "average", cpp.Function.fromStaticFunction(average));
+		/* register our function */
+		Lua.register(vm, "average", cpp.Function.fromStaticFunction(average));
 
-    /* run the script */
-    LuaL.dofile(vm, "script.lua");
+		/* run the script */
+		LuaL.dofile(vm, "script.lua");
 
-    /* cleanup Lua */
-    Lua.close(vm);
-    vm = null;
-  }
+		/* cleanup Lua */
+		Lua.close(vm);
+		vm = null;
+	}
 
-  private static function average(l:cpp.RawPointer<Lua_State>):Int
-  {
-    var n:Int = Lua.gettop(l);
-    var sum:Float = 0;
+	private static function average(l:cpp.RawPointer<Lua_State>):Int
+	{
+		var n:Int = Lua.gettop(l);
+		var sum:Float = 0;
 
-    /* loop through each argument */
-    for (i in 0...n)
-    {
-      if (Lua.isnumber(l, i + 1) != 1)
-      {
-            Lua.pushstring(l, "Incorrect argument to 'average'");
-            Lua.error(l);
-      }
+		/* loop through each argument */
+		for (i in 0...n)
+		{
+			if (Lua.isnumber(l, i + 1) != 1)
+			{
+				Lua.pushstring(l, "Incorrect argument to 'average'");
+				Lua.error(l);
+			}
 
-      /* total the arguments */
-      sum += Lua.tonumber(l, i + 1);
-    }
+			/* total the arguments */
+			sum += Lua.tonumber(l, i + 1);
+		}
 
-    /* clear the stack */
-    Lua.pop(l, n);
+		/* clear the stack */
+		Lua.pop(l, n);
 
-    /* push the average */
-    Lua.pushnumber(l, sum / n);
+		/* push the average */
+		Lua.pushnumber(l, sum / n);
 
-    /* push the sum */
-    Lua.pushnumber(l, sum);
+		/* push the sum */
+		Lua.pushnumber(l, sum);
 
-    /* return the number of results */
-    return 2;
-  }
+		/* return the number of results */
+		return 2;
+	}
 }

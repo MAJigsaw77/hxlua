@@ -6,35 +6,35 @@ import hxlua.Types;
 
 class Main
 {
-  public static function main():Void
-  {
-    /* initialize Lua */
-    var vm:cpp.RawPointer<Lua_State> = LuaL.newstate();
+	public static function main():Void
+	{
+		/* initialize Lua */
+		var vm:cpp.RawPointer<Lua_State> = LuaL.newstate();
 
-    /* load Lua base libraries */
-    LuaL.openlibs(vm);
+		/* load Lua base libraries */
+		LuaL.openlibs(vm);
 
-    /* register our function */
-    Lua.register(vm, "print", cpp.Function.fromStaticFunction(print));
+		/* register our function */
+		Lua.register(vm, "print", cpp.Function.fromStaticFunction(print));
 
-    /* run the script */
-    LuaL.dofile(vm, "script.lua");
+		/* run the script */
+		LuaL.dofile(vm, "script.lua");
 
-    /* cleanup Lua */
-    Lua.close(vm);
-    vm = null;
-  }
+		/* cleanup Lua */
+		Lua.close(vm);
+		vm = null;
+	}
 
-  private static function print(l:cpp.RawPointer<Lua_State>):Int
-  {
-    var n:Int = Lua.gettop(l);
+	private static function print(l:cpp.RawPointer<Lua_State>):Int
+	{
+		var n:Int = Lua.gettop(l);
 
-    /* loop through each argument */
-    for (i in 0...n)
-      Sys.println(Lua.tolstring(l, i + 1, null));
+		/* loop through each argument */
+		for (i in 0...n)
+			Sys.println(Lua.tolstring(l, i + 1, null));
 
-    /* clear the stack */
-    Lua.pop(l, n);
-    return 0;
-  }
+		/* clear the stack */
+		Lua.pop(l, n);
+		return 0;
+	}
 }
