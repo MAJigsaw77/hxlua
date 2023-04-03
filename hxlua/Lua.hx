@@ -103,9 +103,11 @@ extern class Lua
 	@:native("LUA_NUMTYPES")
 	static var NUMTYPES:Int;
 
+	/* minimum Lua stack available to a C function */
 	@:native("LUA_MINSTACK")
 	static var MINSTACK:Int;
 
+	/* predefined values in the registry */
 	@:native("LUA_RIDX_MAINTHREAD")
 	static var RIDX_MAINTHREAD:Int;
 
