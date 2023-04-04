@@ -33,7 +33,7 @@ jobs:
       - name: Compiling 
         run: |
           haxelib --quiet git hxlua https://github.com/MAJigsaw77/hxlua.git
-          haxe -cp samples/${{matrix.sample}} -D HXCPP_M64 -D analyzer-optimize -lib hxlua -main Main -cpp bin -cmd bin/Main.exe
+          haxe -cp samples/${{matrix.sample}} -D HXCPP_M64 -D analyzer-optimize -lib hxlua -main Main -cpp bin -cmd "bin/Main.exe"
   Linux:
     runs-on: ubuntu-latest
     strategy:
