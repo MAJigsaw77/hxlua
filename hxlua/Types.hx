@@ -6,16 +6,19 @@ package hxlua;
 
 class Types {} // blank
 
+@:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
 @:include("lua.hpp")
 @:keep
 @:native("lua_State")
 extern class Lua_State {}
 
+@:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
 @:include("lua.hpp")
 @:keep
 @:native("lua_KContext")
 extern class Lua_KContext {}
 
+@:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
 @:include("lua.hpp")
 @:keep
 @:structAccess
@@ -42,6 +45,7 @@ extern class Lua_Debug
 	var short_src:Array<cpp.Char>; /* (S) max size is LUA_IDSIZE */
 }
 
+@:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
 @:include("lua.hpp")
 @:keep
 @:structAccess
@@ -57,6 +61,7 @@ extern class LuaL_Buffer
 	var L:cpp.RawPointer<Lua_State>;
 }
 
+@:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
 @:include("lua.hpp")
 @:keep
 @:structAccess
@@ -70,6 +75,7 @@ extern class LuaL_Reg
 	var func:Lua_CFunction;
 }
 
+@:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
 @:include("lua.hpp")
 @:keep
 @:structAccess
