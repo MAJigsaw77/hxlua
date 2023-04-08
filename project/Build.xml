@@ -3,11 +3,11 @@
 	<pragma once="true" />
 
 	<files id="haxe">
-		<file name="${haxelib:hxlua}/project/lua/src/lua.hpp" />
+		<compilerflag value="-I${haxelib:hxlua}/project/lua/src" />
 	</files>
 
 	<files id="__main__">
-		<file name="${haxelib:hxlua}/project/lua/src/lua.hpp" />
+		<compilerflag value="-I${haxelib:hxlua}/project/lua/src" />
 	</files>
 
 	<files id="lua">
