@@ -48,7 +48,7 @@
 			<!-- Windows doesn't need any compiler flags -->
 		</section>
 
-		<section if="linux || android">
+		<section if="linux">
 			<compilerflag value="-DLUA_USE_LINUX" />
 
 			<compilerflag value="-Wl,-E" />
@@ -57,6 +57,11 @@
 
 		<section if="macos">
 			<compilerflag value="-DLUA_USE_MACOSX" />
+		</section>
+
+		<section if="android">
+			<compilerflag value="-DLUA_USE_POSIX" />
+			<compilerflag value="-DLUA_USE_DLOPEN" />
 		</section>
 
 		<!-- Lua 5.4.5 will have iOS build issues fixed but until then, isn't working -->
