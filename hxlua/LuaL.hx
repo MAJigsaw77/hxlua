@@ -18,31 +18,25 @@ extern class LuaL
 	static function checkversion(L:cpp.RawPointer<Lua_State>):Void;
 
 	@:native("luaL_getmetafield")
-	static function getmetafield(L:cpp.RawPointer<Lua_State>, obj:Int, e:String):Int;
+	static function getmetafield(L:cpp.RawPointer<Lua_State>, obj:Int, e:cpp.ConstCharStar):Int;
 
 	@:native("luaL_callmeta")
-	static function callmeta(L:cpp.RawPointer<Lua_State>, obj:Int, e:String):Int;
+	static function callmeta(L:cpp.RawPointer<Lua_State>, obj:Int, e:cpp.ConstCharStar):Int;
 
-	static inline function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Pointer<cpp.SizeT>):String
-	{
-		return untyped __cpp__("::String(luaL_tolstring({0}, {1}, {2}))", L, idx, len);
-	}
+	@:native("luaL_tolstring")
+	static function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Pointer<cpp.SizeT>):cpp.ConstCharStar;
 
 	@:native("luaL_argerror")
-	static function argerror(L:cpp.RawPointer<Lua_State>, arg:Int, extramsg:String):Int;
+	static function argerror(L:cpp.RawPointer<Lua_State>, arg:Int, extramsg:cpp.ConstCharStar):Int;
 
 	@:native("luaL_typeerror")
-	static function typeerror(L:cpp.RawPointer<Lua_State>, arg:Int, tname:String):Int;
+	static function typeerror(L:cpp.RawPointer<Lua_State>, arg:Int, tname:cpp.ConstCharStar):Int;
 
-	static inline function checklstring(L:cpp.RawPointer<Lua_State>, arg:Int, l:cpp.Pointer<cpp.SizeT>):String
-	{
-		return untyped __cpp__("::String(luaL_checklstring({0}, {1}, {2}))", L, arg, l);
-	}
+	@:native("luaL_checklstring")
+	static function checklstring(L:cpp.RawPointer<Lua_State>, arg:Int, l:cpp.Pointer<cpp.SizeT>):cpp.ConstCharStar;
 
-	static inline function optlstring(L:cpp.RawPointer<Lua_State>, arg:Int, def:String, l:cpp.Pointer<cpp.SizeT>):String
-	{
-		return untyped __cpp__("::String(luaL_optlstring({0}, {1}, {2}, {3}))", L, arg, def, l);
-	}
+	@:native("luaL_optlstring")
+	static function optlstring(L:cpp.RawPointer<Lua_State>, arg:Int, def:cpp.ConstCharStar, l:cpp.Pointer<cpp.SizeT>):cpp.ConstCharStar;
 
 	@:native("luaL_checknumber")
 	static function checknumber(L:cpp.RawPointer<Lua_State>, arg:Int):Float;
@@ -57,7 +51,7 @@ extern class LuaL
 	static function optinteger(L:cpp.RawPointer<Lua_State>, arg:Int, def:Int):Int;
 
 	@:native("luaL_checkstack")
-	static function checkstack(L:cpp.RawPointer<Lua_State>, sz:Int, msg:String):Void;
+	static function checkstack(L:cpp.RawPointer<Lua_State>, sz:Int, msg:cpp.ConstCharStar):Void;
 
 	@:native("luaL_checktype")
 	static function checktype(L:cpp.RawPointer<Lua_State>, arg:Int, t:Int):Void;
@@ -66,28 +60,28 @@ extern class LuaL
 	static function checkany(L:cpp.RawPointer<Lua_State>, arg:Int):Void;
 
 	@:native("luaL_newmetatable")
-	static function newmetatable(L:cpp.RawPointer<Lua_State>, tname:String):Int;
+	static function newmetatable(L:cpp.RawPointer<Lua_State>, tname:cpp.ConstCharStar):Int;
 
 	@:native("luaL_setmetatable")
-	static function setmetatable(L:cpp.RawPointer<Lua_State>, tname:String):Void;
+	static function setmetatable(L:cpp.RawPointer<Lua_State>, tname:cpp.ConstCharStar):Void;
 
 	@:native("luaL_testudata")
-	static function testudata(L:cpp.RawPointer<Lua_State>, ud:Int, tname:String):cpp.Pointer<cpp.Void>;
+	static function testudata(L:cpp.RawPointer<Lua_State>, ud:Int, tname:cpp.ConstCharStar):cpp.Pointer<cpp.Void>;
 
 	@:native("luaL_checkudata")
-	static function checkudata(L:cpp.RawPointer<Lua_State>, ud:Int, tname:String):cpp.Pointer<cpp.Void>;
+	static function checkudata(L:cpp.RawPointer<Lua_State>, ud:Int, tname:cpp.ConstCharStar):cpp.Pointer<cpp.Void>;
 
 	@:native("luaL_where")
 	static function where(L:cpp.RawPointer<Lua_State>, lvl:Int):Void;
 
 	@:native("luaL_error")
-	static function error(L:cpp.RawPointer<Lua_State>, fmt:String, args:cpp.Rest<cpp.VarArg>):Int;
+	static function error(L:cpp.RawPointer<Lua_State>, fmt:cpp.ConstCharStar, args:cpp.Rest<cpp.VarArg>):Int;
 
 	@:native("luaL_checkoption")
-	static function checkoption(L:cpp.RawPointer<Lua_State>, arg:Int, def:String, last:Array<String>):Int;
+	static function checkoption(L:cpp.RawPointer<Lua_State>, arg:Int, def:cpp.ConstCharStar, last:Array<String>):Int;
 
 	@:native("luaL_fileresult")
-	static function fileresult(L:cpp.RawPointer<Lua_State>, stat:Int, fname:String):Int;
+	static function fileresult(L:cpp.RawPointer<Lua_State>, stat:Int, fname:cpp.ConstCharStar):Int;
 
 	@:native("luaL_execresult")
 	static function execresult(L:cpp.RawPointer<Lua_State>, stat:Int):Int;
@@ -106,16 +100,16 @@ extern class LuaL
 	static function unref(L:cpp.RawPointer<Lua_State>, t:Int, ref:Int):Void;
 
 	@:native("luaL_loadfilex")
-	static function loadfilex(L:cpp.RawPointer<Lua_State>, filename:String, mode:String):Int;
+	static function loadfilex(L:cpp.RawPointer<Lua_State>, filename:cpp.ConstCharStar, mode:cpp.ConstCharStar):Int;
 
 	@:native("luaL_loadfile")
-	static function loadfile(L:cpp.RawPointer<Lua_State>, filename:String):Int;
+	static function loadfile(L:cpp.RawPointer<Lua_State>, filename:cpp.ConstCharStar):Int;
 
 	@:native("luaL_loadbufferx")
-	static function loadbufferx(L:cpp.RawPointer<Lua_State>, buff:String, sz:cpp.SizeT, name:String, mode:String):Int;
+	static function loadbufferx(L:cpp.RawPointer<Lua_State>, buff:cpp.ConstCharStar, sz:cpp.SizeT, name:cpp.ConstCharStar, mode:cpp.ConstCharStar):Int;
 
 	@:native("luaL_loadstring")
-	static function loadstring(L:cpp.RawPointer<Lua_State>, s:String):Int;
+	static function loadstring(L:cpp.RawPointer<Lua_State>, s:cpp.ConstCharStar):Int;
 
 	@:native("luaL_newstate")
 	static function newstate():cpp.RawPointer<Lua_State>;
@@ -124,24 +118,22 @@ extern class LuaL
 	static function len(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
 	@:native("luaL_addgsub")
-	static function addgsub(b:cpp.RawPointer<LuaL_Buffer>, s:String, p:String, r:String):Void;
+	static function addgsub(b:cpp.RawPointer<LuaL_Buffer>, s:cpp.ConstCharStar, p:cpp.ConstCharStar, r:cpp.ConstCharStar):Void;
 
-	static inline function gsub(L:cpp.RawPointer<Lua_State>, s:String, p:String, r:String):String
-	{
-		return untyped __cpp__("::String(luaL_gsub({0}, {1}, {2}, {3}))", L, s, p, r);
-	}
+	@:native("luaL_gsub")
+	static function gsub(L:cpp.RawPointer<Lua_State>, s:cpp.ConstCharStar, p:cpp.ConstCharStar, r:cpp.ConstCharStar):cpp.ConstCharStar;
 
 	@:native("luaL_setfuncs")
 	static function setfuncs(L:cpp.RawPointer<Lua_State>, l:cpp.RawConstPointer<LuaL_Reg>, nup:Int):Void;
 
 	@:native("luaL_getsubtable")
-	static function getsubtable(L:cpp.RawPointer<Lua_State>, idx:Int, fname:String):Int;
+	static function getsubtable(L:cpp.RawPointer<Lua_State>, idx:Int, fname:cpp.ConstCharStar):Int;
 
 	@:native("luaL_traceback")
-	static function traceback(L:cpp.RawPointer<Lua_State>, L1:cpp.RawPointer<Lua_State>, msg:String, level:Int):Void;
+	static function traceback(L:cpp.RawPointer<Lua_State>, L1:cpp.RawPointer<Lua_State>, msg:cpp.ConstCharStar, level:Int):Void;
 
 	@:native("luaL_requiref")
-	static function requiref(L:cpp.RawPointer<Lua_State>, modname:String, openf:Lua_CFunction, glb:Int):Void;
+	static function requiref(L:cpp.RawPointer<Lua_State>, modname:cpp.ConstCharStar, openf:Lua_CFunction, glb:Int):Void;
 
 	/*
 	 * some useful macros
@@ -153,37 +145,31 @@ extern class LuaL
 	static function newlib(L:cpp.RawPointer<Lua_State>, l:Array<LuaL_Reg>):Void;
 
 	@:native("luaL_argcheck")
-	static function argcheck(L:cpp.RawPointer<Lua_State>, cond:Int, arg:Int, extramsg:String):Void;
+	static function argcheck(L:cpp.RawPointer<Lua_State>, cond:Int, arg:Int, extramsg:cpp.ConstCharStar):Void;
 
 	@:native("luaL_argexpected")
-	static function argexpected(L:cpp.RawPointer<Lua_State>, cond:Int, arg:Int, tname:String):Void;
+	static function argexpected(L:cpp.RawPointer<Lua_State>, cond:Int, arg:Int, tname:cpp.ConstCharStar):Void;
 
-	static inline function checkstring(L:cpp.RawPointer<Lua_State>, n:Int):String
-	{
-		return untyped __cpp__("::String(luaL_checkstring({0}, {1}))", L, n);
-	}
+	@:native("luaL_checkstring")
+	static function checkstring(L:cpp.RawPointer<Lua_State>, n:Int):cpp.ConstCharStar;
 
-	static inline function optstring(L:cpp.RawPointer<Lua_State>, n:Int, d:String):String
-	{
-		return untyped __cpp__("::String(luaL_optstring({0}, {1}, {2}))", L, n, d);
-	}
+	@:native("luaL_optstring")
+	static function optstring(L:cpp.RawPointer<Lua_State>, n:Int, d:cpp.ConstCharStar):cpp.ConstCharStar;
 
-	static inline function typename(L:cpp.RawPointer<Lua_State>, index:Int):String
-	{
-		return untyped __cpp__("::String(luaL_typename({0}, {1}))", L, index);
-	}
+	@:native("luaL_typename")
+	static function typename(L:cpp.RawPointer<Lua_State>, index:Int):cpp.ConstCharStar;
 
 	@:native("luaL_dofile")
-	static function dofile(L:cpp.RawPointer<Lua_State>, filename:String):Int;
+	static function dofile(L:cpp.RawPointer<Lua_State>, filename:cpp.ConstCharStar):Int;
 
 	@:native("luaL_dostring")
-	static function dostring(L:cpp.RawPointer<Lua_State>, str:String):Int;
+	static function dostring(L:cpp.RawPointer<Lua_State>, str:cpp.ConstCharStar):Int;
 
 	@:native("luaL_getmetatable")
-	static function getmetatable(L:cpp.RawPointer<Lua_State>, tname:String):Int;
+	static function getmetatable(L:cpp.RawPointer<Lua_State>, tname:cpp.ConstCharStar):Int;
 
 	@:native("luaL_loadbuffer")
-	static function loadbuffer(L:cpp.RawPointer<Lua_State>, s:String, sz:cpp.SizeT, n:String):Int;
+	static function loadbuffer(L:cpp.RawPointer<Lua_State>, s:cpp.ConstCharStar, sz:cpp.SizeT, n:cpp.ConstCharStar):Int;
 
 	/*
 	 * Perform arithmetic operations on lua_Integer values with wrap-around
@@ -221,10 +207,10 @@ extern class LuaL
 	static function prepbuffsize(B:cpp.RawPointer<LuaL_Buffer>, sz:cpp.SizeT):cpp.Pointer<cpp.Char>;
 
 	@:native("luaL_addlstring")
-	static function addlstring(B:cpp.RawPointer<LuaL_Buffer>, s:String, l:cpp.SizeT):Void;
+	static function addlstring(B:cpp.RawPointer<LuaL_Buffer>, s:cpp.ConstCharStar, l:cpp.SizeT):Void;
 
 	@:native("luaL_addstring")
-	static function addstring(B:cpp.RawPointer<LuaL_Buffer>, s:String):Void;
+	static function addstring(B:cpp.RawPointer<LuaL_Buffer>, s:cpp.ConstCharStar):Void;
 
 	@:native("luaL_addvalue")
 	static function addvalue(B:cpp.RawPointer<LuaL_Buffer>):Void;

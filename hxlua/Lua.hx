@@ -11,14 +11,14 @@ import hxlua.Types;
 @:unreflective
 extern class Lua
 {
-	@:native("::String(LUA_VERSION_MAJOR)")
-	static var VERSION_MAJOR:String;
+	@:native("LUA_VERSION_MAJOR")
+	static var VERSION_MAJOR:cpp.ConstCharStar;
 
-	@:native("::String(LUA_VERSION_MINOR)")
-	static var VERSION_MINOR:String;
+	@:native("LUA_VERSION_MINOR")
+	static var VERSION_MINOR:cpp.ConstCharStar;
 
-	@:native("::String(LUA_VERSION_RELEASE)")
-	static var VERSION_RELEASE:String;
+	@:native("LUA_VERSION_RELEASE")
+	static var VERSION_RELEASE:cpp.ConstCharStar;
 
 	@:native("LUA_VERSION_NUM")
 	static var VERSION_NUM:Int;
@@ -26,21 +26,21 @@ extern class Lua
 	@:native("LUA_VERSION_RELEASE_NUM")
 	static var VERSION_RELEASE_NUM:Int;
 
-	@:native("::String(LUA_VERSION)")
-	static var VERSION:String;
+	@:native("LUA_VERSION")
+	static var VERSION:cpp.ConstCharStar;
 
-	@:native("::String(LUA_RELEASE)")
-	static var RELEASE:String;
+	@:native("LUA_RELEASE")
+	static var RELEASE:cpp.ConstCharStar;
 
-	@:native("::String(LUA_COPYRIGHT)")
-	static var COPYRIGHT:String;
+	@:native("LUA_COPYRIGHT")
+	static var COPYRIGHT:cpp.ConstCharStar;
 
-	@:native("::String(LUA_AUTHORS)")
-	static var AUTHORS:String;
+	@:native("LUA_AUTHORS")
+	static var AUTHORS:cpp.ConstCharStar;
 
 	/* mark for precompiled code ('<esc>Lua') */
-	@:native("::String(LUA_SIGNATURE)")
-	static var SIGNATURE:String;
+	@:native("LUA_SIGNATURE")
+	static var SIGNATURE:cpp.ConstCharStar;
 
 	/* option for multiple returns in 'lua_pcall' and 'lua_call' */
 	@:native("LUA_MULTRET")
@@ -118,50 +118,50 @@ extern class Lua
 	static var RIDX_LAST:Int;
 
 	/* global table */
-	@:native("::String(LUA_GNAME)")
-	static var GNAME:String;
+	@:native("LUA_GNAME")
+	static var GNAME:cpp.ConstCharStar;
 
 	/* extra error code for "luaL_loadfilex" */
 	@:native("LUA_ERRFILE")
 	static var ERRFILE:Int;
 
 	/* key, in the registry, for table of loaded modules */
-	@:native("::String(LUA_LOADED_TABLE)")
-	static var LOADED_TABLE:String;
+	@:native("LUA_LOADED_TABLE")
+	static var LOADED_TABLE:cpp.ConstCharStar;
 
 	/* key, in the registry, for table of preloaded modules */
-	@:native("::String(LUA_PRELOAD_TABLE)")
-	static var PRELOAD_TABLE:String;
+	@:native("LUA_PRELOAD_TABLE")
+	static var PRELOAD_TABLE:cpp.ConstCharStar;
 
-	@:native("::String(LUA_VERSUFFIX)")
-	static var VERSUFFIX:String;
+	@:native("LUA_VERSUFFIX")
+	static var VERSUFFIX:cpp.ConstCharStar;
 
-	@:native("::String(LUA_COLIBNAME)")
-	static var COLIBNAME:String;
+	@:native("LUA_COLIBNAME")
+	static var COLIBNAME:cpp.ConstCharStar;
 
-	@:native("::String(LUA_TABLIBNAME)")
-	static var TABLIBNAME:String;
+	@:native("LUA_TABLIBNAME")
+	static var TABLIBNAME:cpp.ConstCharStar;
 
-	@:native("::String(LUA_IOLIBNAME)")
-	static var IOLIBNAME:String;
+	@:native("LUA_IOLIBNAME")
+	static var IOLIBNAME:cpp.ConstCharStar;
 
-	@:native("::String(LUA_OSLIBNAME)")
-	static var OSLIBNAME:String;
+	@:native("LUA_OSLIBNAME")
+	static var OSLIBNAME:cpp.ConstCharStar;
 
-	@:native("::String(LUA_STRLIBNAME)")
-	static var STRLIBNAME:String;
+	@:native("LUA_STRLIBNAME")
+	static var STRLIBNAME:cpp.ConstCharStar;
 
-	@:native("::String(LUA_UTF8LIBNAME)")
-	static var UTF8LIBNAME:String;
+	@:native("LUA_UTF8LIBNAME")
+	static var UTF8LIBNAME:cpp.ConstCharStar;
 
-	@:native("::String(LUA_MATHLIBNAME)")
-	static var MATHLIBNAME:String;
+	@:native("LUA_MATHLIBNAME")
+	static var MATHLIBNAME:cpp.ConstCharStar;
 
-	@:native("::String(LUA_DBLIBNAME)")
-	static var DBLIBNAME:String;
+	@:native("LUA_DBLIBNAME")
+	static var DBLIBNAME:cpp.ConstCharStar;
 
-	@:native("::String(LUA_LOADLIBNAME)")
-	static var LOADLIBNAME:String;
+	@:native("LUA_LOADLIBNAME")
+	static var LOADLIBNAME:cpp.ConstCharStar;
 
 	/*
 	 * state manipulation
@@ -232,10 +232,8 @@ extern class Lua
 	@:native("lua_type")
 	static function type(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
-	static inline function typename(L:cpp.RawPointer<Lua_State>, tp:Int):String
-	{
-		return untyped __cpp__("::String(lua_typename({0}, {1}))", L, tp);
-	}
+	@:native("lua_typename")
+	static function typename(L:cpp.RawPointer<Lua_State>, tp:Int):cpp.ConstCharStar;
 
 	/*
 	 * access functions (stack -> C)
@@ -249,10 +247,8 @@ extern class Lua
 	@:native("lua_toboolean")
 	static function toboolean(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
-	static inline function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Pointer<cpp.SizeT>):String
-	{
-		return untyped __cpp__("::String(lua_tolstring({0}, {1}, {2}))", L, idx, len);
-	}
+	@:native("lua_tolstring")
+	static function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Pointer<cpp.SizeT>):cpp.ConstCharStar;
 
 	@:native("lua_rawlen")
 	static function rawlen(L:cpp.RawPointer<Lua_State>, idx:Int):UInt;
@@ -345,18 +341,16 @@ extern class Lua
 	static function pushinteger(L:cpp.RawPointer<Lua_State>, n:Int):Void;
 
 	@:native("lua_pushlstring")
-	static function pushlstring(L:cpp.RawPointer<Lua_State>, s:String, len:cpp.SizeT):Void;
+	static function pushlstring(L:cpp.RawPointer<Lua_State>, s:cpp.ConstCharStar, len:cpp.SizeT):Void;
 
 	@:native("lua_pushstring")
-	static function pushstring(L:cpp.RawPointer<Lua_State>, s:String):Void;
+	static function pushstring(L:cpp.RawPointer<Lua_State>, s:cpp.ConstCharStar):Void;
 
 	@:native("lua_pushvfstring")
-	static function pushvfstring(L:cpp.RawPointer<Lua_State>, s:String, argp:cpp.VirtualArray):Void;
+	static function pushvfstring(L:cpp.RawPointer<Lua_State>, s:cpp.ConstCharStar, argp:cpp.VirtualArray):Void;
 
-	static inline function pushfstring(L:cpp.RawPointer<Lua_State>, fmt:String, args:cpp.Rest<cpp.VarArg>):String
-	{
-		return untyped __cpp__("::String(lua_pushfstring({0}, {1}, {2}))", L, fmt, args);
-	}
+	@:native("lua_pushfstring")
+	static function pushfstring(L:cpp.RawPointer<Lua_State>, fmt:cpp.ConstCharStar, args:cpp.Rest<cpp.VarArg>):cpp.ConstCharStar;
 
 	@:native("lua_pushcclosure")
 	static function pushcclosure(L:cpp.RawPointer<Lua_State>, fn:Lua_CFunction, n:Int):Void;
@@ -374,13 +368,13 @@ extern class Lua
 	 * get functions (Lua -> stack)
 	 */
 	@:native("lua_getglobal")
-	static function getglobal(L:cpp.RawPointer<Lua_State>, name:String):Int;
+	static function getglobal(L:cpp.RawPointer<Lua_State>, name:cpp.ConstCharStar):Int;
 
 	@:native("lua_gettable")
 	static function gettable(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
 	@:native("lua_getfield")
-	static function getfield(L:cpp.RawPointer<Lua_State>, idx:Int, k:String):Int;
+	static function getfield(L:cpp.RawPointer<Lua_State>, idx:Int, k:cpp.ConstCharStar):Int;
 
 	@:native("lua_geti")
 	static function geti(L:cpp.RawPointer<Lua_State>, idx:Int, n:Int):Int;
@@ -410,13 +404,13 @@ extern class Lua
 	 * set functions (stack -> Lua)
 	 */
 	@:native("lua_setglobal")
-	static function setglobal(L:cpp.RawPointer<Lua_State>, name:String):Int;
+	static function setglobal(L:cpp.RawPointer<Lua_State>, name:cpp.ConstCharStar):Int;
 
 	@:native("lua_settable")
 	static function settable(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
 	@:native("lua_setfield")
-	static function setfield(L:cpp.RawPointer<Lua_State>, idx:Int, k:String):Int;
+	static function setfield(L:cpp.RawPointer<Lua_State>, idx:Int, k:cpp.ConstCharStar):Int;
 
 	@:native("lua_seti")
 	static function seti(L:cpp.RawPointer<Lua_State>, idx:Int, n:Int):Int;
@@ -452,7 +446,7 @@ extern class Lua
 	static function pcall(L:cpp.RawPointer<Lua_State>, nargs:Int, nresults:Int, errfunc:Int):Int;
 
 	@:native("lua_load")
-	static function load(L:cpp.RawPointer<Lua_State>, reader:Lua_Reader, dt:cpp.Pointer<cpp.Void>, chunkname:String, mode:String):Int;
+	static function load(L:cpp.RawPointer<Lua_State>, reader:Lua_Reader, dt:cpp.Pointer<cpp.Void>, chunkname:cpp.ConstCharStar, mode:cpp.ConstCharStar):Int;
 
 	@:native("lua_dump")
 	static function dump(L:cpp.RawPointer<Lua_State>, reader:Lua_Writer, data:cpp.Pointer<cpp.Void>, strip:Int):Int;
@@ -482,7 +476,7 @@ extern class Lua
 	static function setwarnf(L:cpp.RawPointer<Lua_State>, f:Lua_WarnFunction, ud:cpp.Pointer<cpp.Void>):Void;
 
 	@:native("lua_warning")
-	static function warning(L:cpp.RawPointer<Lua_State>, msg:String, tocont:Int):Void;
+	static function warning(L:cpp.RawPointer<Lua_State>, msg:cpp.ConstCharStar, tocont:Int):Void;
 
 	/*
 	 * garbage-collection function and options
@@ -539,7 +533,7 @@ extern class Lua
 	static function len(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
 
 	@:native("lua_stringtonumber")
-	static function stringtonumber(L:cpp.RawPointer<Lua_State>, s:String):cpp.SizeT;
+	static function stringtonumber(L:cpp.RawPointer<Lua_State>, s:cpp.ConstCharStar):cpp.SizeT;
 
 	@:native("lua_getallocf")
 	static function getallocf(L:cpp.RawPointer<Lua_State>, ud:cpp.Pointer<cpp.Pointer<cpp.Void>>):Lua_Alloc;
@@ -572,7 +566,7 @@ extern class Lua
 	static function newtable(L:cpp.RawPointer<Lua_State>):Void;
 
 	@:native("lua_register")
-	static function register(L:cpp.RawPointer<Lua_State>, name:String, f:Lua_CFunction):Void;
+	static function register(L:cpp.RawPointer<Lua_State>, name:cpp.ConstCharStar, f:Lua_CFunction):Void;
 
 	@:native("lua_pushcfunction")
 	static function pushcfunction(L:cpp.RawPointer<Lua_State>, fn:Lua_CFunction):Void;
@@ -601,18 +595,14 @@ extern class Lua
 	@:native("lua_isnoneornil")
 	static function isnoneornil(L:cpp.RawPointer<Lua_State>, n:Int):Int;
 
-	static inline function pushliteral(L:cpp.RawPointer<Lua_State>, s:String):String
-	{
-		return untyped __cpp__("::String(lua_pushliteral({0}, {1}))", L, s);
-	}
+	@:native("lua_pushliteral")
+	static function pushliteral(L:cpp.RawPointer<Lua_State>, s:cpp.ConstCharStar):cpp.ConstCharStar;
 
 	@:native("lua_pushglobaltable")
 	static function pushglobaltable(L:cpp.RawPointer<Lua_State>):Void;
 
-	static inline function tostring(L:cpp.RawPointer<Lua_State>, i:Int):String
-	{
-		return untyped __cpp__("::String(lua_tostring({0}, {1}))", L, i);
-	}
+	@:native("lua_tostring")
+	static function tostring(L:cpp.RawPointer<Lua_State>, i:Int):cpp.ConstCharStar;
 
 	@:native("lua_insert")
 	static function insert(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
@@ -675,27 +665,19 @@ extern class Lua
 	static function getstack(L:cpp.RawPointer<Lua_State>, level:Int, ar:cpp.RawPointer<Lua_Debug>):Int;
 
 	@:native("lua_getinfo")
-	static function getinfo(L:cpp.RawPointer<Lua_State>, what:String, ar:cpp.RawPointer<Lua_Debug>):Int;
+	static function getinfo(L:cpp.RawPointer<Lua_State>, what:cpp.ConstCharStar, ar:cpp.RawPointer<Lua_Debug>):Int;
 
-	static inline function getlocal(L:cpp.RawPointer<Lua_State>, ar:cpp.RawConstPointer<Lua_Debug>, n:Int):String
-	{
-		return untyped __cpp__("::String(lua_getlocal({0}, {1}, {2}))", L, ar, n);
-	}
+	@:native("lua_getlocal")
+	static function getlocal(L:cpp.RawPointer<Lua_State>, ar:cpp.RawConstPointer<Lua_Debug>, n:Int):cpp.ConstCharStar;
 
-	static inline function setlocal(L:cpp.RawPointer<Lua_State>, ar:cpp.RawConstPointer<Lua_Debug>, n:Int):String
-	{
-		return untyped __cpp__("::String(lua_setlocal({0}, {1}, {2}))", L, ar, n);
-	}
+	@:native("lua_setlocal")
+	static function setlocal(L:cpp.RawPointer<Lua_State>, ar:cpp.RawConstPointer<Lua_Debug>, n:Int):cpp.ConstCharStar;
 
-	static inline function getupvalue(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):String
-	{
-		return untyped __cpp__("::String(lua_getupvalue({0}, {1}, {2}))", L, funcindex, n);
-	}
+	@:native("lua_getupvalue")
+	static function getupvalue(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):cpp.ConstCharStar;
 
-	static inline function setupvalue(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):String
-	{
-		return untyped __cpp__("::String(lua_setupvalue({0}, {1}, {2}))", L, funcindex, n);
-	}
+	@:native("lua_setupvalue")
+	static function setupvalue(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):cpp.ConstCharStar;
 
 	@:native("lua_upvalueid")
 	static function upvalueid(L:cpp.RawPointer<Lua_State>, fidx:Int, n:Int):cpp.Pointer<cpp.Void>;
@@ -718,6 +700,6 @@ extern class Lua
 	@:native("lua_setcstacklimit")
 	static function setcstacklimit(L:cpp.RawPointer<Lua_State>, limit:UInt):Int;
 
-	@:native("::String(LUA_FILEHANDLE)")
-	static var FILEHANDLE:String;
+	@:native("LUA_FILEHANDLE")
+	static var FILEHANDLE:cpp.ConstCharStar;
 }
