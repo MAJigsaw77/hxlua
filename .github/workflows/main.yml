@@ -1,24 +1,16 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Testing
-
-# Controls when the action will run.
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ main ]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  Linux:
-    runs-on: ubuntu-latest
+  Job:
+    runs-on: ${{matrix.os}}
     strategy:
+      fail-fast: false
       matrix:
         sample: [alter-state, array, callback, override, pass-variable, return-value, simple-call]
-
+        os: [windows-latest, macos-latest, ubuntu-latest]
     steps:
       - name: Checkout
         uses: actions/checkout@main
