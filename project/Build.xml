@@ -50,9 +50,6 @@
 
 		<section if="linux || android">
 			<compilerflag value="-DLUA_USE_LINUX" />
-
-			<compilerflag value="-Wl,-E" if="linux" />
-			<compilerflag value="-ldl" if="linux" />
 		</section>
 
 		<section if="macos">
@@ -67,6 +64,12 @@
 	</files>
 
 	<target id="haxe">
+		<section if="linux || android">
+			<flag value="-Wl,-E" />
+
+			<lib name="-ldl" />
+		</section>
+
 		<files id="lua" />
 	</target>
 </xml>
