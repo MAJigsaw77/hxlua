@@ -64,9 +64,7 @@
 	</files>
 
 	<target id="haxe">
-		<section if="linux || android">
-			<flag value="-Wl,-E" />
-
+		<section if="linux">
 			<lib name="-ldl" />
 		</section>
 
