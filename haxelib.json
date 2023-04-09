@@ -8,8 +8,8 @@
 		"haxe"
 	],
 	"description":"Haxe/hxcpp @:native bindings for Lua.",
-	"version":"1.3.3",
-	"releasenote":"Some small fixes.",
+	"version":"1.3.4",
+	"releasenote":"Fixed String vars from being pointers.",
 	"contributors":[
 		"MAJigsaw77"
 	],
