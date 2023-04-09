@@ -8,8 +8,8 @@
 		"haxe"
 	],
 	"description":"Haxe/hxcpp @:native bindings for Lua.",
-	"version":"1.3.2",
-	"releasenote":"Fixed build xml injection to be only once and formatted the samples folder.",
+	"version":"1.3.3",
+	"releasenote":"Some small fixes.",
 	"contributors":[
 		"MAJigsaw77"
 	],
