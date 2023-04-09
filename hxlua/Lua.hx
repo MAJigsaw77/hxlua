@@ -232,10 +232,8 @@ extern class Lua
 	@:native("lua_type")
 	static function type(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
-	static inline function typename(L:cpp.RawPointer<Lua_State>, tp:Int):String
-	{
-		return untyped __cpp__("::String(lua_typename({0}, {1}))", L, tp);
-	}
+	@:native("lua_typename")
+	static function typename(L:cpp.RawPointer<Lua_State>, tp:Int):cpp.ConstCharStar;
 
 	/*
 	 * access functions (stack -> C)
@@ -249,10 +247,8 @@ extern class Lua
 	@:native("lua_toboolean")
 	static function toboolean(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
-	static inline function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Pointer<cpp.SizeT>):String
-	{
-		return untyped __cpp__("::String(lua_tolstring({0}, {1}, {2}))", L, idx, len);
-	}
+	@:native("lua_tolstring")
+	static function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Pointer<cpp.SizeT>):cpp.ConstCharStar;
 
 	@:native("lua_rawlen")
 	static function rawlen(L:cpp.RawPointer<Lua_State>, idx:Int):UInt;
@@ -353,10 +349,8 @@ extern class Lua
 	@:native("lua_pushvfstring")
 	static function pushvfstring(L:cpp.RawPointer<Lua_State>, s:String, argp:cpp.VirtualArray):Void;
 
-	static inline function pushfstring(L:cpp.RawPointer<Lua_State>, fmt:String, args:cpp.Rest<cpp.VarArg>):String
-	{
-		return untyped __cpp__("::String(lua_pushfstring({0}, {1}, {2}))", L, fmt, args);
-	}
+	@:native("lua_pushfstring")
+	static function pushfstring(L:cpp.RawPointer<Lua_State>, fmt:String, args:cpp.Rest<cpp.VarArg>):cpp.ConstCharStar;
 
 	@:native("lua_pushcclosure")
 	static function pushcclosure(L:cpp.RawPointer<Lua_State>, fn:Lua_CFunction, n:Int):Void;
