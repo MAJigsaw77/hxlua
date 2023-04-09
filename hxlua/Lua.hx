@@ -595,18 +595,14 @@ extern class Lua
 	@:native("lua_isnoneornil")
 	static function isnoneornil(L:cpp.RawPointer<Lua_State>, n:Int):Int;
 
-	static inline function pushliteral(L:cpp.RawPointer<Lua_State>, s:String):String
-	{
-		return untyped __cpp__("::String(lua_pushliteral({0}, {1}))", L, s);
-	}
+	@:native("lua_pushliteral")
+	static function pushliteral(L:cpp.RawPointer<Lua_State>, s:cpp.ConstCharStar):cpp.ConstCharStar;
 
 	@:native("lua_pushglobaltable")
 	static function pushglobaltable(L:cpp.RawPointer<Lua_State>):Void;
 
-	static inline function tostring(L:cpp.RawPointer<Lua_State>, i:Int):String
-	{
-		return untyped __cpp__("::String(lua_tostring({0}, {1}))", L, i);
-	}
+	@:native("lua_tostring")
+	static function tostring(L:cpp.RawPointer<Lua_State>, i:Int):cpp.ConstCharStar;
 
 	@:native("lua_insert")
 	static function insert(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
@@ -671,25 +667,17 @@ extern class Lua
 	@:native("lua_getinfo")
 	static function getinfo(L:cpp.RawPointer<Lua_State>, what:String, ar:cpp.RawPointer<Lua_Debug>):Int;
 
-	static inline function getlocal(L:cpp.RawPointer<Lua_State>, ar:cpp.RawConstPointer<Lua_Debug>, n:Int):String
-	{
-		return untyped __cpp__("::String(lua_getlocal({0}, {1}, {2}))", L, ar, n);
-	}
+	@:native("lua_getlocal")
+	static function getlocal(L:cpp.RawPointer<Lua_State>, ar:cpp.RawConstPointer<Lua_Debug>, n:Int):cpp.ConstCharStar;
 
-	static inline function setlocal(L:cpp.RawPointer<Lua_State>, ar:cpp.RawConstPointer<Lua_Debug>, n:Int):String
-	{
-		return untyped __cpp__("::String(lua_setlocal({0}, {1}, {2}))", L, ar, n);
-	}
+	@:native("lua_setlocal")
+	static function setlocal(L:cpp.RawPointer<Lua_State>, ar:cpp.RawConstPointer<Lua_Debug>, n:Int):cpp.ConstCharStar;
 
-	static inline function getupvalue(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):String
-	{
-		return untyped __cpp__("::String(lua_getupvalue({0}, {1}, {2}))", L, funcindex, n);
-	}
+	@:native("lua_getupvalue")
+	static function getupvalue(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):cpp.ConstCharStar;
 
-	static inline function setupvalue(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):String
-	{
-		return untyped __cpp__("::String(lua_setupvalue({0}, {1}, {2}))", L, funcindex, n);
-	}
+	@:native("lua_setupvalue")
+	static function setupvalue(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):cpp.ConstCharStar;
 
 	@:native("lua_upvalueid")
 	static function upvalueid(L:cpp.RawPointer<Lua_State>, fidx:Int, n:Int):cpp.Pointer<cpp.Void>;
