@@ -341,16 +341,16 @@ extern class Lua
 	static function pushinteger(L:cpp.RawPointer<Lua_State>, n:Int):Void;
 
 	@:native("lua_pushlstring")
-	static function pushlstring(L:cpp.RawPointer<Lua_State>, s:String, len:cpp.SizeT):Void;
+	static function pushlstring(L:cpp.RawPointer<Lua_State>, s:cpp.ConstCharStar, len:cpp.SizeT):Void;
 
 	@:native("lua_pushstring")
-	static function pushstring(L:cpp.RawPointer<Lua_State>, s:String):Void;
+	static function pushstring(L:cpp.RawPointer<Lua_State>, s:cpp.ConstCharStar):Void;
 
 	@:native("lua_pushvfstring")
-	static function pushvfstring(L:cpp.RawPointer<Lua_State>, s:String, argp:cpp.VirtualArray):Void;
+	static function pushvfstring(L:cpp.RawPointer<Lua_State>, s:cpp.ConstCharStar, argp:cpp.VirtualArray):Void;
 
 	@:native("lua_pushfstring")
-	static function pushfstring(L:cpp.RawPointer<Lua_State>, fmt:String, args:cpp.Rest<cpp.VarArg>):cpp.ConstCharStar;
+	static function pushfstring(L:cpp.RawPointer<Lua_State>, fmt:cpp.ConstCharStar, args:cpp.Rest<cpp.VarArg>):cpp.ConstCharStar;
 
 	@:native("lua_pushcclosure")
 	static function pushcclosure(L:cpp.RawPointer<Lua_State>, fn:Lua_CFunction, n:Int):Void;
@@ -368,13 +368,13 @@ extern class Lua
 	 * get functions (Lua -> stack)
 	 */
 	@:native("lua_getglobal")
-	static function getglobal(L:cpp.RawPointer<Lua_State>, name:String):Int;
+	static function getglobal(L:cpp.RawPointer<Lua_State>, name:cpp.ConstCharStar):Int;
 
 	@:native("lua_gettable")
 	static function gettable(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
 	@:native("lua_getfield")
-	static function getfield(L:cpp.RawPointer<Lua_State>, idx:Int, k:String):Int;
+	static function getfield(L:cpp.RawPointer<Lua_State>, idx:Int, k:cpp.ConstCharStar):Int;
 
 	@:native("lua_geti")
 	static function geti(L:cpp.RawPointer<Lua_State>, idx:Int, n:Int):Int;
@@ -404,13 +404,13 @@ extern class Lua
 	 * set functions (stack -> Lua)
 	 */
 	@:native("lua_setglobal")
-	static function setglobal(L:cpp.RawPointer<Lua_State>, name:String):Int;
+	static function setglobal(L:cpp.RawPointer<Lua_State>, name:cpp.ConstCharStar):Int;
 
 	@:native("lua_settable")
 	static function settable(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
 	@:native("lua_setfield")
-	static function setfield(L:cpp.RawPointer<Lua_State>, idx:Int, k:String):Int;
+	static function setfield(L:cpp.RawPointer<Lua_State>, idx:Int, k:cpp.ConstCharStar):Int;
 
 	@:native("lua_seti")
 	static function seti(L:cpp.RawPointer<Lua_State>, idx:Int, n:Int):Int;
@@ -446,7 +446,7 @@ extern class Lua
 	static function pcall(L:cpp.RawPointer<Lua_State>, nargs:Int, nresults:Int, errfunc:Int):Int;
 
 	@:native("lua_load")
-	static function load(L:cpp.RawPointer<Lua_State>, reader:Lua_Reader, dt:cpp.Pointer<cpp.Void>, chunkname:String, mode:String):Int;
+	static function load(L:cpp.RawPointer<Lua_State>, reader:Lua_Reader, dt:cpp.Pointer<cpp.Void>, chunkname:cpp.ConstCharStar, mode:cpp.ConstCharStar):Int;
 
 	@:native("lua_dump")
 	static function dump(L:cpp.RawPointer<Lua_State>, reader:Lua_Writer, data:cpp.Pointer<cpp.Void>, strip:Int):Int;
@@ -476,7 +476,7 @@ extern class Lua
 	static function setwarnf(L:cpp.RawPointer<Lua_State>, f:Lua_WarnFunction, ud:cpp.Pointer<cpp.Void>):Void;
 
 	@:native("lua_warning")
-	static function warning(L:cpp.RawPointer<Lua_State>, msg:String, tocont:Int):Void;
+	static function warning(L:cpp.RawPointer<Lua_State>, msg:cpp.ConstCharStar, tocont:Int):Void;
 
 	/*
 	 * garbage-collection function and options
@@ -533,7 +533,7 @@ extern class Lua
 	static function len(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
 
 	@:native("lua_stringtonumber")
-	static function stringtonumber(L:cpp.RawPointer<Lua_State>, s:String):cpp.SizeT;
+	static function stringtonumber(L:cpp.RawPointer<Lua_State>, s:cpp.ConstCharStar):cpp.SizeT;
 
 	@:native("lua_getallocf")
 	static function getallocf(L:cpp.RawPointer<Lua_State>, ud:cpp.Pointer<cpp.Pointer<cpp.Void>>):Lua_Alloc;
@@ -566,7 +566,7 @@ extern class Lua
 	static function newtable(L:cpp.RawPointer<Lua_State>):Void;
 
 	@:native("lua_register")
-	static function register(L:cpp.RawPointer<Lua_State>, name:String, f:Lua_CFunction):Void;
+	static function register(L:cpp.RawPointer<Lua_State>, name:cpp.ConstCharStar, f:Lua_CFunction):Void;
 
 	@:native("lua_pushcfunction")
 	static function pushcfunction(L:cpp.RawPointer<Lua_State>, fn:Lua_CFunction):Void;
@@ -665,7 +665,7 @@ extern class Lua
 	static function getstack(L:cpp.RawPointer<Lua_State>, level:Int, ar:cpp.RawPointer<Lua_Debug>):Int;
 
 	@:native("lua_getinfo")
-	static function getinfo(L:cpp.RawPointer<Lua_State>, what:String, ar:cpp.RawPointer<Lua_Debug>):Int;
+	static function getinfo(L:cpp.RawPointer<Lua_State>, what:cpp.ConstCharStar, ar:cpp.RawPointer<Lua_Debug>):Int;
 
 	@:native("lua_getlocal")
 	static function getlocal(L:cpp.RawPointer<Lua_State>, ar:cpp.RawConstPointer<Lua_Debug>, n:Int):cpp.ConstCharStar;
