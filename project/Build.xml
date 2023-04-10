@@ -48,7 +48,7 @@
 			<!-- Windows doesn't need any compiler flags -->
 		</section>
 
-		<section if="linux || android">
+		<section if="linux || android || emscripten">
 			<compilerflag value="-DLUA_USE_LINUX" />
 		</section>
 
