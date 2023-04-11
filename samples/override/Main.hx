@@ -34,7 +34,7 @@ class Main
 
 		/* loop through each argument */
 		for (i in 0...n)
-			Sys.println(Lua.tostring(l, i + 1));
+			Sys.println(cast(Lua.tostring(l, i + 1), String));
 
 		/* clear the stack */
 		Lua.pop(l, n);
