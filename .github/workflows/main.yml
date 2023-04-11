@@ -24,4 +24,5 @@ jobs:
       - name: Compiling 
         run: |
           haxelib --quiet git hxlua https://github.com/MAJigsaw77/hxlua.git
-          haxe -cp samples/${{matrix.sample}} -D analyzer-optimize -lib hxlua -main Main -cpp bin -cmd bin/Main
+          cd samples/${{matrix.sample}}
+          haxe build.hxml
