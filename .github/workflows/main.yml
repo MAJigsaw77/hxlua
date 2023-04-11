@@ -23,6 +23,6 @@ jobs:
 
       - name: Compiling 
         run: |
-          haxelib --quiet git hxlua https://github.com/MAJigsaw77/hxlua.git
+          haxelib git hxlua https://github.com/MAJigsaw77/hxlua.git --quiet
           cd samples/${{matrix.sample}}
           haxe build.hxml
