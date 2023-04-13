@@ -61,6 +61,11 @@
 			<compilerflag value="-DLUA_USE_POSIX" />
 			<compilerflag value="-DLUA_USE_DLOPEN" />
 		</section>
+
+		<compilerflag value="-DLUAI_ASSERT" />
+		<compilerflag value="-DLUA_COMPAT_5_3" />
+		<compilerflag value="-DLUA_USE_CTYPE" />
+		<compilerflag value="-DLUA_USE_APICHECK" />
 	</files>
 
 	<target id="haxe">
