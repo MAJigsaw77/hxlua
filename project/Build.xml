@@ -4,10 +4,14 @@
 
 	<files id="haxe">
 		<compilerflag value="-I${haxelib:hxlua}/project/lua/src" />
+
+		<include name="${haxelib:hxlua}/project/Defines.xml" />
 	</files>
 
 	<files id="__main__">
 		<compilerflag value="-I${haxelib:hxlua}/project/lua/src" />
+
+		<include name="${haxelib:hxlua}/project/Defines.xml" />
 	</files>
 
 	<files id="lua">
@@ -64,10 +68,7 @@
 			<compilerflag value="-DLUA_USE_DLOPEN" />
 		</section>
 
-		<compilerflag value="-DLUAI_ASSERT" if="LUAI_ASSERT" />
-		<compilerflag value="-DLUA_COMPAT_5_3" if="LUA_COMPAT_5_3" />
-		<compilerflag value="-DLUA_USE_CTYPE" if="LUA_USE_CTYPE" />
-		<compilerflag value="-DLUA_USE_APICHECK" if="LUA_USE_APICHECK" />
+		<include name="${haxelib:hxlua}/project/Defines.xml" />
 	</files>
 
 	<target id="haxe">
