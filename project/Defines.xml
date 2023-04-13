@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<compilerflag value="-DLUAI_ASSERT" if="LUAI_ASSERT" />
+	<compilerflag value="-DLUA_COMPAT_5_3" if="LUA_COMPAT_5_3" />
+	<compilerflag value="-DLUA_USE_CTYPE" if="LUA_USE_CTYPE" />
+	<compilerflag value="-DLUA_USE_C89" if="LUA_USE_C89" unless="windows" />
+	<compilerflag value="-DLUA_USE_APICHECK" if="LUA_USE_APICHECK" />
+	<compilerflag value="-DLUA_USE_READLINE" if="LUA_USE_READLINE" />
+</xml>
