@@ -11,6 +11,8 @@
 	</files>
 
 	<files id="lua">
+		<compilerflag value="-I${haxelib:hxlua}/project/lua/src" />
+
 		<file name="${haxelib:hxlua}/project/lua/src/lapi.c" />
 		<file name="${haxelib:hxlua}/project/lua/src/lauxlib.c" />
 		<file name="${haxelib:hxlua}/project/lua/src/lbaselib.c" />
