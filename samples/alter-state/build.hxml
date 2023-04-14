@@ -1,5 +1,10 @@
 -cp ./
 -D analyzer-optimize
+-D LUA_COMPAT_5_3
+-D LUA_USE_C89
+-D LUA_USE_CTYPE
+-D LUA_USE_APICHECK
+-D LUA_USE_READLINE
 -lib hxlua
 -main Main
 -cpp bin
