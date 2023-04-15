@@ -8,8 +8,8 @@
 		"haxe"
 	],
 	"description":"Haxe/hxcpp @:native bindings for Lua.",
-	"version":"1.3.5",
-	"releasenote":"Added support for Emscripten.",
+	"version":"1.4.0",
+	"releasenote":"Fixed type definitions and more polish.",
 	"contributors":[
 		"MAJigsaw77"
 	],
