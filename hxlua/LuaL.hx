@@ -39,16 +39,16 @@ extern class LuaL
 	static function optlstring(L:cpp.RawPointer<Lua_State>, arg:Int, def:cpp.ConstCharStar, l:cpp.Pointer<cpp.SizeT>):cpp.ConstCharStar;
 
 	@:native("luaL_checknumber")
-	static function checknumber(L:cpp.RawPointer<Lua_State>, arg:Int):Float;
+	static function checknumber(L:cpp.RawPointer<Lua_State>, arg:Int):Lua_Number;
 
 	@:native("luaL_optnumber")
-	static function optnumber(L:cpp.RawPointer<Lua_State>, arg:Int, def:Float):Float;
+	static function optnumber(L:cpp.RawPointer<Lua_State>, arg:Int, def:Lua_Number):Lua_Number;
 
 	@:native("luaL_checkinteger")
-	static function checkinteger(L:cpp.RawPointer<Lua_State>, arg:Int):Int;
+	static function checkinteger(L:cpp.RawPointer<Lua_State>, arg:Int):Lua_Integer;
 
 	@:native("luaL_optinteger")
-	static function optinteger(L:cpp.RawPointer<Lua_State>, arg:Int, def:Int):Int;
+	static function optinteger(L:cpp.RawPointer<Lua_State>, arg:Int, def:Lua_Integer):Lua_Integer;
 
 	@:native("luaL_checkstack")
 	static function checkstack(L:cpp.RawPointer<Lua_State>, sz:Int, msg:cpp.ConstCharStar):Void;
@@ -176,7 +176,7 @@ extern class LuaL
 	 * semantics, as the Lua core does.
 	 */
 	@:native("luaL_intop")
-	static function intop(op:Int, v1:Int, v2:Int):Int;
+	static function intop(op:Int, v1:Lua_Integer, v2:Lua_Integer):Lua_Integer;
 
 	/* push the value used to represent failure/error */
 	@:native("luaL_pushfail")
