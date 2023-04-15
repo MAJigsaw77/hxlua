@@ -616,6 +616,17 @@ extern class Lua
 	/*
 	 * compatibility macros
 	 */
+	#if LUA_COMPAT_5_3
+	@:native("lua_pushunsigned")
+	static function pushunsigned(L:cpp.RawPointer<Lua_State>, n:UInt):Void;
+
+	@:native("lua_tounsignedx")
+	static function tounsignedx(L:cpp.RawPointer<Lua_State>, i:Int, is:cpp.Star<Int>):UInt;
+
+	@:native("lua_tounsigned")
+	static function tounsigned(L:cpp.RawPointer<Lua_State>, i:Int):UInt;
+	#end
+
 	@:native("lua_newuserdata")
 	static function newuserdata(L:cpp.RawPointer<Lua_State>, s:cpp.SizeT):cpp.Pointer<cpp.Void>;
 
