@@ -15,12 +15,6 @@ extern class Lua_State {}
 @:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
 @:include("lua.hpp")
 @:keep
-@:native("lua_KContext")
-extern class Lua_KContext {}
-
-@:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
-@:include("lua.hpp")
-@:keep
 @:structAccess
 @:native("lua_Debug")
 extern class Lua_Debug
@@ -103,6 +97,9 @@ typedef Lua_Integer = cpp.Int64;
  * Type of unsigned integer.
  */
 typedef Lua_Unsigned = cpp.UInt64;
+
+/* type for continuation-function contexts */
+typedef Lua_KContext = Int;
 
 /*
  * Type for debugging hook functions.
