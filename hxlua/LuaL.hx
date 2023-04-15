@@ -227,6 +227,17 @@ extern class LuaL
 	@:native("luaL_prepbuff")
 	static function prepbuff(B:cpp.RawPointer<LuaL_Buffer>):cpp.Pointer<cpp.Char>;
 
+	/*
+	 * Compatibility with deprecated conversions
+	 */
+	#if LUA_COMPAT_APIINTCASTS
+	@:native("luaL_checkunsigned")
+	static function checkunsigned(L:cpp.RawPointer<Lua_State>, a:Int):UInt;
+
+	@:native("luaL_optunsigned")
+	static function optunsigned(L:cpp.RawPointer<Lua_State>, a:Int, d:UInt):UInt;
+	#end
+
 	/* open all previous libraries */
 	@:native("luaL_openlibs")
 	static function openlibs(L:cpp.RawPointer<Lua_State>):Int;
