@@ -182,7 +182,7 @@ extern class Lua
 	static function atpanic(L:cpp.RawPointer<Lua_State>, panicf:Lua_CFunction):Lua_CFunction;
 
 	@:native("lua_version")
-	static function version(L:cpp.RawPointer<Lua_State>):Float;
+	static function version(L:cpp.RawPointer<Lua_State>):Lua_Number;
 
 	/*
 	 * basic stack manipulation
@@ -239,10 +239,10 @@ extern class Lua
 	 * access functions (stack -> C)
 	 */
 	@:native("lua_tonumberx")
-	static function tonumberx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.Pointer<Int>):Float;
+	static function tonumberx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.Pointer<Int>):Lua_Number;
 
 	@:native("lua_tointegerx")
-	static function tointegerx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.Pointer<Int>):Int;
+	static function tointegerx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.Pointer<Int>):Lua_Integer;
 
 	@:native("lua_toboolean")
 	static function toboolean(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
@@ -335,10 +335,10 @@ extern class Lua
 	static function pushnil(L:cpp.RawPointer<Lua_State>):Void;
 
 	@:native("lua_pushnumber")
-	static function pushnumber(L:cpp.RawPointer<Lua_State>, n:Float):Void;
+	static function pushnumber(L:cpp.RawPointer<Lua_State>, n:Lua_Number):Void;
 
 	@:native("lua_pushinteger")
-	static function pushinteger(L:cpp.RawPointer<Lua_State>, n:Int):Void;
+	static function pushinteger(L:cpp.RawPointer<Lua_State>, n:Lua_Integer):Void;
 
 	@:native("lua_pushlstring")
 	static function pushlstring(L:cpp.RawPointer<Lua_State>, s:cpp.ConstCharStar, len:cpp.SizeT):Void;
