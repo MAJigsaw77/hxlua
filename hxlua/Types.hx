@@ -39,50 +39,6 @@ extern class Lua_Debug
 	var short_src:Array<cpp.Char>; /* (S) max size is LUA_IDSIZE */
 }
 
-@:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
-@:include("lua.hpp")
-@:keep
-@:structAccess
-@:native("luaL_Buffer")
-extern class LuaL_Buffer
-{
-	@:native("luaL_Buffer")
-	static function create():LuaL_Buffer;
-
-	var b:cpp.ConstCharStar;
-	var size:cpp.SizeT;
-	var n:cpp.SizeT;
-	var L:cpp.RawPointer<Lua_State>;
-}
-
-@:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
-@:include("lua.hpp")
-@:keep
-@:structAccess
-@:native("luaL_Reg")
-extern class LuaL_Reg
-{
-	@:native("luaL_Reg")
-	static function create():LuaL_Reg;
-
-	var name:cpp.ConstCharStar;
-	var func:Lua_CFunction;
-}
-
-@:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
-@:include("lua.hpp")
-@:keep
-@:structAccess
-@:native("luaL_Stream")
-extern class LuaL_Stream
-{
-	@:native("luaL_Stream")
-	static function create():LuaL_Stream;
-
-	var f:cpp.FILE; /* stream (NULL for incompletely created streams) */
-	var closef:Lua_CFunction; /* to close stream (NULL for closed streams) */
-}
-
 /*
  * Type of numbers in Lua.
  */
@@ -131,3 +87,47 @@ typedef Lua_Alloc = cpp.Callable<(ud:cpp.Pointer<cpp.Void>, ptr:cpp.Pointer<cpp.
  * Type for warning functions.
  */
 typedef Lua_WarnFunction = cpp.Callable<(ud:cpp.Pointer<cpp.Void>, msg:cpp.ConstCharStar, tocont:Int) -> Void>;
+
+@:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
+@:include("lua.hpp")
+@:keep
+@:structAccess
+@:native("luaL_Buffer")
+extern class LuaL_Buffer
+{
+	@:native("luaL_Buffer")
+	static function create():LuaL_Buffer;
+
+	var b:cpp.ConstCharStar;
+	var size:cpp.SizeT;
+	var n:cpp.SizeT;
+	var L:cpp.RawPointer<Lua_State>;
+}
+
+@:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
+@:include("lua.hpp")
+@:keep
+@:structAccess
+@:native("luaL_Reg")
+extern class LuaL_Reg
+{
+	@:native("luaL_Reg")
+	static function create():LuaL_Reg;
+
+	var name:cpp.ConstCharStar;
+	var func:Lua_CFunction;
+}
+
+@:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
+@:include("lua.hpp")
+@:keep
+@:structAccess
+@:native("luaL_Stream")
+extern class LuaL_Stream
+{
+	@:native("luaL_Stream")
+	static function create():LuaL_Stream;
+
+	var f:cpp.FILE; /* stream (NULL for incompletely created streams) */
+	var closef:Lua_CFunction; /* to close stream (NULL for closed streams) */
+}
