@@ -251,7 +251,7 @@ extern class Lua
 	static function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Pointer<cpp.SizeT>):cpp.ConstCharStar;
 
 	@:native("lua_rawlen")
-	static function rawlen(L:cpp.RawPointer<Lua_State>, idx:Int):cpp.UInt32;
+	static function rawlen(L:cpp.RawPointer<Lua_State>, idx:Int):Lua_Unsigned;
 
 	@:native("lua_tocfunction")
 	static function tocfunction(L:cpp.RawPointer<Lua_State>, idx:Int):Lua_CFunction;
@@ -624,13 +624,13 @@ extern class Lua
 	 */
 	#if LUA_COMPAT_5_3
 	@:native("lua_pushunsigned")
-	static function pushunsigned(L:cpp.RawPointer<Lua_State>, n:cpp.UInt32):Void;
+	static function pushunsigned(L:cpp.RawPointer<Lua_State>, n:Lua_Unsigned):Void;
 
 	@:native("lua_tounsignedx")
-	static function tounsignedx(L:cpp.RawPointer<Lua_State>, i:Int, is:cpp.Star<Int>):cpp.UInt32;
+	static function tounsignedx(L:cpp.RawPointer<Lua_State>, i:Int, is:cpp.Star<Int>):Lua_Unsigned;
 
 	@:native("lua_tounsigned")
-	static function tounsigned(L:cpp.RawPointer<Lua_State>, i:Int):cpp.UInt32;
+	static function tounsigned(L:cpp.RawPointer<Lua_State>, i:Int):Lua_Unsigned;
 	#end
 
 	@:native("lua_newuserdata")
