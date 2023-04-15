@@ -365,6 +365,12 @@ extern class Lua
 	static function pushthread(L:cpp.RawPointer<Lua_State>):Int;
 
 	/*
+	 * Internal assertions for in-house debugging
+	 */
+	@:native("lua_assert")
+	static function assert(c:Int):Void;
+
+	/*
 	 * get functions (Lua -> stack)
 	 */
 	@:native("lua_getglobal")
