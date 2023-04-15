@@ -251,7 +251,7 @@ extern class Lua
 	static function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Pointer<cpp.SizeT>):cpp.ConstCharStar;
 
 	@:native("lua_rawlen")
-	static function rawlen(L:cpp.RawPointer<Lua_State>, idx:Int):UInt;
+	static function rawlen(L:cpp.RawPointer<Lua_State>, idx:Int):cpp.UInt32;
 
 	@:native("lua_tocfunction")
 	static function tocfunction(L:cpp.RawPointer<Lua_State>, idx:Int):Lua_CFunction;
@@ -624,13 +624,13 @@ extern class Lua
 	 */
 	#if LUA_COMPAT_5_3
 	@:native("lua_pushunsigned")
-	static function pushunsigned(L:cpp.RawPointer<Lua_State>, n:UInt):Void;
+	static function pushunsigned(L:cpp.RawPointer<Lua_State>, n:cpp.UInt32):Void;
 
 	@:native("lua_tounsignedx")
-	static function tounsignedx(L:cpp.RawPointer<Lua_State>, i:Int, is:cpp.Star<Int>):UInt;
+	static function tounsignedx(L:cpp.RawPointer<Lua_State>, i:Int, is:cpp.Star<Int>):cpp.UInt32;
 
 	@:native("lua_tounsigned")
-	static function tounsigned(L:cpp.RawPointer<Lua_State>, i:Int):UInt;
+	static function tounsigned(L:cpp.RawPointer<Lua_State>, i:Int):cpp.UInt32;
 	#end
 
 	@:native("lua_newuserdata")
@@ -715,7 +715,7 @@ extern class Lua
 	static function gethookcount(L:cpp.RawPointer<Lua_State>):Int;
 
 	@:native("lua_setcstacklimit")
-	static function setcstacklimit(L:cpp.RawPointer<Lua_State>, limit:UInt):Int;
+	static function setcstacklimit(L:cpp.RawPointer<Lua_State>, limit:cpp.UInt32):Int;
 
 	@:native("::String(LUA_FILEHANDLE)")
 	static var FILEHANDLE:String;
