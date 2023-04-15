@@ -232,10 +232,10 @@ extern class LuaL
 	 */
 	#if LUA_COMPAT_APIINTCASTS
 	@:native("luaL_checkunsigned")
-	static function checkunsigned(L:cpp.RawPointer<Lua_State>, a:Int):cpp.UInt32;
+	static function checkunsigned(L:cpp.RawPointer<Lua_State>, a:Int):Lua_Unsigned;
 
 	@:native("luaL_optunsigned")
-	static function optunsigned(L:cpp.RawPointer<Lua_State>, a:Int, d:cpp.UInt32):cpp.UInt32;
+	static function optunsigned(L:cpp.RawPointer<Lua_State>, a:Int, d:Lua_Unsigned):Lua_Unsigned;
 	#end
 
 	/* open all previous libraries */
