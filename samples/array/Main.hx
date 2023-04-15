@@ -9,7 +9,7 @@ class Main
 	public static function main():Void
 	{
 		/* version info */
-		trace(Lua.VERSION);
+		Sys.println(Lua.VERSION);
 
 		/* initialize Lua */
 		var vm:cpp.RawPointer<Lua_State> = LuaL.newstate();
