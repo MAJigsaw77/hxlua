@@ -89,13 +89,19 @@ extern class LuaL_Stream
 	var closef:Lua_CFunction; /* to close stream (NULL for closed streams) */
 }
 
-/* Type of numbers in Lua */
+/*
+ * Type of numbers in Lua.
+ */
 typedef Lua_Number = Float;
 
-/* Type for integer functions */
+/*
+ * Type for integer functions 
+ */
 typedef Lua_Integer = cpp.Int64;
 
-/* Type of unsigned integer */
+/*
+ * Type of unsigned integer.
+ */
 typedef Lua_Unsigned = cpp.UInt64;
 
 /*
