@@ -54,7 +54,9 @@ typedef Lua_Integer = cpp.Int64;
  */
 typedef Lua_Unsigned = cpp.UInt64;
 
-/* type for continuation-function contexts */
+/*
+ * Type for continuation-function contexts.
+ */
 typedef Lua_KContext = Int;
 
 /*
