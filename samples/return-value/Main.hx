@@ -21,7 +21,7 @@ class Main
 		LuaL.dofile(vm, "script.lua");
 
 		trace('stack: ${Lua.gettop(vm)}');
-		trace('num: ${Lua.tointeger(vm, 1)}');
+		trace('num: ${Lua.tointeger(vm, 1).toInt()}');
 
 		/* cleanup Lua */
 		Lua.close(vm);
