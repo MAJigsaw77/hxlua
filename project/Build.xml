@@ -54,7 +54,7 @@
 			<!-- Windows doesn't need any compiler flags -->
 		</section>
 
-		<section if="linux || android || emscripten">
+		<section if="linux">
 			<compilerflag value="-DLUA_USE_LINUX" />
 		</section>
 
@@ -62,10 +62,14 @@
 			<compilerflag value="-DLUA_USE_MACOSX" />
 		</section>
 
-		<!-- Lua 5.4.5 will have iOS build issues fixed but until then, isn't working -->
-		<section if="iphoneos || iphonesim">
+		<section if="android || emscripten">
 			<compilerflag value="-DLUA_USE_POSIX" />
 			<compilerflag value="-DLUA_USE_DLOPEN" />
+		</section>
+
+		<!-- Lua 5.4.5 will have iOS building issues fixed but until then, the compile will crash -->
+		<section if="iphoneos || iphonesim">
+			<compilerflag value="-DLUA_USE_IOS" />
 		</section>
 
 		<include name="${haxelib:hxlua}/project/Defines.xml" />
