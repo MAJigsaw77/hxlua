@@ -23,6 +23,6 @@ Check out the [Samples Folder](samples/) for examples on how to use this library
 
 **hxlua** is made available under the **MIT License**. Check [LICENSE](./LICENSE) for more information.
 
-![](https://raw.githubusercontent.com/MAJigsaw77/hxlua/main/lua-logo.png)
+![](https://avatars.githubusercontent.com/u/2319114?s=200&v=4)
 
 **Lua** is made available under the **MIT License**. Check [Lua.org](https://www.lua.org/license.html) for more information.
