@@ -17,7 +17,7 @@ haxelib git hxlua https://github.com/MAJigsaw77/hxlua.git
 
 ### Usage Example
 
-Check out the [Samples Folder](samples/) for examples on how to use this library.
+Check out the [Examples Folder](examples/) for examples on how to use this library.
 
 ### Licensing
 
