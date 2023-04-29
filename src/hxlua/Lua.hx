@@ -347,7 +347,7 @@ extern class Lua
 	static function pushstring(L:cpp.RawPointer<Lua_State>, s:cpp.ConstCharStar):Void;
 
 	@:native("lua_pushvfstring")
-	static function pushvfstring(L:cpp.RawPointer<Lua_State>, s:cpp.ConstCharStar, argp:cpp.VirtualArray):Void;
+	static function pushvfstring(L:cpp.RawPointer<Lua_State>, s:cpp.ConstCharStar, argp:cpp.VarList):Void;
 
 	@:native("lua_pushfstring")
 	static function pushfstring(L:cpp.RawPointer<Lua_State>, fmt:cpp.ConstCharStar, args:cpp.Rest<cpp.VarArg>):cpp.ConstCharStar;
