@@ -8,8 +8,8 @@
 		"haxe"
 	],
 	"description":"Haxe/hxcpp @:native bindings for Lua.",
-	"version":"1.5.0",
-	"releasenote":"Updated Lua to 5.4.5, Fixed va_list type of argument and fixed iOS building issues.",
+	"version":"1.5.1",
+	"releasenote":"Fixed some types.",
 	"contributors":[
 		"MAJigsaw77"
 	],
