@@ -49,19 +49,19 @@ typedef Lua_KFunction = cpp.Callable<(L:cpp.RawPointer<Lua_State>, status:Int, c
 /*
  * Type for functions that read/write blocks when loading/dumping Lua chunks.
  */
-typedef Lua_Reader = cpp.Callable<(L:cpp.RawPointer<Lua_State>, ud:cpp.Pointer<cpp.Void>, sz:cpp.Pointer<cpp.SizeT>) -> cpp.ConstCharStar>;
+typedef Lua_Reader = cpp.Callable<(L:cpp.RawPointer<Lua_State>, ud:cpp.RawPointer<cpp.Void>, sz:cpp.RawPointer<cpp.SizeT>) -> cpp.ConstCharStar>;
 
-typedef Lua_Writer = cpp.Callable<(L:cpp.RawPointer<Lua_State>, p:cpp.ConstPointer<cpp.Void>, sz:cpp.SizeT, ud:cpp.Pointer<cpp.Void>) -> Int>;
+typedef Lua_Writer = cpp.Callable<(L:cpp.RawPointer<Lua_State>, p:cpp.RawConstPointer<cpp.Void>, sz:cpp.SizeT, ud:cpp.RawPointer<cpp.Void>) -> Int>;
 
 /*
  * Type for memory-allocation functions.
  */
-typedef Lua_Alloc = cpp.Callable<(ud:cpp.Pointer<cpp.Void>, ptr:cpp.Pointer<cpp.Void>, osize:cpp.SizeT, nsize:cpp.SizeT) -> cpp.Pointer<cpp.Void>>;
+typedef Lua_Alloc = cpp.Callable<(ud:cpp.RawPointer<cpp.Void>, ptr:cpp.RawPointer<cpp.Void>, osize:cpp.SizeT, nsize:cpp.SizeT) -> cpp.RawPointer<cpp.Void>>;
 
 /*
  * Type for warning functions.
  */
-typedef Lua_WarnFunction = cpp.Callable<(ud:cpp.Pointer<cpp.Void>, msg:cpp.ConstCharStar, tocont:Int) -> Void>;
+typedef Lua_WarnFunction = cpp.Callable<(ud:cpp.RawPointer<cpp.Void>, msg:cpp.ConstCharStar, tocont:Int) -> Void>;
 
 /*
  * Type for debugging hook functions.
