@@ -176,7 +176,7 @@ extern class Lua
 	static function newthread(L:cpp.RawPointer<Lua_State>):cpp.RawPointer<Lua_State>;
 
 	@:native("lua_resetthread")
-	static function resetthread(L:cpp.RawPointer<Lua_State>):Int;
+	static function resetthread(L:cpp.RawPointer<Lua_State>, from:cpp.RawPointer<Lua_State>):Int;
 
 	@:native("lua_atpanic")
 	static function atpanic(L:cpp.RawPointer<Lua_State>, panicf:Lua_CFunction):Lua_CFunction;
