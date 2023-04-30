@@ -6,6 +6,11 @@ import hxlua.Types;
 
 class Main
 {
+	private static function warnf(ud:cpp.Pointer<cpp.Void>, msg:cpp.ConstCharStar, tocont:Int):Void
+	{
+		Sys.println(cast(msg, String));
+	}
+
 	public static function main():Void
 	{
 		/* version info */
@@ -16,6 +21,8 @@ class Main
 
 		/* load Lua base libraries */
 		LuaL.openlibs(vm);
+
+		Lua.setwarnf(vm, cpp.Function.fromStaticFunction(warnf), untyped __cpp__('0'));
 
 		/* run the script */
 		LuaL.dofile(vm, "script.lua");
