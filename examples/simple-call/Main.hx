@@ -25,7 +25,7 @@ class Main
 		/* run the script */
 		LuaL.dofile(vm, "script.lua");
 
-		Lua.yieldk(vm, 0, 0, cpp.Function.fromStaticFunction(kshit));
+		Lua.yieldk(vm, 0, untyped __cpp__('0'), cpp.Function.fromStaticFunction(kshit));
 
 		/* cleanup Lua */
 		Lua.close(vm);
