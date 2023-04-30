@@ -50,10 +50,6 @@
 		<file name="${haxelib:hxlua}/project/lua/src/lvm.c" />
 		<file name="${haxelib:hxlua}/project/lua/src/lzio.c" />
 
-		<section if="windows">
-			<!-- Windows doesn't need any compiler flags -->
-		</section>
-
 		<section if="macos">
 			<compilerflag value="-DLUA_USE_MACOSX" />
 		</section>
@@ -62,19 +58,11 @@
 			<compilerflag value="-DLUA_USE_LINUX" />
 		</section>
 
-		<section if="iphoneos || iphonesim">
+		<section if="iphoneos || iphonesim || appletvos || appletvsim || watchos || watchsimulator">
 			<compilerflag value="-DLUA_USE_IOS" />
 		</section>
 
-		<section if="appletvos || appletvsim">
-			<compilerflag value="-DLUA_USE_IOS" />
-		</section>
-
-		<section if="watchos || watchsimulator">
-			<compilerflag value="-DLUA_USE_IOS" />
-		</section>
-
-		<section if="android || emscripten">
+		<section if="android || webos || tizen || blackberry || emscripten">
 			<compilerflag value="-DLUA_USE_POSIX" />
 			<compilerflag value="-DLUA_USE_DLOPEN" />
 		</section>
