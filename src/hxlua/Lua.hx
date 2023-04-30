@@ -167,7 +167,7 @@ extern class Lua
 	 * state manipulation
 	 */
 	@:native("lua_newstate")
-	static function newstate(f:Lua_Alloc, ud:cpp.Pointer<cpp.Void>):cpp.RawPointer<Lua_State>;
+	static function newstate(f:Lua_Alloc, ud:cpp.RawPointer<cpp.Void>):cpp.RawPointer<Lua_State>;
 
 	@:native("lua_close")
 	static function close(L:cpp.RawPointer<Lua_State>):Void;
@@ -239,16 +239,16 @@ extern class Lua
 	 * access functions (stack -> C)
 	 */
 	@:native("lua_tonumberx")
-	static function tonumberx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.Pointer<Int>):Lua_Number;
+	static function tonumberx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.RawPointer<Int>):Lua_Number;
 
 	@:native("lua_tointegerx")
-	static function tointegerx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.Pointer<Int>):Lua_Integer;
+	static function tointegerx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.RawPointer<Int>):Lua_Integer;
 
 	@:native("lua_toboolean")
 	static function toboolean(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
 	@:native("lua_tolstring")
-	static function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Pointer<cpp.SizeT>):cpp.ConstCharStar;
+	static function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.RawPointer<cpp.SizeT>):cpp.ConstCharStar;
 
 	@:native("lua_rawlen")
 	static function rawlen(L:cpp.RawPointer<Lua_State>, idx:Int):Lua_Unsigned;
@@ -257,7 +257,7 @@ extern class Lua
 	static function tocfunction(L:cpp.RawPointer<Lua_State>, idx:Int):Lua_CFunction;
 
 	@:native("lua_touserdata")
-	static function touserdata(L:cpp.RawPointer<Lua_State>, idx:Int):cpp.Pointer<cpp.Void>;
+	static function touserdata(L:cpp.RawPointer<Lua_State>, idx:Int):cpp.RawPointer<cpp.Void>;
 
 	@:native("lua_tothread")
 	static function tothread(L:cpp.RawPointer<Lua_State>, idx:Int):cpp.RawPointer<Lua_State>;
@@ -359,7 +359,7 @@ extern class Lua
 	static function pushboolean(L:cpp.RawPointer<Lua_State>, b:Int):Void;
 
 	@:native("lua_pushlightuserdata")
-	static function pushlightuserdata(L:cpp.RawPointer<Lua_State>, p:cpp.Pointer<cpp.Void>):Void;
+	static function pushlightuserdata(L:cpp.RawPointer<Lua_State>, p:cpp.RawPointer<cpp.Void>):Void;
 
 	@:native("lua_pushthread")
 	static function pushthread(L:cpp.RawPointer<Lua_State>):Int;
@@ -398,7 +398,7 @@ extern class Lua
 	static function createtable(L:cpp.RawPointer<Lua_State>, narr:Int, nrec:Int):Void;
 
 	@:native("lua_newuserdatauv")
-	static function newuserdatauv(L:cpp.RawPointer<Lua_State>, sz:cpp.SizeT, nuvalue:Int):cpp.Pointer<cpp.Void>;
+	static function newuserdatauv(L:cpp.RawPointer<Lua_State>, sz:cpp.SizeT, nuvalue:Int):cpp.RawPointer<cpp.Void>;
 
 	@:native("lua_getmetatable")
 	static function getmetatable(L:cpp.RawPointer<Lua_State>, objindex:Int):Int;
@@ -452,10 +452,10 @@ extern class Lua
 	static function pcall(L:cpp.RawPointer<Lua_State>, nargs:Int, nresults:Int, errfunc:Int):Int;
 
 	@:native("lua_load")
-	static function load(L:cpp.RawPointer<Lua_State>, reader:Lua_Reader, dt:cpp.Pointer<cpp.Void>, chunkname:cpp.ConstCharStar, mode:cpp.ConstCharStar):Int;
+	static function load(L:cpp.RawPointer<Lua_State>, reader:Lua_Reader, dt:cpp.RawPointer<cpp.Void>, chunkname:cpp.ConstCharStar, mode:cpp.ConstCharStar):Int;
 
 	@:native("lua_dump")
-	static function dump(L:cpp.RawPointer<Lua_State>, reader:Lua_Writer, data:cpp.Pointer<cpp.Void>, strip:Int):Int;
+	static function dump(L:cpp.RawPointer<Lua_State>, reader:Lua_Writer, data:cpp.RawPointer<cpp.Void>, strip:Int):Int;
 
 	/*
 	 * coroutine functions
@@ -479,7 +479,7 @@ extern class Lua
 	 * Warning-related functions
 	 */
 	@:native("lua_setwarnf")
-	static function setwarnf(L:cpp.RawPointer<Lua_State>, f:Lua_WarnFunction, ud:cpp.Pointer<cpp.Void>):Void;
+	static function setwarnf(L:cpp.RawPointer<Lua_State>, f:Lua_WarnFunction, ud:cpp.RawPointer<cpp.Void>):Void;
 
 	@:native("lua_warning")
 	static function warning(L:cpp.RawPointer<Lua_State>, msg:cpp.ConstCharStar, tocont:Int):Void;
@@ -542,10 +542,10 @@ extern class Lua
 	static function stringtonumber(L:cpp.RawPointer<Lua_State>, s:cpp.ConstCharStar):cpp.SizeT;
 
 	@:native("lua_getallocf")
-	static function getallocf(L:cpp.RawPointer<Lua_State>, ud:cpp.Pointer<cpp.Pointer<cpp.Void>>):Lua_Alloc;
+	static function getallocf(L:cpp.RawPointer<Lua_State>, ud:cpp.RawPointer<cpp.RawPointer<cpp.Void>>):Lua_Alloc;
 
 	@:native("lua_setallocf")
-	static function setallocf(L:cpp.RawPointer<Lua_State>, f:Lua_Alloc, ud:cpp.Pointer<cpp.Void>):Void;
+	static function setallocf(L:cpp.RawPointer<Lua_State>, f:Lua_Alloc, ud:cpp.RawPointer<cpp.Void>):Void;
 
 	@:native("lua_toclose")
 	static function toclose(L:cpp.RawPointer<Lua_State>, idx:Int):Void;
@@ -557,7 +557,7 @@ extern class Lua
 	 * some useful macros
 	 */
 	@:native("lua_getextraspace")
-	static function getextraspace(L:cpp.RawPointer<Lua_State>):cpp.Pointer<cpp.Void>;
+	static function getextraspace(L:cpp.RawPointer<Lua_State>):cpp.RawPointer<cpp.Void>;
 
 	@:native("lua_tonumber")
 	static function tonumber(L:cpp.RawPointer<Lua_State>, idx:Int):Lua_Number;
@@ -627,14 +627,14 @@ extern class Lua
 	static function pushunsigned(L:cpp.RawPointer<Lua_State>, n:Lua_Unsigned):Void;
 
 	@:native("lua_tounsignedx")
-	static function tounsignedx(L:cpp.RawPointer<Lua_State>, i:Int, is:cpp.Pointer<Int>):Lua_Unsigned;
+	static function tounsignedx(L:cpp.RawPointer<Lua_State>, i:Int, is:cpp.RawPointer<Int>):Lua_Unsigned;
 
 	@:native("lua_tounsigned")
 	static function tounsigned(L:cpp.RawPointer<Lua_State>, i:Int):Lua_Unsigned;
 	#end
 
 	@:native("lua_newuserdata")
-	static function newuserdata(L:cpp.RawPointer<Lua_State>, s:cpp.SizeT):cpp.Pointer<cpp.Void>;
+	static function newuserdata(L:cpp.RawPointer<Lua_State>, s:cpp.SizeT):cpp.RawPointer<cpp.Void>;
 
 	@:native("lua_getuservalue")
 	static function getuservalue(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
@@ -697,7 +697,7 @@ extern class Lua
 	static function setupvalue(L:cpp.RawPointer<Lua_State>, funcindex:Int, n:Int):cpp.ConstCharStar;
 
 	@:native("lua_upvalueid")
-	static function upvalueid(L:cpp.RawPointer<Lua_State>, fidx:Int, n:Int):cpp.Pointer<cpp.Void>;
+	static function upvalueid(L:cpp.RawPointer<Lua_State>, fidx:Int, n:Int):cpp.RawPointer<cpp.Void>;
 
 	@:native("lua_upvaluejoin")
 	static function upvaluejoin(L:cpp.RawPointer<Lua_State>, fidx1:Int, n1:Int, fidx2:Int, n2:Int):Void;
