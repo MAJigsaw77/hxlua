@@ -12,6 +12,62 @@ class Types {} // blank
 @:native("lua_State")
 extern class Lua_State {}
 
+/*
+ * Type of numbers in Lua.
+ */
+typedef Lua_Number = Float;
+
+/*
+ * Type for integer functions 
+ */
+typedef Lua_Integer = cpp.Int64;
+
+/*
+ * Type of unsigned integer.
+ */
+typedef Lua_Unsigned = cpp.UInt64;
+
+/*
+ * Type for continuation-function contexts.
+ */
+@:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
+@:include("lua.hpp")
+@:keep
+@:native("lua_KContext")
+extern class Lua_KContext {}
+
+/*
+ * Type for C functions registered with Lua.
+ */
+typedef Lua_CFunction = cpp.Callable<(L:cpp.RawPointer<Lua_State>) -> Int>;
+
+/*
+ * Type for continuation functions.
+ */
+typedef Lua_KFunction = cpp.Callable<(L:cpp.RawPointer<Lua_State>, status:Int, ctx:Lua_KContext) -> Int>;
+
+/*
+ * Type for functions that read/write blocks when loading/dumping Lua chunks.
+ */
+typedef Lua_Reader = cpp.Callable<(L:cpp.RawPointer<Lua_State>, ud:cpp.Pointer<cpp.Void>, sz:cpp.Pointer<cpp.SizeT>) -> cpp.ConstCharStar>;
+
+typedef Lua_Writer = cpp.Callable<(L:cpp.RawPointer<Lua_State>, p:cpp.ConstPointer<cpp.Void>, sz:cpp.SizeT, ud:cpp.Pointer<cpp.Void>) -> Int>;
+
+/*
+ * Type for memory-allocation functions.
+ */
+typedef Lua_Alloc = cpp.Callable<(ud:cpp.Pointer<cpp.Void>, ptr:cpp.Pointer<cpp.Void>, osize:cpp.SizeT, nsize:cpp.SizeT) -> cpp.Pointer<cpp.Void>>;
+
+/*
+ * Type for warning functions.
+ */
+typedef Lua_WarnFunction = cpp.Callable<(ud:cpp.Pointer<cpp.Void>, msg:cpp.ConstCharStar, tocont:Int) -> Void>;
+
+/*
+ * Type for debugging hook functions.
+ */
+typedef Lua_Hook = cpp.Callable<(L:cpp.RawPointer<Lua_State>, ar:cpp.RawPointer<Lua_Debug>) -> Void>;
+
 @:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
 @:include("lua.hpp")
 @:keep
@@ -38,57 +94,6 @@ extern class Lua_Debug
 	var ntransfer:cpp.UInt16; /* (r) number of transferred values */
 	var short_src:Array<cpp.Char>; /* (S) max size is LUA_IDSIZE */
 }
-
-/*
- * Type of numbers in Lua.
- */
-typedef Lua_Number = Float;
-
-/*
- * Type for integer functions 
- */
-typedef Lua_Integer = cpp.Int64;
-
-/*
- * Type of unsigned integer.
- */
-typedef Lua_Unsigned = cpp.UInt64;
-
-/*
- * Type for continuation-function contexts.
- */
-typedef Lua_KContext = Int;
-
-/*
- * Type for debugging hook functions.
- */
-typedef Lua_Hook = cpp.Callable<(L:cpp.RawPointer<Lua_State>, ar:cpp.RawPointer<Lua_Debug>) -> Void>;
-
-/*
- * Type for C functions registered with Lua.
- */
-typedef Lua_CFunction = cpp.Callable<(L:cpp.RawPointer<Lua_State>) -> Int>;
-
-/*
- * Type for continuation functions.
- */
-typedef Lua_KFunction = cpp.Callable<(L:cpp.RawPointer<Lua_State>, status:Int, ctx:Lua_KContext) -> Int>;
-
-/*
- * Type for functions that read/write blocks when loading/dumping Lua chunks.
- */
-typedef Lua_Reader = cpp.Callable<(L:cpp.RawPointer<Lua_State>, ud:cpp.Pointer<cpp.Void>, sz:cpp.Pointer<cpp.SizeT>) -> cpp.ConstCharStar>;
-typedef Lua_Writer = cpp.Callable<(L:cpp.RawPointer<Lua_State>, p:cpp.ConstPointer<cpp.Void>, sz:cpp.SizeT, ud:cpp.Pointer<cpp.Void>) -> Int>;
-
-/*
- * Type for memory-allocation functions.
- */
-typedef Lua_Alloc = cpp.Callable<(ud:cpp.Pointer<cpp.Void>, ptr:cpp.Pointer<cpp.Void>, osize:cpp.SizeT, nsize:cpp.SizeT) -> cpp.Pointer<cpp.Void>>;
-
-/*
- * Type for warning functions.
- */
-typedef Lua_WarnFunction = cpp.Callable<(ud:cpp.Pointer<cpp.Void>, msg:cpp.ConstCharStar, tocont:Int) -> Void>;
 
 @:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
 @:include("lua.hpp")
