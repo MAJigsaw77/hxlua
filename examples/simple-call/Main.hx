@@ -22,7 +22,7 @@ class Main
 		/* load Lua base libraries */
 		LuaL.openlibs(vm);
 
-		Lua.setwarnf(vm, cpp.Function.fromStaticFunction(warnf), untyped __cpp__('0'));
+		Lua.setwarnf(vm, cpp.Function.fromStaticFunction(warnf), null);
 
 		/* run the script */
 		LuaL.dofile(vm, "script.lua");
