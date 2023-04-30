@@ -6,7 +6,7 @@ import hxlua.Types;
 
 class Main
 {
-	private static function warnf(ud:cpp.Pointer<cpp.Void>, msg:cpp.ConstCharStar, tocont:Int):Void
+	private static function warnf(ud:cpp.RawPointer<cpp.Void>, msg:cpp.ConstCharStar, tocont:Int):Void
 	{
 		Sys.println(cast(msg, String));
 	}
