@@ -24,7 +24,7 @@ extern class LuaL
 	static function callmeta(L:cpp.RawPointer<Lua_State>, obj:Int, e:cpp.ConstCharStar):Int;
 
 	@:native("luaL_tolstring")
-	static function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.RawPointer<cpp.SizeT>):cpp.ConstCharStar;
+	static function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Pointer<cpp.SizeT>):cpp.ConstCharStar;
 
 	@:native("luaL_argerror")
 	static function argerror(L:cpp.RawPointer<Lua_State>, arg:Int, extramsg:cpp.ConstCharStar):Int;
@@ -33,10 +33,10 @@ extern class LuaL
 	static function typeerror(L:cpp.RawPointer<Lua_State>, arg:Int, tname:cpp.ConstCharStar):Int;
 
 	@:native("luaL_checklstring")
-	static function checklstring(L:cpp.RawPointer<Lua_State>, arg:Int, l:cpp.RawPointer<cpp.SizeT>):cpp.ConstCharStar;
+	static function checklstring(L:cpp.RawPointer<Lua_State>, arg:Int, l:cpp.Pointer<cpp.SizeT>):cpp.ConstCharStar;
 
 	@:native("luaL_optlstring")
-	static function optlstring(L:cpp.RawPointer<Lua_State>, arg:Int, def:cpp.ConstCharStar, l:cpp.RawPointer<cpp.SizeT>):cpp.ConstCharStar;
+	static function optlstring(L:cpp.RawPointer<Lua_State>, arg:Int, def:cpp.ConstCharStar, l:cpp.Pointer<cpp.SizeT>):cpp.ConstCharStar;
 
 	@:native("luaL_checknumber")
 	static function checknumber(L:cpp.RawPointer<Lua_State>, arg:Int):Lua_Number;
@@ -66,10 +66,10 @@ extern class LuaL
 	static function setmetatable(L:cpp.RawPointer<Lua_State>, tname:cpp.ConstCharStar):Void;
 
 	@:native("luaL_testudata")
-	static function testudata(L:cpp.RawPointer<Lua_State>, ud:Int, tname:cpp.ConstCharStar):cpp.RawPointer<cpp.Void>;
+	static function testudata(L:cpp.RawPointer<Lua_State>, ud:Int, tname:cpp.ConstCharStar):cpp.Pointer<cpp.Void>;
 
 	@:native("luaL_checkudata")
-	static function checkudata(L:cpp.RawPointer<Lua_State>, ud:Int, tname:cpp.ConstCharStar):cpp.RawPointer<cpp.Void>;
+	static function checkudata(L:cpp.RawPointer<Lua_State>, ud:Int, tname:cpp.ConstCharStar):cpp.Pointer<cpp.Void>;
 
 	@:native("luaL_where")
 	static function where(L:cpp.RawPointer<Lua_State>, lvl:Int):Void;
