@@ -66,6 +66,14 @@
 			<compilerflag value="-DLUA_USE_IOS" />
 		</section>
 
+		<section if="appletvos || appletvsim">
+			<compilerflag value="-DLUA_USE_IOS" />
+		</section>
+
+		<section if="watchos || watchsimulator">
+			<compilerflag value="-DLUA_USE_IOS" />
+		</section>
+
 		<section if="android || emscripten">
 			<compilerflag value="-DLUA_USE_POSIX" />
 			<compilerflag value="-DLUA_USE_DLOPEN" />
