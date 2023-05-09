@@ -68,6 +68,7 @@ typedef Lua_Hook = cpp.Callable<(L:cpp.RawPointer<Lua_State>, ar:cpp.RawPointer<
 
 @:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
 @:include("lua.hpp")
+@:unreflective
 @:structAccess
 @:native("lua_Debug")
 extern class Lua_Debug
@@ -94,6 +95,7 @@ extern class Lua_Debug
 
 @:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
 @:include("lua.hpp")
+@:unreflective
 @:structAccess
 @:native("luaL_Buffer")
 extern class LuaL_Buffer
@@ -109,6 +111,7 @@ extern class LuaL_Buffer
 
 @:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
 @:include("lua.hpp")
+@:unreflective
 @:structAccess
 @:native("luaL_Reg")
 extern class LuaL_Reg
@@ -122,6 +125,7 @@ extern class LuaL_Reg
 
 @:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
 @:include("lua.hpp")
+@:unreflective
 @:structAccess
 @:native("luaL_Stream")
 extern class LuaL_Stream
