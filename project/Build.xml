@@ -16,6 +16,7 @@
 
 	<files id="lua">
 		<compilerflag value="-I${haxelib:hxlua}/project/lua/src" />
+		<compilerflag value="-Dlua_getlocaledecpoint()='.'" />
 
 		<file name="${haxelib:hxlua}/project/lua/src/lapi.c" />
 		<file name="${haxelib:hxlua}/project/lua/src/lauxlib.c" />
