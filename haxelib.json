@@ -9,7 +9,7 @@
 	],
 	"description":"Haxe/hxcpp @:native bindings for Lua.",
 	"version":"1.6.0",
-	"releasenote":"Updated to Lua 5.4.6 and fixed some issues with reflection and dce.",
+	"releasenote":"Updated to Lua 5.4.6 and Fixed issues with reflection and dce.",
 	"contributors":[
 		"MAJigsaw77"
 	],
