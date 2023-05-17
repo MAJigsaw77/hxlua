@@ -251,7 +251,7 @@ extern class Lua
 	static function toboolean(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
 
 	@:native("lua_tolstring")
-	static function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.RawPointer<cpp.SizeT>):cpp.ConstCharStar;
+	static function tolstring(L:cpp.RawPointer<Lua_State>, idx:Int, len:cpp.Star<cpp.SizeT>):cpp.ConstCharStar;
 
 	@:native("lua_rawlen")
 	static function rawlen(L:cpp.RawPointer<Lua_State>, idx:Int):Lua_Unsigned;
