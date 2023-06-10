@@ -8,8 +8,8 @@
 		"haxe"
 	],
 	"description":"Haxe/hxcpp @:native bindings for Lua.",
-	"version":"1.6.0",
-	"releasenote":"Updated to Lua 5.4.6 and Fixed issues with reflection and dce.",
+	"version":"1.6.1",
+	"releasenote":"Made some native functions to work better with Haxe.",
 	"contributors":[
 		"MAJigsaw77"
 	],
