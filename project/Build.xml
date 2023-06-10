@@ -71,8 +71,8 @@
 	</files>
 
 	<target id="haxe">
-		<section if="linux">
-			<lib name="-ldl" />
+		<section if="macos || linux">
+			<lib name="-lreadline" if="LUA_USE_READLINE" />
 		</section>
 
 		<files id="lua" />
