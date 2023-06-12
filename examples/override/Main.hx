@@ -25,7 +25,7 @@ class Main
 
 		/* cleanup Lua */
 		Lua.close(vm);
-		vm = untyped __cpp__('NULL');
+		vm = null;
 	}
 
 	private static function print(l:cpp.RawPointer<Lua_State>):Int

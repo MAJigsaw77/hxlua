@@ -28,6 +28,6 @@ class Main
 
 		/* cleanup Lua */
 		Lua.close(vm);
-		vm = untyped __cpp__('NULL');
+		vm = null;
 	}
 }
