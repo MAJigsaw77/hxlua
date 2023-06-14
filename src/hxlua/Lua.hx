@@ -718,7 +718,7 @@ extern class Lua
 	static function gethookcount(L:cpp.RawPointer<Lua_State>):Int;
 
 	@:native("lua_setcstacklimit")
-	static function setcstacklimit(L:cpp.RawPointer<Lua_State>, limit:UInt):Int;
+	static function setcstacklimit(L:cpp.RawPointer<Lua_State>, limit:cpp.UInt32):Int;
 
 	@:native("::String(LUA_FILEHANDLE)")
 	static var FILEHANDLE:String;
