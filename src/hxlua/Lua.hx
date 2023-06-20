@@ -10,14 +10,14 @@ import hxlua.Types;
 @:unreflective
 extern class Lua
 {
-	@:native("::String(LUA_VERSION_MAJOR)")
-	static var VERSION_MAJOR:String;
+	@:native("LUA_VERSION_MAJOR")
+	static var VERSION_MAJOR:cpp.ConstCharStar;
 
-	@:native("::String(LUA_VERSION_MINOR)")
-	static var VERSION_MINOR:String;
+	@:native("LUA_VERSION_MINOR")
+	static var VERSION_MINOR:cpp.ConstCharStar;
 
-	@:native("::String(LUA_VERSION_RELEASE)")
-	static var VERSION_RELEASE:String;
+	@:native("LUA_VERSION_RELEASE")
+	static var VERSION_RELEASE:cpp.ConstCharStar;
 
 	@:native("LUA_VERSION_NUM")
 	static var VERSION_NUM:Int;
@@ -25,21 +25,21 @@ extern class Lua
 	@:native("LUA_VERSION_RELEASE_NUM")
 	static var VERSION_RELEASE_NUM:Int;
 
-	@:native("::String(LUA_VERSION)")
-	static var VERSION:String;
+	@:native("LUA_VERSION")
+	static var VERSION:cpp.ConstCharStar;
 
-	@:native("::String(LUA_RELEASE)")
-	static var RELEASE:String;
+	@:native("LUA_RELEASE")
+	static var RELEASE:cpp.ConstCharStar;
 
-	@:native("::String(LUA_COPYRIGHT)")
-	static var COPYRIGHT:String;
+	@:native("LUA_COPYRIGHT")
+	static var COPYRIGHT:cpp.ConstCharStar;
 
-	@:native("::String(LUA_AUTHORS)")
-	static var AUTHORS:String;
+	@:native("LUA_AUTHORS")
+	static var AUTHORS:cpp.ConstCharStar;
 
 	/* mark for precompiled code ('<esc>Lua') */
-	@:native("::String(LUA_SIGNATURE)")
-	static var SIGNATURE:String;
+	@:native("LUA_SIGNATURE")
+	static var SIGNATURE:cpp.ConstCharStar;
 
 	/* option for multiple returns in 'lua_pcall' and 'lua_call' */
 	@:native("LUA_MULTRET")
@@ -117,50 +117,50 @@ extern class Lua
 	static var RIDX_LAST:Int;
 
 	/* global table */
-	@:native("::String(LUA_GNAME)")
-	static var GNAME:String;
+	@:native("LUA_GNAME")
+	static var GNAME:cpp.ConstCharStar;
 
 	/* extra error code for "luaL_loadfilex" */
 	@:native("LUA_ERRFILE")
 	static var ERRFILE:Int;
 
 	/* key, in the registry, for table of loaded modules */
-	@:native("::String(LUA_LOADED_TABLE)")
-	static var LOADED_TABLE:String;
+	@:native("LUA_LOADED_TABLE")
+	static var LOADED_TABLE:cpp.ConstCharStar;
 
 	/* key, in the registry, for table of preloaded modules */
-	@:native("::String(LUA_PRELOAD_TABLE)")
-	static var PRELOAD_TABLE:String;
+	@:native("LUA_PRELOAD_TABLE")
+	static var PRELOAD_TABLE:cpp.ConstCharStar;
 
-	@:native("::String(LUA_VERSUFFIX)")
-	static var VERSUFFIX:String;
+	@:native("LUA_VERSUFFIX")
+	static var VERSUFFIX:cpp.ConstCharStar;
 
-	@:native("::String(LUA_COLIBNAME)")
-	static var COLIBNAME:String;
+	@:native("LUA_COLIBNAME")
+	static var COLIBNAME:cpp.ConstCharStar;
 
-	@:native("::String(LUA_TABLIBNAME)")
-	static var TABLIBNAME:String;
+	@:native("LUA_TABLIBNAME")
+	static var TABLIBNAME:cpp.ConstCharStar;
 
-	@:native("::String(LUA_IOLIBNAME)")
-	static var IOLIBNAME:String;
+	@:native("LUA_IOLIBNAME")
+	static var IOLIBNAME:cpp.ConstCharStar;
 
-	@:native("::String(LUA_OSLIBNAME)")
-	static var OSLIBNAME:String;
+	@:native("LUA_OSLIBNAME")
+	static var OSLIBNAME:cpp.ConstCharStar;
 
-	@:native("::String(LUA_STRLIBNAME)")
-	static var STRLIBNAME:String;
+	@:native("LUA_STRLIBNAME")
+	static var STRLIBNAME:cpp.ConstCharStar;
 
-	@:native("::String(LUA_UTF8LIBNAME)")
-	static var UTF8LIBNAME:String;
+	@:native("LUA_UTF8LIBNAME")
+	static var UTF8LIBNAME:cpp.ConstCharStar;
 
-	@:native("::String(LUA_MATHLIBNAME)")
-	static var MATHLIBNAME:String;
+	@:native("LUA_MATHLIBNAME")
+	static var MATHLIBNAME:cpp.ConstCharStar;
 
-	@:native("::String(LUA_DBLIBNAME)")
-	static var DBLIBNAME:String;
+	@:native("LUA_DBLIBNAME")
+	static var DBLIBNAME:cpp.ConstCharStar;
 
-	@:native("::String(LUA_LOADLIBNAME)")
-	static var LOADLIBNAME:String;
+	@:native("LUA_LOADLIBNAME")
+	static var LOADLIBNAME:cpp.ConstCharStar;
 
 	/*
 	 * state manipulation
@@ -720,6 +720,6 @@ extern class Lua
 	@:native("lua_setcstacklimit")
 	static function setcstacklimit(L:cpp.RawPointer<Lua_State>, limit:cpp.UInt32):Int;
 
-	@:native("::String(LUA_FILEHANDLE)")
-	static var FILEHANDLE:String;
+	@:native("LUA_FILEHANDLE")
+	static var FILEHANDLE:cpp.ConstCharStar;
 }

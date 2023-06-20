@@ -77,7 +77,7 @@ extern class LuaL
 	static function error(L:cpp.RawPointer<Lua_State>, fmt:cpp.ConstCharStar, args:cpp.Rest<cpp.VarArg>):Int;
 
 	@:native("luaL_checkoption")
-	static function checkoption(L:cpp.RawPointer<Lua_State>, arg:Int, def:cpp.ConstCharStar, last:Array<String>):Int;
+	static function checkoption(L:cpp.RawPointer<Lua_State>, arg:Int, def:cpp.ConstCharStar, last:cpp.ConstCharStar):Int;
 
 	@:native("luaL_fileresult")
 	static function fileresult(L:cpp.RawPointer<Lua_State>, stat:Int, fname:cpp.ConstCharStar):Int;
