@@ -138,10 +138,10 @@ extern class LuaL
 	 * some useful macros
 	 */
 	@:native("luaL_newlibtable")
-	static function newlibtable(L:cpp.RawPointer<Lua_State>, l:Array<LuaL_Reg>):Void;
+	static function newlibtable(L:cpp.RawPointer<Lua_State>, l:LuaL_Reg):Void;
 
 	@:native("luaL_newlib")
-	static function newlib(L:cpp.RawPointer<Lua_State>, l:Array<LuaL_Reg>):Void;
+	static function newlib(L:cpp.RawPointer<Lua_State>, l:LuaL_Reg):Void;
 
 	@:native("luaL_argcheck")
 	static function argcheck(L:cpp.RawPointer<Lua_State>, cond:Int, arg:Int, extramsg:cpp.ConstCharStar):Void;
