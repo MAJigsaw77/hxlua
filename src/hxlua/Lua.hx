@@ -242,10 +242,10 @@ extern class Lua
 	 * access functions (stack -> C)
 	 */
 	@:native("lua_tonumberx")
-	static function tonumberx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.RawPointer<Int>):Lua_Number;
+	static function tonumberx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.Star<Int>):Lua_Number;
 
 	@:native("lua_tointegerx")
-	static function tointegerx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.RawPointer<Int>):Lua_Integer;
+	static function tointegerx(L:cpp.RawPointer<Lua_State>, idx:Int, isnum:cpp.Star<Int>):Lua_Integer;
 
 	@:native("lua_toboolean")
 	static function toboolean(L:cpp.RawPointer<Lua_State>, idx:Int):Int;
@@ -266,7 +266,7 @@ extern class Lua
 	static function tothread(L:cpp.RawPointer<Lua_State>, idx:Int):cpp.RawPointer<Lua_State>;
 
 	@:native("lua_topointer")
-	static function topointer(L:cpp.RawPointer<Lua_State>, idx:Int):cpp.ConstPointer<cpp.Void>;
+	static function topointer(L:cpp.RawPointer<Lua_State>, idx:Int):cpp.RawConstPointer<cpp.Void>;
 
 	/*
 	 * Comparison and arithmetic functions
@@ -395,7 +395,7 @@ extern class Lua
 	static function rawgeti(L:cpp.RawPointer<Lua_State>, idx:Int, n:Lua_Integer):Int;
 
 	@:native("lua_rawgetp")
-	static function rawgetp(L:cpp.RawPointer<Lua_State>, idx:Int, p:cpp.ConstPointer<cpp.Void>):Int;
+	static function rawgetp(L:cpp.RawPointer<Lua_State>, idx:Int, p:cpp.RawConstPointer<cpp.Void>):Int;
 
 	@:native("lua_createtable")
 	static function createtable(L:cpp.RawPointer<Lua_State>, narr:Int, nrec:Int):Void;
@@ -431,7 +431,7 @@ extern class Lua
 	static function rawseti(L:cpp.RawPointer<Lua_State>, idx:Int, n:Int):Int;
 
 	@:native("lua_rawsetp")
-	static function rawsetp(L:cpp.RawPointer<Lua_State>, idx:Int, p:cpp.ConstPointer<cpp.Void>):Int;
+	static function rawsetp(L:cpp.RawPointer<Lua_State>, idx:Int, p:cpp.RawConstPointer<cpp.Void>):Int;
 
 	@:native("lua_setmetatable")
 	static function setmetatable(L:cpp.RawPointer<Lua_State>, objindex:Int):Int;
@@ -630,7 +630,7 @@ extern class Lua
 	static function pushunsigned(L:cpp.RawPointer<Lua_State>, n:Lua_Unsigned):Void;
 
 	@:native("lua_tounsignedx")
-	static function tounsignedx(L:cpp.RawPointer<Lua_State>, i:Int, is:cpp.RawPointer<Int>):Lua_Unsigned;
+	static function tounsignedx(L:cpp.RawPointer<Lua_State>, i:Int, is:cpp.Star<Int>):Lua_Unsigned;
 
 	@:native("lua_tounsigned")
 	static function tounsigned(L:cpp.RawPointer<Lua_State>, i:Int):Lua_Unsigned;
