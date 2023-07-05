@@ -1,7 +1,7 @@
 name: Testing
 on:
   push:
-    branches: [ main ]
+    branches: main
   workflow_dispatch:
 jobs:
   Job:
@@ -23,6 +23,6 @@ jobs:
 
       - name: Compiling 
         run: |
-          haxelib git hxlua https://github.com/MAJigsaw77/hxlua.git --quiet
+          haxelib git hxlua https://github.com/MAJigsaw77/hxlua.git ${{github.ref_name}} --quiet
           cd examples/${{matrix.sample}}
           haxe build.hxml
