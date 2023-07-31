@@ -1,14 +1,14 @@
 package hxlua;
 
 #if (!cpp && macro)
-#error "Lua supports only C++ target platforms."
+#error 'Lua supports only C++ target platforms.'
 #end
 
 class Types {} // blank
 
 @:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
-@:include("lua.hpp")
-@:native("lua_State")
+@:include('lua.hpp')
+@:native('lua_State')
 extern class Lua_State {}
 
 /*
@@ -30,8 +30,8 @@ typedef Lua_Unsigned = cpp.UInt64;
  * Type for continuation-function contexts.
  */
 @:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
-@:include("lua.hpp")
-@:native("lua_KContext")
+@:include('lua.hpp')
+@:native('lua_KContext')
 extern class Lua_KContext {}
 
 /*
@@ -67,13 +67,13 @@ typedef Lua_WarnFunction = cpp.Callable<(ud:cpp.RawPointer<cpp.Void>, msg:cpp.Co
 typedef Lua_Hook = cpp.Callable<(L:cpp.RawPointer<Lua_State>, ar:cpp.RawPointer<Lua_Debug>) -> Void>;
 
 @:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
-@:include("lua.hpp")
+@:include('lua.hpp')
 @:unreflective
 @:structAccess
-@:native("lua_Debug")
+@:native('lua_Debug')
 extern class Lua_Debug
 {
-	@:native("lua_Debug")
+	@:native('lua_Debug')
 	static function create():Lua_Debug;
 
 	var event:Int;
@@ -94,13 +94,13 @@ extern class Lua_Debug
 }
 
 @:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
-@:include("lua.hpp")
+@:include('lua.hpp')
 @:unreflective
 @:structAccess
-@:native("luaL_Buffer")
+@:native('luaL_Buffer')
 extern class LuaL_Buffer
 {
-	@:native("luaL_Buffer")
+	@:native('luaL_Buffer')
 	static function create():LuaL_Buffer;
 
 	var b:cpp.ConstCharStar;
@@ -110,13 +110,13 @@ extern class LuaL_Buffer
 }
 
 @:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
-@:include("lua.hpp")
+@:include('lua.hpp')
 @:unreflective
 @:structAccess
-@:native("luaL_Reg")
+@:native('luaL_Reg')
 extern class LuaL_Reg
 {
-	@:native("luaL_Reg")
+	@:native('luaL_Reg')
 	static function create():LuaL_Reg;
 
 	var name:cpp.ConstCharStar;
@@ -124,13 +124,13 @@ extern class LuaL_Reg
 }
 
 @:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
-@:include("lua.hpp")
+@:include('lua.hpp')
 @:unreflective
 @:structAccess
-@:native("luaL_Stream")
+@:native('luaL_Stream')
 extern class LuaL_Stream
 {
-	@:native("luaL_Stream")
+	@:native('luaL_Stream')
 	static function create():LuaL_Stream;
 
 	var f:cpp.FILE; /* stream (NULL for incompletely created streams) */
