@@ -45,10 +45,13 @@ typedef Lua_CFunction = cpp.Callable<(L:cpp.RawPointer<Lua_State>) -> Int>;
 typedef Lua_KFunction = cpp.Callable<(L:cpp.RawPointer<Lua_State>, status:Int, ctx:Lua_KContext) -> Int>;
 
 /*
- * Type for functions that read/write blocks when loading/dumping Lua chunks.
+ * Type for functions that read blocks when loading/dumping Lua chunks.
  */
 typedef Lua_Reader = cpp.Callable<(L:cpp.RawPointer<Lua_State>, ud:cpp.RawPointer<cpp.Void>, sz:cpp.RawPointer<cpp.SizeT>) -> cpp.ConstCharStar>;
 
+/*
+ * Type for functions that write blocks when loading/dumping Lua chunks.
+ */
 typedef Lua_Writer = cpp.Callable<(L:cpp.RawPointer<Lua_State>, p:cpp.RawConstPointer<cpp.Void>, sz:cpp.SizeT, ud:cpp.RawPointer<cpp.Void>) -> Int>;
 
 /*
@@ -121,18 +124,4 @@ extern class LuaL_Reg
 
 	var name:cpp.ConstCharStar;
 	var func:Lua_CFunction;
-}
-
-@:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
-@:include('lua.hpp')
-@:unreflective
-@:structAccess
-@:native('luaL_Stream')
-extern class LuaL_Stream
-{
-	@:native('luaL_Stream')
-	static function create():LuaL_Stream;
-
-	var f:cpp.FILE; /* stream (NULL for incompletely created streams) */
-	var closef:Lua_CFunction; /* to close stream (NULL for closed streams) */
 }
