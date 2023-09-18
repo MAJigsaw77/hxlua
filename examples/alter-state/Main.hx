@@ -17,13 +17,18 @@ class Main
 		/* load Lua base libraries */
 		LuaL.openlibs(vm);
 
+		final prices:Map<Int, String> = [
+			10 => 'apple',
+			20 => 'banana',
+			30 => 'cherry'
+		];
+
 		/* set some default values */
-		Lua.pushinteger(vm, 10);
-		Lua.setglobal(vm, "apple");
-		Lua.pushinteger(vm, 20);
-		Lua.setglobal(vm, "banana");
-		Lua.pushinteger(vm, 30);
-		Lua.setglobal(vm, "cherry");
+		for (key => value in prices)
+		{
+			Lua.pushnumber(vm, key);
+			Lua.setglobal(vm, value);
+		}
 
 		/* run the script */
 		LuaL.dofile(vm, "script.lua");
