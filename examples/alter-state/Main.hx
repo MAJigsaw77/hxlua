@@ -26,7 +26,7 @@ class Main
 		/* set some default values */
 		for (key => value in prices)
 		{
-			Lua.pushnumber(vm, key);
+			Lua.pushinteger(vm, key);
 			Lua.setglobal(vm, value);
 		}
 
