@@ -16,24 +16,22 @@ class Main
 
 		/* load Lua base libraries */
 		LuaL.openlibs(vm);
+		
+		var id:Map<String, String> = [
+			'name' => 'Richard',
+			'date' => '2016-08-15',
+			'ip' => '10.0.0.1',
+			'custom' => 'wibble'
+		];
 
-		Lua.createtable(vm, 0, 4);
+		Lua.createtable(vm, 0, Lambda.count(id));
 
-		Lua.pushstring(vm, "name");
-		Lua.pushstring(vm, "Richard");
-		Lua.settable(vm, -3); /* 3rd element from the stack top */
-
-		Lua.pushstring(vm, "date");
-		Lua.pushstring(vm, "2016-08-15");
-		Lua.settable(vm, -3);
-
-		Lua.pushstring(vm, "ip");
-		Lua.pushstring(vm, "10.0.0.1");
-		Lua.settable(vm, -3);
-
-		Lua.pushstring(vm, "custom");
-		Lua.pushstring(vm, "wibble");
-		Lua.settable(vm, -3);
+		for (key => value in id)
+		{
+			Lua.pushstring(vm, key);
+			Lua.pushstring(vm, value);
+			Lua.settable(vm, -3); /* 3rd element from the stack top */
+		}
 
 		Lua.setglobal(vm, "mytable");
 
