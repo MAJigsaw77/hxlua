@@ -30,14 +30,14 @@ class Main
 
 	private static function print(l:cpp.RawPointer<Lua_State>):Int
 	{
-		var n:Int = Lua.gettop(l);
+		final n:Int = Lua.gettop(l);
 
 		/* loop through each argument */
 		for (i in 0...n)
 			Sys.println(cast(Lua.tostring(l, i + 1), String));
 
-		/* clear the stack */
-		Lua.pop(l, n);
-		return 0;
+		Lua.pop(l, n); /* clear the stack */
+
+		return 0; 
 	}
 }
