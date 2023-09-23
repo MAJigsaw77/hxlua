@@ -74,6 +74,8 @@ class Main
 
 	private static function stackDump(l:cpp.RawPointer<Lua_State>):Void
 	{
+		Sys.println('');
+
 		for (i in 0...Lua.gettop(l))
 		{
 			final idx:Int = i + 1;
@@ -92,7 +94,5 @@ class Main
 					Sys.println(cast(Lua.typename(l, idx), String));
 			}
 		}
-
-		Sys.println('');
 	}
 }
