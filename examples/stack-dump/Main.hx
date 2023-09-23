@@ -18,35 +18,42 @@ class Main
 		LuaL.openlibs(vm);
 
 		/* pushing stuff to the stack */
-		for (i in [true, 100, 10.011, 'hi', null])
+
+		final mix:Array<Dynamic> = [true, 100, 10.011, 'hi', null];
+
+		for (i in mix)
 			pushToLua(vm, i);
 
 		stackDump(vm);
 
-		Lua.pushvalue(vm, 1); // Push the element with index 1 to the top of the stack
-		stackDump(vm);
+		/* doing some operations */
+		for (i in 0...5)
+		{
+			switch (i)
+			{
+				case 0:
+					Lua.pushvalue(vm, 1); // Push the element with index 1 to the top of the stack.
+				case 1:
+					Lua.settop(vm, 4); // Set the top of the stack to 4.
+				case 2:
+					Lua.insert(vm, 3); // Move the top element of the stack to 3.
+				case 3:
+					Lua.replace(vm, 3); // Move the top element of the stack to position 3 and pop the top element of the stack.
+				case 4:
+					Lua.copy(vm, 2, 3); // Copy element with index 2 to position 3.
+				case 5:
+					Lua.pop(vm, 3); // The remaining 3 elements are popped off the stack.
+			}
 
-		Lua.settop(vm, 4); // Set the top of the stack to 4
-		stackDump(vm);
-
-		Lua.insert(vm, 3); // Move the top element of the stack to 3.
-		stackDump(vm);
-
-		Lua.replace(vm, 3); // Move the top element of the stack to position 3 and pop the top element of the stack.
-		stackDump(vm);
-
-		Lua.copy(vm, 2, 3); // Copy element with index 2 to position 3.
-		stackDump(vm);
-
-		Lua.pop(vm, 3); // The remaining 3 elements are popped off the stack.
-		stackDump(vm);
+			stackDump(vm);
+		}
 
 		/* cleanup Lua */
 		Lua.close(vm);
 		vm = null;
 	}
 
-	private static function pushToLua(L:cpp.RawPointer<Lua_State>, val:Dynamic):Void
+	private static function pushToLua(l:cpp.RawPointer<Lua_State>, val:Dynamic):Void
 	{
 		switch (Type.typeof(val))
 		{
