@@ -1,6 +1,6 @@
 package hxlua;
 
-#if (!cpp && macro)
+#if !cpp
 #error 'Lua supports only C++ target platforms.'
 #end
 
