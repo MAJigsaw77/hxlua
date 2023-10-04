@@ -1,20 +1,20 @@
 {
-	"name":"hxlua",
-	"url":"https://github.com/MAJigsaw77/hxlua",
-	"license":"MIT",
-	"tags":[
+	"name": "hxlua",
+	"url": "https://github.com/MAJigsaw77/hxlua",
+	"license": "MIT",
+	"tags": [
 		"lua",
 		"cpp",
 		"haxe"
 	],
-	"description":"Haxe/hxcpp @:native bindings for Lua.",
-	"version":"1.6.2",
-	"releasenote":"Fixed some externs.",
-	"contributors":[
+	"description": "Haxe/hxcpp @:native bindings for Lua.",
+	"version": "1.6.2",
+	"releasenote": "Fixed some externs.",
+	"contributors": [
 		"MAJigsaw77"
 	],
-	"classPath":"src",
-	"dependencies":{
-		"hxcpp":""
+	"classPath": "source",
+	"dependencies": {
+		"hxcpp": ""
 	}
 }
