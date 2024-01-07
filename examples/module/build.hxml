@@ -1,0 +1,8 @@
+-cp ./
+-D analyzer-optimize
+-lib hxlua
+-main Main
+-cpp bin
+-cmd cp script.lua bin/script.lua
+-cmd cp hello.lua bin/hello.lua
+-cmd bin/Main

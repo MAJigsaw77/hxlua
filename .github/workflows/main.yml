@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        sample: [alter-state, array, callback, override, pass-variable, return-value, simple-call, stack-dump]
+        sample: [alter-state, array, callback, module, override, pass-variable, return-value, simple-call, stack-dump]
     steps:
       - name: Checkout
         uses: actions/checkout@main
