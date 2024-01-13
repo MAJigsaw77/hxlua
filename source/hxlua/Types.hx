@@ -77,7 +77,7 @@ typedef Lua_Hook = cpp.Callable<(L:cpp.RawPointer<Lua_State>, ar:cpp.RawPointer<
 extern class Lua_Debug
 {
 	@:native('lua_Debug')
-	static function create():Lua_Debug;
+	static function alloc():Lua_Debug;
 
 	var event:Int;
 	var name:cpp.ConstCharStar; /* (n) */
@@ -104,7 +104,7 @@ extern class Lua_Debug
 extern class LuaL_Buffer
 {
 	@:native('luaL_Buffer')
-	static function create():LuaL_Buffer;
+	static function alloc():LuaL_Buffer;
 
 	var b:cpp.ConstCharStar;
 	var size:cpp.SizeT;
@@ -120,7 +120,7 @@ extern class LuaL_Buffer
 extern class LuaL_Reg
 {
 	@:native('luaL_Reg')
-	static function create():LuaL_Reg;
+	static function alloc():LuaL_Reg;
 
 	var name:cpp.ConstCharStar;
 	var func:Lua_CFunction;
