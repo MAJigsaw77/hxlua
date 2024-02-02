@@ -32,7 +32,10 @@ typedef Lua_Unsigned = cpp.UInt64;
 @:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')
 @:include('lua.hpp')
 @:native('lua_KContext')
-extern class Lua_KContext {}
+@:scalar
+@:coreType
+@:notNull
+extern abstract Lua_KContext from Int to Int {}
 
 /*
  * Type for C functions registered with Lua.
