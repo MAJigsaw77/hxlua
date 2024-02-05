@@ -443,10 +443,10 @@ extern class Lua
 	 * 'load' and 'call' functions (load and run Lua code)
 	 */
 	@:native('lua_callk')
-	static function callk(L:cpp.RawPointer<Lua_State>, nargs:Int, nresults:Int, ctx:Lua_KContext, k:Lua_KFunction):Int;
+	static function callk(L:cpp.RawPointer<Lua_State>, nargs:Int, nresults:Int, ctx:Lua_KContext, k:Lua_KFunction):Void;
 
 	@:native('lua_call')
-	static function call(L:cpp.RawPointer<Lua_State>, nargs:Int, nresults:Int):Int;
+	static function call(L:cpp.RawPointer<Lua_State>, nargs:Int, nresults:Int):Void;
 
 	@:native('lua_pcallk')
 	static function pcallk(L:cpp.RawPointer<Lua_State>, nargs:Int, nresults:Int, errfunc:Int, ctx:Lua_KContext, k:Lua_KFunction):Int;
