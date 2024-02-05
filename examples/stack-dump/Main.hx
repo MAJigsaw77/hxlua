@@ -60,7 +60,7 @@ class Main
 			case TNull:
 				Lua.pushnil(l);
 			case TInt:
-				Lua.pushinteger(l, val);
+				Lua.pushinteger(l, cast(val, Int));
 			case TFloat:
 				Lua.pushnumber(l, val);
 			case TBool:
