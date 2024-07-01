@@ -96,7 +96,7 @@ extern class Lua_Debug
 	var istailcall:cpp.Char; /* (t) */
 	var ftransfer:cpp.UInt16; /* (r) index of first value transferred */
 	var ntransfer:cpp.UInt16; /* (r) number of transferred values */
-	var short_src:cpp.CharStar; /* (S) max size is LUA_IDSIZE */
+	var short_src:cpp.CastCharStar; /* (S) max size is LUA_IDSIZE */
 }
 
 @:buildXml('<include name="${haxelib:hxlua}/project/Build.xml" />')

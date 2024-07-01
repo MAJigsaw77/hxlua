@@ -188,7 +188,7 @@ extern class LuaL
 	static function bufflen(B:cpp.RawPointer<LuaL_Buffer>):cpp.SizeT;
 
 	@:native('luaL_buffaddr')
-	static function buffaddr(B:cpp.RawPointer<LuaL_Buffer>):cpp.CharStar;
+	static function buffaddr(B:cpp.RawPointer<LuaL_Buffer>):cpp.CastCharStar;
 
 	@:native('luaL_addchar')
 	static function addchar(B:cpp.RawPointer<LuaL_Buffer>, c:cpp.Char):Void;
@@ -203,7 +203,7 @@ extern class LuaL
 	static function buffinit(L:cpp.RawPointer<Lua_State>, B:cpp.RawPointer<LuaL_Buffer>):Void;
 
 	@:native('luaL_prepbuffsize')
-	static function prepbuffsize(B:cpp.RawPointer<LuaL_Buffer>, sz:cpp.SizeT):cpp.CharStar;
+	static function prepbuffsize(B:cpp.RawPointer<LuaL_Buffer>, sz:cpp.SizeT):cpp.CastCharStar;
 
 	@:native('luaL_addlstring')
 	static function addlstring(B:cpp.RawPointer<LuaL_Buffer>, s:cpp.ConstCharStar, l:cpp.SizeT):Void;
@@ -221,10 +221,10 @@ extern class LuaL
 	static function pushresultsize(B:cpp.RawPointer<LuaL_Buffer>, sz:cpp.SizeT):Void;
 
 	@:native('luaL_buffinitsize')
-	static function buffinitsize(L:cpp.RawPointer<Lua_State>, B:cpp.RawPointer<LuaL_Buffer>, sz:cpp.SizeT):cpp.CharStar;
+	static function buffinitsize(L:cpp.RawPointer<Lua_State>, B:cpp.RawPointer<LuaL_Buffer>, sz:cpp.SizeT):cpp.CastCharStar;
 
 	@:native('luaL_prepbuff')
-	static function prepbuff(B:cpp.RawPointer<LuaL_Buffer>):cpp.CharStar;
+	static function prepbuff(B:cpp.RawPointer<LuaL_Buffer>):cpp.CastCharStar;
 
 	/*
 	 * Compatibility with deprecated conversions
