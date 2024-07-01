@@ -1,5 +1,6 @@
 package;
 
+import haxe.Int64;
 import hxlua.Lua;
 import hxlua.LuaL;
 import hxlua.Types;
@@ -21,7 +22,7 @@ class Main
 		LuaL.dofile(vm, "script.lua");
 
 		trace('stack: ${Lua.gettop(vm)}');
-		trace('num: ${Lua.tointeger(vm, 1).toInt()}');
+		trace('num: ${cast(Lua.tointeger(vm, 1), Int64)}');
 
 		/* cleanup Lua */
 		Lua.close(vm);
